@@ -40,13 +40,14 @@
 		512861DB1F95AD6E00CD1372 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861CE1F95AD6D00CD1372 /* View+MASAdditions.m */; };
 		512861DC1F95AD6E00CD1372 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861D11F95AD6D00CD1372 /* ViewController+MASAdditions.m */; };
 		512861DF1F95ADBC00CD1372 /* MainNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861DE1F95ADBC00CD1372 /* MainNewViewController.m */; };
+		512861E41F95C45400CD1372 /* BINTableViewHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861E21F95C45400CD1372 /* BINTableViewHandle.m */; };
+		512861E71F95C47300CD1372 /* BINTableViewHandleSections.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861E61F95C47300CD1372 /* BINTableViewHandleSections.m */; };
 		513F8C801F430B680031C8C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */; };
 		51795B4B1F4313B7002AF228 /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 51795B4A1F4313B7002AF228 /* screenshot.png */; };
 		51795B6B1F4432FB002AF228 /* BINStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51795B6A1F4432FB002AF228 /* BINStarsView.m */; };
 		518057691F94DB68008D1C0E /* BINAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518057671F94DB68008D1C0E /* BINAlertView.m */; };
 		5180576B1F94DC63008D1C0E /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5180576A1F94DC63008D1C0E /* screenshot2.png */; };
 		5180576D1F94DC6E008D1C0E /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5180576C1F94DC6E008D1C0E /* screenshot1.png */; };
-		518372EB1F7E117D00248179 /* BINTableViewHandleSections.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372B71F7E117D00248179 /* BINTableViewHandleSections.m */; };
 		518372EE1F7E117D00248179 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372BF1F7E117D00248179 /* NSDictionary+Helper.m */; };
 		518372EF1F7E117D00248179 /* NSMutableArray+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372C11F7E117D00248179 /* NSMutableArray+Helper.m */; };
 		518372F01F7E117D00248179 /* NSMutableDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372C31F7E117D00248179 /* NSMutableDictionary+Helper.m */; };
@@ -157,6 +158,10 @@
 		512861D11F95AD6D00CD1372 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		512861DD1F95ADBC00CD1372 /* MainNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNewViewController.h; sourceTree = "<group>"; };
 		512861DE1F95ADBC00CD1372 /* MainNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNewViewController.m; sourceTree = "<group>"; };
+		512861E11F95C45400CD1372 /* BINTableViewHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINTableViewHandle.h; sourceTree = "<group>"; };
+		512861E21F95C45400CD1372 /* BINTableViewHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINTableViewHandle.m; sourceTree = "<group>"; };
+		512861E51F95C47300CD1372 /* BINTableViewHandleSections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINTableViewHandleSections.h; sourceTree = "<group>"; };
+		512861E61F95C47300CD1372 /* BINTableViewHandleSections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINTableViewHandleSections.m; sourceTree = "<group>"; };
 		513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		51795B4A1F4313B7002AF228 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		51795B691F4432FB002AF228 /* BINStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINStarsView.h; sourceTree = "<group>"; };
@@ -165,8 +170,6 @@
 		518057671F94DB68008D1C0E /* BINAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINAlertView.m; sourceTree = "<group>"; };
 		5180576A1F94DC63008D1C0E /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
 		5180576C1F94DC6E008D1C0E /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
-		518372B61F7E117D00248179 /* BINTableViewHandleSections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINTableViewHandleSections.h; sourceTree = "<group>"; };
-		518372B71F7E117D00248179 /* BINTableViewHandleSections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINTableViewHandleSections.m; sourceTree = "<group>"; };
 		518372B91F7E117D00248179 /* CategoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryHeader.h; sourceTree = "<group>"; };
 		518372BE1F7E117D00248179 /* NSDictionary+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Helper.h"; sourceTree = "<group>"; };
 		518372BF1F7E117D00248179 /* NSDictionary+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Helper.m"; sourceTree = "<group>"; };
@@ -442,8 +445,10 @@
 			children = (
 				518373531F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.h */,
 				518373541F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.m */,
-				518372B61F7E117D00248179 /* BINTableViewHandleSections.h */,
-				518372B71F7E117D00248179 /* BINTableViewHandleSections.m */,
+				512861E11F95C45400CD1372 /* BINTableViewHandle.h */,
+				512861E21F95C45400CD1372 /* BINTableViewHandle.m */,
+				512861E51F95C47300CD1372 /* BINTableViewHandleSections.h */,
+				512861E61F95C47300CD1372 /* BINTableViewHandleSections.m */,
 				518372B81F7E117D00248179 /* Categry */,
 				518372E41F7E117D00248179 /* MacroBIN.h */,
 				518372E51F7E117D00248179 /* MacroGeometry.h */,
@@ -691,6 +696,7 @@
 				518373091F7E225D00248179 /* NextViewController.m in Sources */,
 				518372FB1F7E117D00248179 /* UIView+AddView.m in Sources */,
 				518372F11F7E117D00248179 /* NSObject+Helper.m in Sources */,
+				512861E41F95C45400CD1372 /* BINTableViewHandle.m in Sources */,
 				512861DC1F95AD6E00CD1372 /* ViewController+MASAdditions.m in Sources */,
 				5183733F1F7E22FD00248179 /* BINPhotoGroup.m in Sources */,
 				518372F31F7E117D00248179 /* NSString+Regex.m in Sources */,
@@ -715,11 +721,11 @@
 				512861DB1F95AD6E00CD1372 /* View+MASAdditions.m in Sources */,
 				518372F41F7E117D00248179 /* UIButton+EdgeInsets.m in Sources */,
 				518372F01F7E117D00248179 /* NSMutableDictionary+Helper.m in Sources */,
+				512861E71F95C47300CD1372 /* BINTableViewHandleSections.m in Sources */,
 				512861DF1F95ADBC00CD1372 /* MainNewViewController.m in Sources */,
 				512861D71F95AD6E00CD1372 /* MASViewAttribute.m in Sources */,
 				34098D5219EFB159006806A6 /* MyView.m in Sources */,
 				518373571F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.m in Sources */,
-				518372EB1F7E117D00248179 /* BINTableViewHandleSections.m in Sources */,
 				518373391F7E22FD00248179 /* BINDataPicker.m in Sources */,
 				5183733C1F7E22FD00248179 /* BINImgLabelView.m in Sources */,
 				5183733D1F7E22FD00248179 /* BINPhotoBrowser.m in Sources */,

@@ -1,8 +1,8 @@
 //
-//  BINTableViewHandleSections.h
+//  BINTableViewHandle.h
 //  WeiHouBao
 //
-//  Created by hsf on 2017/9/26.
+//  Created by hsf on 2017/9/23.
 //  Copyright © 2017年 WeiHouKeJi. All rights reserved.
 //
 
@@ -18,7 +18,7 @@ typedef CGFloat (^ReturnSectionViewHeightBlock)(NSInteger section, BOOL isHeader
 
 typedef UIView* (^ReturnSectionViewBlock)(NSInteger section, BOOL isHeader) ;
 
-@interface BINTableViewHandleSections : NSObject
+@interface BINTableViewHandle : NSObject
 
 - (id)initWithItems:(NSArray *)anItems
     cellHeightBlock:(CellHeightBlock)aHeightBlock
@@ -29,8 +29,5 @@ typedef UIView* (^ReturnSectionViewBlock)(NSInteger section, BOOL isHeader) ;
 
 @property (nonatomic, copy) ReturnSectionViewBlock  returnSectionViewBlock;
 @property (nonatomic, copy) ReturnSectionViewHeightBlock  returnSectionViewHeightBlock;
-
-@property (nonatomic, assign) NSInteger sectionCount;
-@property (nonatomic, assign) NSInteger sectionRowCount;
 
 @end

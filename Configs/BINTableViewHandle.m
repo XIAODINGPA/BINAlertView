@@ -1,14 +1,14 @@
 //
-//  BINTableViewHandleSections.m
+//  BINTableViewHandle.m
 //  WeiHouBao
 //
-//  Created by hsf on 2017/9/26.
+//  Created by hsf on 2017/9/23.
 //  Copyright © 2017年 WeiHouKeJi. All rights reserved.
 //
 
-#import "BINTableViewHandleSections.h"
+#import "BINTableViewHandle.h"
 
-@interface BINTableViewHandleSections ()<UITableViewDelegate,UITableViewDataSource>
+@interface BINTableViewHandle ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *items ;
 @property (nonatomic, copy) CellHeightBlock         heightConfigureBlock ;
@@ -17,11 +17,9 @@
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath ;
 
-@property (nonatomic, assign) NSInteger sectionCountPer;
-
 @end
 
-@implementation BINTableViewHandleSections
+@implementation BINTableViewHandle
 
 - (id)initWithItems:(NSArray *)anItems
     cellHeightBlock:(CellHeightBlock)aHeightBlock
@@ -41,7 +39,7 @@
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.items[indexPath.section] ;
+    return self.items[(NSInteger)indexPath.row] ;
 }
 
 - (void)handleTableViewDatasourceAndDelegate:(UITableView *)table
@@ -52,14 +50,9 @@
 
 #pragma mark --
 #pragma mark - UITableViewDataSource
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return self.items.count;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  self.sectionCountPer;
+    return self.items.count ;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,16 +112,6 @@
     }else{
         return nil;
     }
-    
-}
-
--(void)setSectionCount:(NSInteger)sectionCount{
-    self.sectionCountPer = sectionCount;
-    
-}
-
--(void)setSectionRowCount:(NSInteger)sectionRowCount{
-    self.sectionCountPer = sectionRowCount;
     
 }
 
