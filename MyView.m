@@ -115,14 +115,12 @@
     
     [self addActivityBackgroundView];
     
-//    self.transform = CGAffineTransformMakeScale(0.01, 0.01);
     self.transform = CGAffineTransformMakeScale(2, 2);
 
     //UIViewAnimationOptionCurveEaseIn从外往里,UIViewAnimationOptionCurveEaseOut从里往外
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          self.transform = CGAffineTransformIdentity;
-
                          self.backgroundColor = [UIColor whiteColor];
                          
                          [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
