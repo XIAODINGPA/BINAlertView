@@ -21,6 +21,8 @@ static const CGFloat padding = 5;
 
 static NSString *const kBtnTitleCancell = @"取消";
 
+static const CGFloat kanimateDuration = 0.15;
+
 @interface BINAlertView ()<UITextViewDelegate>
 
 @property (nonatomic, assign ,readwrite) CGFloat maxWidth;
@@ -76,19 +78,32 @@ static NSString *const kBtnTitleCancell = @"取消";
         }
      
         if (customView != nil) {
-            customeViewSize = customView.frame.size;
-            if (CGRectGetWidth(customView.frame) > maxWidth) {
-                CGFloat ratio = CGRectGetWidth(customView.frame)/maxWidth;
+            if ([customView isKindOfClass:[UIScrollView class]]) {
                 
-                customeViewSize.width = maxWidth;
-                customeViewSize.height = CGRectGetHeight(customView.frame)/ratio;
-            }
-            else if(CGRectGetHeight(customView.frame) > maxHeight){
-                CGFloat ratio = CGRectGetHeight(customView.frame)/maxWidth;
+                if (CGRectGetWidth(customView.frame) > maxWidth) {
+                     customeViewSize.width = maxWidth;
+                }
                 
-                customeViewSize.height = maxHeight;
-                customeViewSize.width = customeViewSize.width/ratio;
-                
+                if (CGRectGetHeight(customView.frame) > maxHeight) {
+                    customeViewSize.height = maxHeight;
+
+                }
+            }else{
+                customeViewSize = customView.frame.size;
+                if (CGRectGetWidth(customView.frame) > maxWidth) {
+                    CGFloat ratio = CGRectGetWidth(customView.frame)/maxWidth;
+                    
+                    customeViewSize.width = maxWidth;
+                    customeViewSize.height = CGRectGetHeight(customView.frame)/ratio;
+                }
+                else if(CGRectGetHeight(customView.frame) > maxHeight){
+                    CGFloat ratio = CGRectGetHeight(customView.frame)/maxWidth;
+                    
+                    customeViewSize.height = maxHeight;
+                    customeViewSize.width = customeViewSize.width/ratio;
+                    
+                }
+
             }
             customView.frame = CGRectMake(kXY_GAP, CGRectGetMaxY(labelRectTitle) + padding, customeViewSize.width, customeViewSize.height);
             [self addSubview:customView];
@@ -195,29 +210,29 @@ static NSString *const kBtnTitleCancell = @"取消";
 
 - (void)show{
     [self addActivityBackgroundView];
-    //    self.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    self.transform = CGAffineTransformMakeScale(2.01, 2.01);
+        self.transform = CGAffineTransformMakeScale(0.01, 0.01);
+//    self.transform = CGAffineTransformMakeScale(2.01, 2.01);
     
     //UIViewAnimationOptionCurveEaseIn从外往里,UIViewAnimationOptionCurveEaseOut从里往外
-//    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn
-//                     animations:^{
-//                         self.transform = CGAffineTransformIdentity;
-//                         self.backgroundColor = [UIColor whiteColor];
-//                         [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
-//                         
-//                     }
-//                     completion:NULL
-//     ];
+    [UIView animateWithDuration:kanimateDuration delay:0.0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.transform = CGAffineTransformIdentity;
+                         self.backgroundColor = [UIColor whiteColor];
+                         [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
+                         
+                     }
+                     completion:NULL
+     ];
     
-    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.transform = CGAffineTransformIdentity;
-        self.backgroundColor = [UIColor whiteColor];
-        [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
-    } completion:^(BOOL finished) {
-        if(self.btnMarr.count == 0){
-//            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
-        }
-    }];
+//    [UIView animateWithDuration:kanimateDuration delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+//        self.transform = CGAffineTransformIdentity;
+//        self.backgroundColor = [UIColor whiteColor];
+//        [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
+//    } completion:^(BOOL finished) {
+//        if(self.btnMarr.count == 0){
+////            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+//        }
+//    }];
     
 }
 
