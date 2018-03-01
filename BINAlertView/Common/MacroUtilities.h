@@ -40,25 +40,14 @@
 // 十六进制颜色
 #define kCOLOR_HEX(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0f]
 
-//颜色
-#define kC_TextColor [UIColor colorWithHexString:@"#333333"]
-#define kC_TextColor_Title [UIColor colorWithHexString:@"#666666"]
-#define kC_TextColor_TitleSub [UIColor colorWithHexString:@"#999999"]
 //橘色
 #define kC_ThemeCOLOR [UIColor colorWithHexString:@"#fea914"]
 #define kC_BackgroudColor [UIColor colorWithHexString:@"#f8f8f8"]
-#define kC_LineColor [UIColor colorWithHexString:@"#e0e0e0"]
 
 //绿色
 #define kC_ThemeCOLOR_One [UIColor colorWithHexString:@"#25b195"]
 //水蓝色
 #define kC_ThemeCOLOR_Two [UIColor colorWithHexString:@"#29b4f5"]
-
-
-#define kC_BtnColor_N [UIColor colorWithHexString:@"#fea914"]
-#define kC_BtnColor_H [UIColor colorWithHexString:@"#f1a013"]
-#define kC_BtnColor_D [UIColor colorWithHexString:@"#999999"]
-
 
 #define kC_ClearColor [UIColor clearColor]
 //#define kC_MARK_COLOR [UIColor colorWithHexString:@"#f35f39"]

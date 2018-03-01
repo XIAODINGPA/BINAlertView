@@ -17,7 +17,7 @@
 		34098D3319EF962B006806A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34098D1819EF962A006806A6 /* Foundation.framework */; };
 		34098D3419EF962B006806A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34098D1C19EF962A006806A6 /* UIKit.framework */; };
 		34098D3C19EF962B006806A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34098D3A19EF962B006806A6 /* InfoPlist.strings */; };
-		34098D3E19EF962B006806A6 /* CustomeAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34098D3D19EF962B006806A6 /* CustomeAlertViewTests.m */; };
+		34098D3E19EF962B006806A6 /* BINAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34098D3D19EF962B006806A6 /* BINAlertViewTests.m */; };
 		34098D4C19EF965C006806A6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34098D4B19EF965C006806A6 /* MainViewController.m */; };
 		34098D4F19EF9784006806A6 /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34098D4E19EF9784006806A6 /* CustomAlertView.m */; };
 		34098D5219EFB159006806A6 /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34098D5119EFB159006806A6 /* MyView.m */; };
@@ -43,11 +43,8 @@
 		512861E71F95C47300CD1372 /* BINTableViewHandleSections.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861E61F95C47300CD1372 /* BINTableViewHandleSections.m */; };
 		513F8C801F430B680031C8C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */; };
 		5170B4BF1FC26AF600873EA8 /* StackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5170B4BE1FC26AF600873EA8 /* StackListViewController.m */; };
-		51795B4B1F4313B7002AF228 /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 51795B4A1F4313B7002AF228 /* screenshot.png */; };
 		51795B6B1F4432FB002AF228 /* BINStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51795B6A1F4432FB002AF228 /* BINStarsView.m */; };
 		518057691F94DB68008D1C0E /* BINAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518057671F94DB68008D1C0E /* BINAlertView.m */; };
-		5180576B1F94DC63008D1C0E /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5180576A1F94DC63008D1C0E /* screenshot2.png */; };
-		5180576D1F94DC6E008D1C0E /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5180576C1F94DC6E008D1C0E /* screenshot1.png */; };
 		518372EE1F7E117D00248179 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372BF1F7E117D00248179 /* NSDictionary+Helper.m */; };
 		518372EF1F7E117D00248179 /* NSMutableArray+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372C11F7E117D00248179 /* NSMutableArray+Helper.m */; };
 		518372F01F7E117D00248179 /* NSMutableDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372C31F7E117D00248179 /* NSMutableDictionary+Helper.m */; };
@@ -100,24 +97,24 @@
 			containerPortal = 34098D0D19EF962A006806A6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 34098D1419EF962A006806A6;
-			remoteInfo = CustomeAlertView;
+			remoteInfo = BINAlertView;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		34098D1519EF962A006806A6 /* CustomeAlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomeAlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34098D1519EF962A006806A6 /* BINAlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BINAlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34098D1819EF962A006806A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		34098D1A19EF962A006806A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		34098D1C19EF962A006806A6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		34098D2019EF962A006806A6 /* CustomeAlertView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CustomeAlertView-Info.plist"; sourceTree = "<group>"; };
+		34098D2019EF962A006806A6 /* BINAlertView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BINAlertView-Info.plist"; sourceTree = "<group>"; };
 		34098D2219EF962A006806A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		34098D2419EF962A006806A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		34098D2A19EF962A006806A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		34098D3019EF962B006806A6 /* CustomeAlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomeAlertViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		34098D3019EF962B006806A6 /* BINAlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BINAlertViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34098D3119EF962B006806A6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		34098D3919EF962B006806A6 /* CustomeAlertViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CustomeAlertViewTests-Info.plist"; sourceTree = "<group>"; };
+		34098D3919EF962B006806A6 /* BINAlertViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BINAlertViewTests-Info.plist"; sourceTree = "<group>"; };
 		34098D3B19EF962B006806A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		34098D3D19EF962B006806A6 /* CustomeAlertViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomeAlertViewTests.m; sourceTree = "<group>"; };
+		34098D3D19EF962B006806A6 /* BINAlertViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BINAlertViewTests.m; sourceTree = "<group>"; };
 		34098D4A19EF965C006806A6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		34098D4B19EF965C006806A6 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		34098D4D19EF9783006806A6 /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
@@ -167,13 +164,10 @@
 		513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5170B4BD1FC26AF600873EA8 /* StackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackListViewController.h; sourceTree = "<group>"; };
 		5170B4BE1FC26AF600873EA8 /* StackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackListViewController.m; sourceTree = "<group>"; };
-		51795B4A1F4313B7002AF228 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		51795B691F4432FB002AF228 /* BINStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINStarsView.h; sourceTree = "<group>"; };
 		51795B6A1F4432FB002AF228 /* BINStarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINStarsView.m; sourceTree = "<group>"; };
 		518057661F94DB68008D1C0E /* BINAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINAlertView.h; sourceTree = "<group>"; };
 		518057671F94DB68008D1C0E /* BINAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINAlertView.m; sourceTree = "<group>"; };
-		5180576A1F94DC63008D1C0E /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
-		5180576C1F94DC6E008D1C0E /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
 		518372B91F7E117D00248179 /* CategoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryHeader.h; sourceTree = "<group>"; };
 		518372BE1F7E117D00248179 /* NSDictionary+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Helper.h"; sourceTree = "<group>"; };
 		518372BF1F7E117D00248179 /* NSDictionary+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Helper.m"; sourceTree = "<group>"; };
@@ -251,7 +245,7 @@
 		518373321F7E22FD00248179 /* WHKLeftMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHKLeftMenuView.h; sourceTree = "<group>"; };
 		518373331F7E22FD00248179 /* WHKLeftMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHKLeftMenuView.m; sourceTree = "<group>"; };
 		5183734D1F7E232F00248179 /* HZPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZPhotoBrowserConfig.h; sourceTree = "<group>"; };
-		5183734E1F7E238000248179 /* CustomeAlertView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CustomeAlertView-Prefix.pch"; sourceTree = "<group>"; };
+		5183734E1F7E238000248179 /* BINAlertView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BINAlertView-Prefix.pch"; sourceTree = "<group>"; };
 		518373531F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
 		518373541F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
 		518FD846204801A000FD7ADA /* UIApplication+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Helper.m"; sourceTree = "<group>"; };
@@ -299,8 +293,8 @@
 		34098D0C19EF962A006806A6 = {
 			isa = PBXGroup;
 			children = (
-				34098D1E19EF962A006806A6 /* CustomeAlertView */,
-				34098D3719EF962B006806A6 /* CustomeAlertViewTests */,
+				34098D1E19EF962A006806A6 /* BINAlertView */,
+				34098D3719EF962B006806A6 /* BINAlertViewTests */,
 				34098D1719EF962A006806A6 /* Frameworks */,
 				34098D1619EF962A006806A6 /* Products */,
 			);
@@ -309,8 +303,8 @@
 		34098D1619EF962A006806A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				34098D1519EF962A006806A6 /* CustomeAlertView.app */,
-				34098D3019EF962B006806A6 /* CustomeAlertViewTests.xctest */,
+				34098D1519EF962A006806A6 /* BINAlertView.app */,
+				34098D3019EF962B006806A6 /* BINAlertViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,7 +320,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		34098D1E19EF962A006806A6 /* CustomeAlertView */ = {
+		34098D1E19EF962A006806A6 /* BINAlertView */ = {
 			isa = PBXGroup;
 			children = (
 				518FD85F204803C000FD7ADA /* AppDelegate.h */,
@@ -341,37 +335,34 @@
 				34098D2A19EF962A006806A6 /* Images.xcassets */,
 				34098D1F19EF962A006806A6 /* Supporting Files */,
 			);
-			path = CustomeAlertView;
+			path = BINAlertView;
 			sourceTree = "<group>";
 		};
 		34098D1F19EF962A006806A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5180576C1F94DC6E008D1C0E /* screenshot1.png */,
-				51795B4A1F4313B7002AF228 /* screenshot.png */,
-				5180576A1F94DC63008D1C0E /* screenshot2.png */,
 				513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */,
-				34098D2019EF962A006806A6 /* CustomeAlertView-Info.plist */,
+				34098D2019EF962A006806A6 /* BINAlertView-Info.plist */,
 				34098D2119EF962A006806A6 /* InfoPlist.strings */,
 				34098D2419EF962A006806A6 /* main.m */,
-				5183734E1F7E238000248179 /* CustomeAlertView-Prefix.pch */,
+				5183734E1F7E238000248179 /* BINAlertView-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		34098D3719EF962B006806A6 /* CustomeAlertViewTests */ = {
+		34098D3719EF962B006806A6 /* BINAlertViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				34098D3D19EF962B006806A6 /* CustomeAlertViewTests.m */,
+				34098D3D19EF962B006806A6 /* BINAlertViewTests.m */,
 				34098D3819EF962B006806A6 /* Supporting Files */,
 			);
-			path = CustomeAlertViewTests;
+			path = BINAlertViewTests;
 			sourceTree = "<group>";
 		};
 		34098D3819EF962B006806A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				34098D3919EF962B006806A6 /* CustomeAlertViewTests-Info.plist */,
+				34098D3919EF962B006806A6 /* BINAlertViewTests-Info.plist */,
 				34098D3A19EF962B006806A6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -638,9 +629,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		34098D1419EF962A006806A6 /* CustomeAlertView */ = {
+		34098D1419EF962A006806A6 /* BINAlertView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 34098D4119EF962B006806A6 /* Build configuration list for PBXNativeTarget "CustomeAlertView" */;
+			buildConfigurationList = 34098D4119EF962B006806A6 /* Build configuration list for PBXNativeTarget "BINAlertView" */;
 			buildPhases = (
 				34098D1119EF962A006806A6 /* Sources */,
 				34098D1219EF962A006806A6 /* Frameworks */,
@@ -650,14 +641,14 @@
 			);
 			dependencies = (
 			);
-			name = CustomeAlertView;
-			productName = CustomeAlertView;
-			productReference = 34098D1519EF962A006806A6 /* CustomeAlertView.app */;
+			name = BINAlertView;
+			productName = BINAlertView;
+			productReference = 34098D1519EF962A006806A6 /* BINAlertView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		34098D2F19EF962B006806A6 /* CustomeAlertViewTests */ = {
+		34098D2F19EF962B006806A6 /* BINAlertViewTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 34098D4419EF962B006806A6 /* Build configuration list for PBXNativeTarget "CustomeAlertViewTests" */;
+			buildConfigurationList = 34098D4419EF962B006806A6 /* Build configuration list for PBXNativeTarget "BINAlertViewTests" */;
 			buildPhases = (
 				34098D2C19EF962B006806A6 /* Sources */,
 				34098D2D19EF962B006806A6 /* Frameworks */,
@@ -668,9 +659,9 @@
 			dependencies = (
 				34098D3619EF962B006806A6 /* PBXTargetDependency */,
 			);
-			name = CustomeAlertViewTests;
-			productName = CustomeAlertViewTests;
-			productReference = 34098D3019EF962B006806A6 /* CustomeAlertViewTests.xctest */;
+			name = BINAlertViewTests;
+			productName = BINAlertViewTests;
+			productReference = 34098D3019EF962B006806A6 /* BINAlertViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -687,7 +678,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 34098D1019EF962A006806A6 /* Build configuration list for PBXProject "CustomeAlertView" */;
+			buildConfigurationList = 34098D1019EF962A006806A6 /* Build configuration list for PBXProject "BINAlertView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -699,8 +690,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				34098D1419EF962A006806A6 /* CustomeAlertView */,
-				34098D2F19EF962B006806A6 /* CustomeAlertViewTests */,
+				34098D1419EF962A006806A6 /* BINAlertView */,
+				34098D2F19EF962B006806A6 /* BINAlertViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -717,10 +708,7 @@
 				34ACDC671A7B78CA00794B59 /* dragon.png in Resources */,
 				513F8C801F430B680031C8C6 /* Default-568h@2x.png in Resources */,
 				34E450CA1A7F0D1800AAFB18 /* star_h.jpg in Resources */,
-				5180576B1F94DC63008D1C0E /* screenshot2.png in Resources */,
 				512861D21F95AD6D00CD1372 /* Info.plist in Resources */,
-				51795B4B1F4313B7002AF228 /* screenshot.png in Resources */,
-				5180576D1F94DC6E008D1C0E /* screenshot1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,7 +800,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34098D3E19EF962B006806A6 /* CustomeAlertViewTests.m in Sources */,
+				34098D3E19EF962B006806A6 /* BINAlertViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,7 +809,7 @@
 /* Begin PBXTargetDependency section */
 		34098D3619EF962B006806A6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 34098D1419EF962A006806A6 /* CustomeAlertView */;
+			target = 34098D1419EF962A006806A6 /* BINAlertView */;
 			targetProxy = 34098D3519EF962B006806A6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -925,8 +913,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: xiaolei zhang (K2RX8G3XRB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CustomeAlertView/CustomeAlertView-Prefix.pch";
-				INFOPLIST_FILE = "CustomeAlertView/CustomeAlertView-Info.plist";
+				GCC_PREFIX_HEADER = "BINAlertView/BINAlertView-Prefix.pch";
+				INFOPLIST_FILE = "BINAlertView/BINAlertView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -939,8 +927,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CustomeAlertView/CustomeAlertView-Prefix.pch";
-				INFOPLIST_FILE = "CustomeAlertView/CustomeAlertView-Info.plist";
+				GCC_PREFIX_HEADER = "BINAlertView/BINAlertView-Prefix.pch";
+				INFOPLIST_FILE = "BINAlertView/BINAlertView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -951,19 +939,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CustomeAlertView.app/CustomeAlertView";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BINAlertView.app/BINAlertView";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CustomeAlertView/CustomeAlertView-Prefix.pch";
+				GCC_PREFIX_HEADER = "BINAlertView/BINAlertView-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "CustomeAlertViewTests/CustomeAlertViewTests-Info.plist";
+				INFOPLIST_FILE = "BINAlertViewTests/BINAlertViewTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -974,15 +962,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CustomeAlertView.app/CustomeAlertView";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BINAlertView.app/BINAlertView";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CustomeAlertView/CustomeAlertView-Prefix.pch";
-				INFOPLIST_FILE = "CustomeAlertViewTests/CustomeAlertViewTests-Info.plist";
+				GCC_PREFIX_HEADER = "BINAlertView/BINAlertView-Prefix.pch";
+				INFOPLIST_FILE = "BINAlertViewTests/BINAlertViewTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -992,7 +980,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		34098D1019EF962A006806A6 /* Build configuration list for PBXProject "CustomeAlertView" */ = {
+		34098D1019EF962A006806A6 /* Build configuration list for PBXProject "BINAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34098D3F19EF962B006806A6 /* Debug */,
@@ -1001,7 +989,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		34098D4119EF962B006806A6 /* Build configuration list for PBXNativeTarget "CustomeAlertView" */ = {
+		34098D4119EF962B006806A6 /* Build configuration list for PBXNativeTarget "BINAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34098D4219EF962B006806A6 /* Debug */,
@@ -1010,7 +998,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		34098D4419EF962B006806A6 /* Build configuration list for PBXNativeTarget "CustomeAlertViewTests" */ = {
+		34098D4419EF962B006806A6 /* Build configuration list for PBXNativeTarget "BINAlertViewTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34098D4519EF962B006806A6 /* Debug */,
