@@ -461,7 +461,11 @@
 }
 
 - (void)goAgreementPageViewWithTitle:(NSString *)title URL:(NSString *)URL navController:(UINavigationController *)navController{
-   
+//
+//    WHKTheAgreementViewController * viewController = [[WHKTheAgreementViewController alloc]init];
+//    viewController.title = title;
+//    viewController.agreementURL = URL;
+//    [navController pushViewController:viewController animated:YES];
     
 }
 
@@ -894,6 +898,13 @@
     }
 }
 
+//- (void)pushToRichTextDisplayType:(NSString *)type title:(NSString *)title{
+//    WHKRichTextDisplayViewController * viewController = [[WHKRichTextDisplayViewController alloc] init];
+//    viewController.type = type;
+//    viewController.title = title;
+//    [self.currentVC.navigationController pushViewController:viewController animated:YES];
+//
+//}
 //
 //- (void)showToastHud:(NSString *)msg inView:(UIView *)inView{
 //    dispatch_async(dispatch_get_main_queue(), ^{
@@ -908,6 +919,7 @@
 //
 //    });
 //}
+
 
 - (id)getTextFieldRightView:(NSString *)unitString{
     //    NSArray * unitList = @[@"元",@"公斤"];

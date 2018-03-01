@@ -87,7 +87,6 @@
 		518FD861204803C100FD7ADA /* StaticNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD85A204803BF00FD7ADA /* StaticNSString.m */; };
 		518FD862204803C100FD7ADA /* Utilities_DigitalMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD85C204803BF00FD7ADA /* Utilities_DigitalMedia.m */; };
 		518FD863204803C100FD7ADA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD860204803C000FD7ADA /* AppDelegate.m */; };
-		518FD866204807BF00FD7ADA /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD864204807BD00FD7ADA /* UIViewController+Helper.m */; };
 		518FD8692048086100FD7ADA /* UIButton+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD8672048085F00FD7ADA /* UIButton+Helper.m */; };
 /* End PBXBuildFile section */
 
@@ -258,8 +257,6 @@
 		518FD85C204803BF00FD7ADA /* Utilities_DigitalMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities_DigitalMedia.m; sourceTree = "<group>"; };
 		518FD85F204803C000FD7ADA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		518FD860204803C000FD7ADA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		518FD864204807BD00FD7ADA /* UIViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Helper.m"; path = "../../../../../WeiHou/WeiHouBao/WeiHouBao/Configs/Categry/UIViewController+Helper.m"; sourceTree = "<group>"; };
-		518FD865204807BE00FD7ADA /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Helper.h"; path = "../../../../../WeiHou/WeiHouBao/WeiHouBao/Configs/Categry/UIViewController+Helper.h"; sourceTree = "<group>"; };
 		518FD8672048085F00FD7ADA /* UIButton+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Helper.m"; sourceTree = "<group>"; };
 		518FD8682048086000FD7ADA /* UIButton+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Helper.h"; sourceTree = "<group>"; };
 		518FD86A20480DC700FD7ADA /* MarcoFuntions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarcoFuntions.h; sourceTree = "<group>"; };
@@ -441,8 +438,6 @@
 				518372C81F7E117D00248179 /* NSString+Regex.h */,
 				518372C91F7E117D00248179 /* NSString+Regex.m */,
 				518372CA1F7E117D00248179 /* UIButton+EdgeInsets.h */,
-				518FD865204807BE00FD7ADA /* UIViewController+Helper.h */,
-				518FD864204807BD00FD7ADA /* UIViewController+Helper.m */,
 				518372CB1F7E117D00248179 /* UIButton+EdgeInsets.m */,
 				518FD8682048086000FD7ADA /* UIButton+Helper.h */,
 				518FD8672048085F00FD7ADA /* UIButton+Helper.m */,
@@ -778,7 +773,6 @@
 				518373461F7E22FD00248179 /* BINShareModelView.m in Sources */,
 				518372F91F7E117D00248179 /* UINavigationController+Cloudox.m in Sources */,
 				5183734A1F7E22FD00248179 /* WHKLeftMenuView.m in Sources */,
-				518FD866204807BF00FD7ADA /* UIViewController+Helper.m in Sources */,
 				512861DB1F95AD6E00CD1372 /* View+MASAdditions.m in Sources */,
 				518372F41F7E117D00248179 /* UIButton+EdgeInsets.m in Sources */,
 				518372F01F7E117D00248179 /* NSMutableDictionary+Helper.m in Sources */,

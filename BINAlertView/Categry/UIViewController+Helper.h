@@ -44,12 +44,6 @@ typedef void(^BlockAlertController)(UIAlertController * _Nonnull alertController
 @property (nonatomic, assign) NSTimeInterval timeInterval;
 
 /**
- (弃用)导航栏按钮
- */
-- (UIButton *_Nonnull)createBarBtnItemWithTitle:(NSString *_Nullable)title imageName:(NSString *_Nullable)imageName isLeft:(BOOL)isLeft target:(id _Nonnull)target aSelector:(SEL _Nonnull)aSelector isHidden:(BOOL)isHidden;
-
-
-/**
   导航栏按钮
  */
 - (UIButton *_Nonnull)createBarBtnItemWithTitle:(NSString *_Nullable)title imageName:(NSString *_Nullable)imageName isLeft:(BOOL)isLeft isHidden:(BOOL)isHidden handler:(BlockObject _Nullable )handler;
@@ -88,55 +82,6 @@ typedef void(^BlockAlertController)(UIAlertController * _Nonnull alertController
 - (UIViewController *_Nullable)getController:(NSString *_Nonnull)contollerName;
 
 /**
- 弃用
- */
-- (id _Nullable )frontViewController:(UINavigationController *_Nonnull)navContoller;
-
-/**
- 弃用,古老的方法
- */
-- (NSString *_Nonnull)getCtrTypeWithCtrDict:(NSDictionary *_Nonnull)controllerDict frontCtr:(UIViewController *_Nullable)frontController;
-
-/**
- (弃用)简单提示,只用于提示信息展示,只有一个确认键,无响应事件
-
- */
-- (void)showAlertWithTitle:(NSString *_Nullable)title msg:(NSString *_Nonnull)msg;
-
-/**
- (弃用)系统弹窗风格toast
- */
-- (void)showAlertWithMsg:(NSString *_Nonnull)msg;
-
-/**
- (弃用)系统弹窗__按钮默认(取消,确认)
- @param blockAction 返回 UIAlertAction 对象
- */
-- (void)showAlertWithTitle:(nullable NSString *)title msg:(nullable NSString *)msg blockAction:(BlockAlertController _Nullable)blockAction;
-
-/**
- (弃用)系统弹窗__按钮自定义(actionTitleList传入2按钮标题)
-
- @param actionTitleList 传入2按钮标题
- @param blockAction 返回 UIAlertAction 对象
- */
-- (void)showAlertWithTitle:(nullable NSString *)title msg:(nullable NSString *)msg actionTitleList:(NSArray *_Nonnull)actionTitleList blockAction:(BlockAlertController _Nullable)blockAction;
-
-/**
- (弃用)系统弹窗__输入框__按钮标题自定义
-
- */
-- (void)showAlertWithTitle:(nullable NSString *)title placeholder:(NSString *_Nullable)placeholder actionTitleList:(NSArray *_Nonnull)actionTitleList blockAction:(BlockAlertController _Nullable)blockAlertController;
-
-/**
- (弃用)系统Sheet弹窗__按钮默认(取消按钮)
-
- @param msgList 选项数组
- @param blockAction 返回 UIAlertAction 对象
- */
-- (void)showSheetWithTitle:(nullable NSString *)title msgList:(NSArray *_Nonnull)msgList blockAction:(BlockAlertController _Nullable)blockAction;
-
-/**
  系统弹窗__按钮默认(取消,确认)
  */
 - (void)showAlertWithTitle:(nullable NSString *)title msg:(nullable NSString *)msg handler:(BlockAlertController _Nullable)handler;
@@ -163,6 +108,7 @@ typedef void(^BlockAlertController)(UIAlertController * _Nonnull alertController
 - (void)dispalyAppEvalutionStarLevelAppID:(NSString *_Nonnull)appID;
 
 - (void)showToastHud:(NSString *_Nullable)msg inView:(UIView *_Nullable)inView;
+
 
 /**
  法律条款/合作协议
