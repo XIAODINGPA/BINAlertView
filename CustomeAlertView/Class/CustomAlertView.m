@@ -8,10 +8,6 @@
 
 #import "CustomAlertView.h"
 
-#define kSCREEN_WIDTH  [[UIScreen mainScreen]bounds].size.width
-
-#define kSCREEN_HEIGHT [[UIScreen mainScreen]bounds].size.height
-
 #define kW_LABEL 280
 #define kX_GAP 10
 #define kFONTSIZE 15
@@ -35,15 +31,6 @@
     return self;
 }
 
-
--(CGSize )sizeWithText:(NSString *)text fontSize:(CGFloat)fontSize maxWidth:(CGFloat)maxWidth{
-    
-    CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:fontSize] constrainedToSize:CGSizeMake(maxWidth, MAXFLOAT) lineBreakMode:NSLineBreakByCharWrapping];
-
-    return size;
-}
-
-
 -(id)initWithTitle:(NSString *)title message:(NSString *)msg orCustomeView:(UIView *)customeView delegate:(id)delegate buttonTitles:(NSArray *)buttonTitles{
     
 //    UIView * alertView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH - kX_GAP*2, 0)];
@@ -52,7 +39,7 @@
     CGSize  titleSize = CGSizeZero;
     if (title != nil) {
         
-        titleSize = [self sizeWithText:title fontSize:kFONTSIZE maxWidth:kW_LABEL];
+        titleSize = [self sizeWithText:title font:@(kFONTSIZE) width:kW_LABEL];
     }
     
     
@@ -63,7 +50,7 @@
         customeViewSize = customeView.frame.size;
     }else{
         
-        msgSize = [self sizeWithText:msg fontSize:kFONTSIZE maxWidth:kW_LABEL];
+        msgSize = [self sizeWithText:msg font:@(kFONTSIZE) width:kW_LABEL];
     }
     
     CGSize  btnSize = CGSizeZero;

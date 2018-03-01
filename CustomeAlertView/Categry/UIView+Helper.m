@@ -36,6 +36,7 @@ static const char kTActionHandlerTapGestureKey;
     objc_setAssociatedObject(self, &kTActionHandlerTapGestureKey, block, OBJC_ASSOCIATION_COPY);
 }
 
+
 - (void)handleActionForTapGesture:(UITapGestureRecognizer *)tapGesture
 {
     if (tapGesture.state == UIGestureRecognizerStateRecognized)
@@ -48,6 +49,46 @@ static const char kTActionHandlerTapGestureKey;
     }
     
 }
+
+/**
+ 关联方法待改进
+ */
+- (void)addActionHandler:(BlockObject)handler{
+    
+    if ([self isKindOfClass:[UIButton class]]) {
+        [(UIButton *)self addTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    else{
+        UITapGestureRecognizer *tapGesture = objc_getAssociatedObject(self, _cmd);
+        if (!tapGesture){
+            tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleActionTapGesture:)];
+            
+            tapGesture.numberOfTapsRequired = 1;
+            tapGesture.numberOfTouchesRequired = 1;
+            
+            tapGesture.cancelsTouchesInView = NO;
+            tapGesture.delaysTouchesEnded = NO;
+            
+            self.userInteractionEnabled = YES;
+            [self addGestureRecognizer:tapGesture];
+        }
+    }
+    objc_setAssociatedObject(self, @selector(addActionHandler:), handler, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    
+}
+
+/**
+ 关联方法待改进
+ */
+- (void)handleActionBtn:(UIButton *)sender{
+    BlockObject block = objc_getAssociatedObject(self, @selector(addActionHandler:));
+    if (block){
+        block(sender);
+        
+    }
+}
+
 
 // 获取所有子视图(需要注意的是，我的level设置是从1开始的，这与方法中加空格时变量 i 起始的值是相呼应的，要改就要都改。)
 + (void)getSub:(UIView *)view andLevel:(NSInteger)level {

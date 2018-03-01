@@ -14,7 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
-#import "MacroBIN.h"
+#import "Macro.h"
 #import "MacroGeometry.h"
 #import "MacroUtilities.h"
 

@@ -26,9 +26,10 @@ typedef void (^BlockAlertView)(BINAlertView * alertView,  NSInteger btnIndex);
 + (BINAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles;
 
 /**
- msg或者customView的最大宽度值(屏幕宽度-50)
+ msg或者customView的最大宽度值(屏幕宽度-60)
  */
 @property (nonatomic, assign ,readonly) CGFloat maxWidth;
+@property (nonatomic, assign ,readonly) CGFloat maxHeight;
 
 @property (nonatomic, strong) UIColor * lineColor;
 

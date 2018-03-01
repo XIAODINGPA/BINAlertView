@@ -10,6 +10,8 @@
 #import "MainViewController.h"
 #import "MainNewViewController.h"
 
+#import "UIApplication+Helper.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -19,13 +21,10 @@
     
     MainViewController * mainVC = [[MainViewController alloc]init];
     mainVC = [[MainNewViewController alloc]init];
-
-    UINavigationController * mainNav = [[UINavigationController alloc]initWithRootViewController:mainVC];
-    mainVC.title = @"MAIN";
-    self.window.rootViewController = mainNav;
+    UINavigationController * navContoller = [[UINavigationController alloc]initWithRootViewController:mainVC];
     
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    [UIApplication setupWindow:navContoller];
+    [UIApplication setupAppearance];
     return YES;
 }
 

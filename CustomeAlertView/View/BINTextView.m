@@ -75,7 +75,7 @@
     [self textChanged:nil];
     self.placeHolderLabel.text = placeholder;
 
-    CGSize labelSize = [self sizeWithText:self.placeHolderLabel.text font:self.font maxWidth:self.frame.size.width];
+    CGSize labelSize = [self sizeWithText:self.placeHolderLabel.text font:self.font width:self.frame.size.width];
     self.placeHolderLabel.frame = CGRectMake(self.padding, self.padding, self.bounds.size.width - self.padding * 2, labelSize.height);
     
     self.placeHolderLabel.textColor = self.placeholderColor;
@@ -98,23 +98,6 @@
 
     }
     
-}
-
-#pragma mark - -
-- (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font maxWidth:(CGFloat)maxWidth{
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
-    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;//折行方式
-    
-    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,paragraphStyle.copy,NSParagraphStyleAttributeName,nil];
-    CGSize size = [text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading  attributes:dict context:nil].size;
-    
-    //    NSLog(@"------%@",NSStringFromCGSize(size));//{300, 286.32000000000005}
-    size.height = ceil(size.height);
-    //如果文字中可能会出现emoji表情的话, emoji的高度比文字要高一点点,+2
-    //    size.height = size.height+2;
-    //    NSLog(@"===%@",NSStringFromCGSize(size));//{300, 287}
-    return size;
 }
 
 @end

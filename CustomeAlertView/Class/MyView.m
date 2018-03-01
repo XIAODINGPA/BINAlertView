@@ -97,7 +97,7 @@
     
 }
 
-- (CGSize)sizeWithText:(NSString *)text fontSize:(CGFloat)fontSize maxWidth:(CGFloat)maxWidth{
+- (CGSize)sizeWithText:(NSString *)text fontSize:(CGFloat)fontSize width:(CGFloat)maxWidth{
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
     paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;//折行方式
@@ -175,7 +175,7 @@
         CGFloat maxWidth = kSCREEN_WIDTH - (kX_GAP_OF_WINDOW + kXY_GAP)*2;
         if (title != nil) {
             
-            titleSize = [self sizeWithText:title fontSize:kFONTSIZE maxWidth:maxWidth];
+            titleSize = [self sizeWithText:title fontSize:kFONTSIZE width:maxWidth];
             [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP, self.frame.size.width - kXY_GAP * 2, kH_LABLE) text:title tag:101 fontSize:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         }
         
@@ -203,7 +203,7 @@
             [self addSubview:customeView];
         }else{
             
-            msgSize = [self sizeWithText:msg fontSize:kFONTSIZE maxWidth:maxWidth];
+            msgSize = [self sizeWithText:msg fontSize:kFONTSIZE width:maxWidth];
             [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP + kH_LABLE + 5, self.frame.size.width - kXY_GAP * 2, kH_LABLE) text:msg tag:102 fontSize:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
 
         }

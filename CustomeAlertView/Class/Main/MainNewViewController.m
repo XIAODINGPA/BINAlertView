@@ -26,17 +26,31 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    self.title = NSStringFromClass([self class]);
+    NSRange range = NSMakeRange(0, 0);
+    if ([self.title rangeOfString:@"ViewController"].location != NSNotFound) {
+        range = [self.title rangeOfString:@"ViewController"];
+    }
+    else if ([self.title rangeOfString:@"Controller"].location != NSNotFound){
+        range = [self.title rangeOfString:@"Controller"];
+    }
+    self.title = [self.title substringToIndex:range.location];
+
+   
+    [self createControls];
+    
+}
+
+- (void)createControls{
     NSArray * titles = @[@"点我0",@"点我1",@"点我2",@"点我3",@"点我4"];
     for (NSInteger i = 0; i< titles.count; i++) {
         CGRect btnRect = CGRectMake(kX_GAP*4, kY_GAP*4 + (40 + 10)*i, kSCREEN_WIDTH - kX_GAP*8, 40);
         UIButton * btn = [UIView  createBtnWithRect:btnRect title:titles[i]  fontSize:15 image:nil tag:kTAG_BTN+i patternType:@"8" target:self aSelector:@selector(handleActionBtn:)];
         [self.view addSubview:btn];
     }
-    
 }
 
 - (void)handleActionBtn:(UIButton *)sender{
-    kDDLogFuncton;
     
     switch (sender.tag-kTAG_BTN) {
         case 0:
@@ -76,12 +90,15 @@
         case 3:
         {
             //MyView初代代码,用于新功能测试开发
-            MyView * grayView = [[MyView alloc]initWithFrame:CGRectZero Title:@"title" message:@"msg" orCustomeView:[self createTableView] delegate:self buttonTitles:[NSArray arrayWithObjects:@"cancell",@"ok", nil]];
+            MyView * grayView = [[MyView alloc]initWithFrame:CGRectZero Title:@"测试视图" message:@"msg" orCustomeView:[self createTableView] delegate:self buttonTitles:[NSArray arrayWithObjects:@"cancell",@"ok", nil]];
             [grayView showMyView];
+        }
+            break;
+        case 4:
+        {
             
         }
             break;
-
         default:
             break;
     }
@@ -93,7 +110,8 @@
     
     CGSize verCodeViewSize = CGSizeMake(viewSize.height * count + kX_GAP * (count - 1), viewSize.height);
     CGFloat minX = (CGRectGetWidth(backgroudView.frame) - verCodeViewSize.width)/2.0;
-    MQVerCodeInputView *verCodeView = [[MQVerCodeInputView alloc]initWithFrame:CGRectMake(minX, kPadding, verCodeViewSize.width, verCodeViewSize.height)];
+    DDLog(@"%.2f",minX);
+    MQVerCodeInputView *verCodeView = [[MQVerCodeInputView alloc]initWithFrame:CGRectMake(0, kPadding, verCodeViewSize.width, verCodeViewSize.height)];
     verCodeView.viewColorHL = kC_LineColor;
     verCodeView.viewColor = kC_LineColor;
     
@@ -106,8 +124,8 @@
     
     [backgroudView addSubview:verCodeView];
     
-    //    backgroudView.backgroundColor = [UIColor yellowColor];
-    //    verCodeView.backgroundColor = [UIColor orangeColor];
+//    backgroudView.backgroundColor = [UIColor yellowColor];
+//    verCodeView.backgroundColor = [UIColor orangeColor];
     return backgroudView;
     
 }

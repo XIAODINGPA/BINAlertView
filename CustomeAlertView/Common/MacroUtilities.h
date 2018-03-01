@@ -104,10 +104,6 @@
 //获取系统时间戳
 #define getCurentTime [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]]
 
-//强弱引用
-#define kWeakSelf(type)    __weak typeof(type) weak##type = type;
-#define kStrongSelf(type)  __strong typeof(type) type = weak##type;
-
 
 #define kHiddenHUDAndAvtivity kRemoveBackView;kHiddenHUD;HideNetworkActivityIndicator()
 
@@ -132,39 +128,6 @@ kWindow.userInteractionEnabled = NO; \
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{\
 kWindow.userInteractionEnabled = YES;\
 });
-
-
-// 加载
-#define kShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
-// 收起加载
-#define HideNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
-// 设置加载
-#define NetworkActivityIndicatorVisible(x)  [UIApplication sharedApplication].networkActivityIndicatorVisible = x
-#define kBackView         for (UIView *item in kWindow.subviews) { \
-if(item.tag == 10000) \
-{ \
-[item removeFromSuperview]; \
-UIView * aView = [[UIView alloc] init]; \
-aView.frame = [UIScreen mainScreen].bounds; \
-aView.tag = 10000; \
-aView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3]; \
-[kWindow addSubview:aView]; \
-} \
-} \
-
-#define kShowHUDAndActivity kBackView;[MBProgressHUD showHUDAddedTo:kWindow animated:YES];kShowNetworkActivityIndicator()
-#define kHiddenHUD [MBProgressHUD hideAllHUDsForView:kWindow animated:YES]
-#define kRemoveBackView         for (UIView *item in kWindow.subviews) { \
-if(item.tag == 10000) \
-{ \
-[UIView animateWithDuration:0.4 animations:^{ \
-item.alpha = 0.0; \
-} completion:^(BOOL finished) { \
-[item removeFromSuperview]; \
-}]; \
-} \
-} \
-
 
 
 #endif

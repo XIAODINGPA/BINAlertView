@@ -341,7 +341,7 @@
         {
             //小标志
             NSString * text = @"企";
-            CGSize textSize = [self sizeWithText:text fontSize:KFZ_Fifth maxWidth:kSCREEN_WIDTH];
+            CGSize textSize = [self sizeWithText:text font:@(KFZ_Fifth) width:kSCREEN_WIDTH];
             CGFloat textWH = textSize.height > textSize.width ? textSize.height :textSize.width;
             textWH += 5;
             CGFloat offsetXY = CGRectGetHeight(rect)/2.0 * sin(45 * M_PI/180.0);

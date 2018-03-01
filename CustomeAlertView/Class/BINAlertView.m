@@ -10,18 +10,17 @@
 #import "BINAlertView.h"
 
 #import "UIView+AddView.h"
+#import "UIView+Helper.h"
 //RGB色值
 #define kC_RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
-static const CGFloat kX_GAP_OF_WINDOW = 15;
+static const CGFloat kX_GAP_OF_WINDOW = 30;
 static const CGFloat kXY_GAP = 10;
 
-static const CGFloat kH_BTN = 40;
-static const CGFloat padding = 5;
+static const CGFloat kH_BTN = 50;
+static const CGFloat padding = kPadding;
 
 static NSString *const kBtnTitleCancell = @"取消";
-
-static const CGFloat kanimateDuration = 0.15;
 
 @interface BINAlertView ()<UITextViewDelegate>
 
@@ -38,6 +37,16 @@ static const CGFloat kanimateDuration = 0.15;
 
 @implementation BINAlertView
 
+-(CGFloat)maxWidth{
+    CGFloat width = kSCREEN_WIDTH - kX_GAP_OF_WINDOW * 2 - kXY_GAP*2;
+    return width;
+}
+
+-(CGFloat)maxHeight{
+    CGFloat heigth = kSCREEN_HEIGHT - 64 * 2 - kH_LABEL - kH_BTN - padding*2;
+    return heigth;
+}
+
 + (BINAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles{
     
     BINAlertView *alertView = [[BINAlertView alloc]initWithTitle:title message:msg customView:customView btnTitles:btnTitles];
@@ -49,7 +58,7 @@ static const CGFloat kanimateDuration = 0.15;
     self = [super init];
     if (self) {
         self.layer.masksToBounds = YES;
-        self.layer.cornerRadius = 5 ;
+        self.layer.cornerRadius = 8 ;
         self.layer.borderColor = [UIColor whiteColor].CGColor;
         self.layer.borderWidth = 1.0 ;
         
@@ -57,10 +66,8 @@ static const CGFloat kanimateDuration = 0.15;
             self.frame = CGRectMake(0, 0, kSCREEN_WIDTH - kX_GAP_OF_WINDOW * 2, 180);
         }
         
-        CGFloat maxWidth = CGRectGetWidth(self.frame) - kXY_GAP * 2;
-        CGFloat maxHeight = kSCREEN_HEIGHT - 64 * 2 - kH_LABEL - kH_BTN - padding * 2;
-
-        self.maxWidth = maxWidth;
+        CGFloat maxWidth = self.maxWidth;
+        CGFloat maxHeight = self.maxHeight;
         
         CGRect labelRectTitle = CGRectMake(kXY_GAP, kXY_GAP, maxWidth, kH_LABEL);
         CGSize msgSize = CGSizeZero;
@@ -68,7 +75,7 @@ static const CGFloat kanimateDuration = 0.15;
         CGSize customeViewSize = CGSizeZero;
         
         if (title != nil) {
-            UILabel * lableTitle = [UIView createLabelWithRect:labelRectTitle text:title textColor:nil tag:kTAG_LABEL patternType:@"2" fontSize:KFZ_Third backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+            UILabel * lableTitle = [UIView createLabelWithRect:labelRectTitle text:title textColor:nil tag:kTAG_LABEL patternType:@"2" fontSize:KFZ_First backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
             [self addSubview:lableTitle];
             self.labTitle = lableTitle;
             
@@ -78,46 +85,30 @@ static const CGFloat kanimateDuration = 0.15;
         }
      
         if (customView != nil) {
-            if ([customView isKindOfClass:[UIScrollView class]]) {
-                
-                if (CGRectGetWidth(customView.frame) > maxWidth) {
-                     customeViewSize.width = maxWidth;
-                }
-                
-                if (CGRectGetHeight(customView.frame) > maxHeight) {
-                    customeViewSize.height = maxHeight;
-
-                }
-            }else{
-                customeViewSize = customView.frame.size;
-                if (CGRectGetWidth(customView.frame) > maxWidth) {
-                    CGFloat ratio = CGRectGetWidth(customView.frame)/maxWidth;
-                    
-                    customeViewSize.width = maxWidth;
-                    customeViewSize.height = CGRectGetHeight(customView.frame)/ratio;
-                }
-                else if(CGRectGetHeight(customView.frame) > maxHeight){
-                    CGFloat ratio = CGRectGetHeight(customView.frame)/maxWidth;
-                    
-                    customeViewSize.height = maxHeight;
-                    customeViewSize.width = customeViewSize.width/ratio;
-                    
-                }
-
+            customeViewSize = CGSizeMake(maxWidth, CGRectGetHeight(customView.frame) < maxHeight ? CGRectGetHeight(customView.frame) : maxHeight);
+            customView.frame = CGRectMake(kXY_GAP, CGRectGetMaxY(labelRectTitle)+padding, customeViewSize.width, customeViewSize.height);
+            for (UIView * view in customView.subviews) {
+                CGRect rect = view.frame;
+                rect.size.width = CGRectGetWidth(customView.frame);
+                view.frame = rect;
             }
-            customView.frame = CGRectMake(kXY_GAP, CGRectGetMaxY(labelRectTitle) + padding, customeViewSize.width, customeViewSize.height);
+            
             [self addSubview:customView];
             self.customView = customView;
+//            self.customView.clipsToBounds = YES;
             
-            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetMaxY(customView.frame)+padding+kH_BTN);
+            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetMaxY(self.labTitle.frame)+CGRectGetHeight(customView.frame)+kH_BTN +padding*2);
+//            customView.backgroundColor = [UIColor redColor];
+//            DDLog(@"customView:%@",NSStringFromCGRect(customView.frame));
+
         }else{
             if (msg != nil) {
-                msgSize = [self sizeWithText:msg fontSize:KFZ_Fifth maxWidth:maxWidth];
+                msgSize = [self sizeWithText:msg font:@(KFZ_Second) width:maxWidth];
                 msgSize.height =  msgSize.height < kH_LABEL ? kH_LABEL: msgSize.height;
                 msgSize.height =  msgSize.height > maxHeight ? maxHeight: msgSize.height;
 
                 msgRect = CGRectMake(CGRectGetMinX(labelRectTitle), CGRectGetMaxY(labelRectTitle) + padding, maxWidth, msgSize.height);
-                UITextView * textView = [UIView createTextShowWithRect:msgRect text:msg fontSize:KFZ_Fifth textAlignment:NSTextAlignmentCenter];
+                UITextView * textView = [UIView createTextShowWithRect:msgRect text:msg fontSize:KFZ_Second textAlignment:NSTextAlignmentCenter];
                 [self addSubview:textView];
                 self.textView = textView;
                 textView.frame = CGRectMake(CGRectGetMinX(labelRectTitle), CGRectGetMaxY(labelRectTitle) + padding, CGRectGetWidth(msgRect), textView.contentSize.height);
@@ -135,14 +126,15 @@ static const CGFloat kanimateDuration = 0.15;
             }else{
                 self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame),CGRectGetMaxY(labelRectTitle) + padding + kH_BTN);
             }
-
          }
-        [self createBtnsWithBtnTitles:btnTitles];
         
+        [self createBtnsWithBtnTitles:btnTitles];
+
         //无标题 无BTN时可以提示信息使用
         if (!title && !btnTitles) {
             CGRect rect = self.frame;
             rect.size.height -= (kY_GAP + kH_BTN);
+            
             self.frame = rect;
             
             self.textView.center = self.center;
@@ -162,7 +154,7 @@ static const CGFloat kanimateDuration = 0.15;
         for (NSInteger i = 0; i < btnCount; i++) {
             
             CGRect btnRect = CGRectMake(CGRectGetWidth(self.frame)/btnCount * i, CGRectGetHeight(self.frame) - kH_BTN, CGRectGetWidth(self.frame)/btnCount, kH_BTN);
-            UIButton * btn = [UIView createBtnWithRect:btnRect title:btnTitles[i] fontSize:KFZ_Second image:nil tag:kTAG_BTN+i patternType:@"2" target:self aSelector:@selector(handleBtnAction:)];
+            UIButton * btn = [UIView createBtnWithRect:btnRect title:btnTitles[i] fontSize:KFZ_First image:nil tag:kTAG_BTN+i patternType:@"2" target:self aSelector:@selector(handleBtnAction:)];
             [self addSubview:btn];
             [self.btnMarr addObject:btn];
             
@@ -213,26 +205,18 @@ static const CGFloat kanimateDuration = 0.15;
         self.transform = CGAffineTransformMakeScale(0.01, 0.01);
 //    self.transform = CGAffineTransformMakeScale(2.01, 2.01);
     
-    //UIViewAnimationOptionCurveEaseIn从外往里,UIViewAnimationOptionCurveEaseOut从里往外
-    [UIView animateWithDuration:kanimateDuration delay:0.0 options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         self.transform = CGAffineTransformIdentity;
-                         self.backgroundColor = [UIColor whiteColor];
-                         [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
-                         
-                     }
-                     completion:NULL
-     ];
-    
-//    [UIView animateWithDuration:kanimateDuration delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-//        self.transform = CGAffineTransformIdentity;
-//        self.backgroundColor = [UIColor whiteColor];
-//        [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
-//    } completion:^(BOOL finished) {
-//        if(self.btnMarr.count == 0){
-////            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
-//        }
-//    }];
+
+    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.transform = CGAffineTransformIdentity;
+        self.backgroundColor = [UIColor whiteColor];
+        [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
+    } completion:^(BOOL finished) {
+        if(self.btnMarr.count == 0){
+            self.textView.font = [UIFont systemFontOfSize:KFZ_Second];
+            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            
+        }
+    }];
     
 }
 
@@ -254,20 +238,6 @@ static const CGFloat kanimateDuration = 0.15;
 - (void)actionWithBlock:(BlockAlertView)blockAlertView{
     self.blockAlertView = blockAlertView;
     
-}
-
-- (CGSize)sizeWithText:(NSString *)text fontSize:(CGFloat)fontSize maxWidth:(CGFloat)maxWidth{
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
-    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;//折行方式
-    
-    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:fontSize],NSFontAttributeName,paragraphStyle.copy,NSParagraphStyleAttributeName,nil];
-    CGSize size = [text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading  attributes:dict context:nil].size;
-    
-    size.height = ceil(size.height);
-    //如果文字中可能会出现emoji表情的话, emoji的高度比文字要高一点点,+2
-    //    size.height = size.height+2;
-    return size;
 }
 
 //- (CGFloat) heightForString:(UITextView *)textView andWidth:(CGFloat)width{

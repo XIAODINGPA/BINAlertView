@@ -15,6 +15,12 @@
 //给view关联点击事件
 - (void)tapViewWithBlock:(void (^)(void))block;
 
+/**
+ 给view关联点击事件(支持UIView和UIButton可继续扩展其他支持)
+ @param handler 返回响应对象
+ */
+- (void)addActionHandler:(BlockObject)handler;
+
 // 获取所有子视图
 + (void)getSub:(UIView *)view andLevel:(NSInteger)level;
 

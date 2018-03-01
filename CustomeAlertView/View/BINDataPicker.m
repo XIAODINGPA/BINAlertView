@@ -147,7 +147,7 @@
     
 }
 
-//- (CGSize)sizeWithText:(NSString *)text fontSize:(CGFloat)fontSize maxWidth:(CGFloat)maxWidth{
+//- (CGSize)sizeWithText:(NSString *)text font:(CGFloat)fontSize width:(CGFloat)maxWidth{
 //    
 //    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
 //    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;//折行方式
