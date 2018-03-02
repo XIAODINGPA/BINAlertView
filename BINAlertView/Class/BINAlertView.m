@@ -50,9 +50,15 @@ static const CGFloat padding = kPadding;
 //    static dispatch_once_t onceToken;
 //    dispatch_once(&onceToken, ^{
 //        instance = [[BINAlertView alloc]init];
-//        
+//
 //    });
 //    return instance;
+//}
+//
+//- (BINAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles{
+//    
+//    BINAlertView *alertView = [[BINAlertView alloc]initWithTitle:title message:msg customView:customView btnTitles:btnTitles];
+//    return alertView;
 //}
 
 + (BINAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles{
