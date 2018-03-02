@@ -14,13 +14,7 @@
 //RGB色值
 #define kC_RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
-static const CGFloat kX_GAP_OF_WINDOW = 30;
-static const CGFloat kXY_GAP = 10;
-
-static const CGFloat kH_BTN = 50;
 static const CGFloat padding = kPadding;
-
-static NSString *const kBtnTitleCancell = @"取消";
 
 @interface BINAlertView ()<UITextViewDelegate>
 
@@ -97,9 +91,7 @@ static NSString *const kBtnTitleCancell = @"取消";
             self.customView = customView;
 //            self.customView.clipsToBounds = YES;
             
-            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetMaxY(self.labTitle.frame)+CGRectGetHeight(customView.frame)+kH_BTN +padding*2);
-//            customView.backgroundColor = [UIColor redColor];
-//            DDLog(@"customView:%@",NSStringFromCGRect(customView.frame));
+            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetMaxY(self.labTitle.frame)+CGRectGetHeight(customView.frame) + kH_BTN + padding*2);
 
         }else{
             if (msg != nil) {
@@ -158,7 +150,7 @@ static NSString *const kBtnTitleCancell = @"取消";
             [self addSubview:btn];
             [self.btnMarr addObject:btn];
             
-            if ([btnTitles[i] isEqualToString:kBtnTitleCancell]) {
+            if (i == 0 && btnTitles.count > 1) {
                 [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                
             }else{
