@@ -550,10 +550,15 @@
 -(NSString *)controllerName{
     
     NSString * className = NSStringFromClass([self class]);
-    if([className rangeOfString:@"ViewController"].location != NSNotFound){
-        NSRange rang = [className rangeOfString:@"ViewController"];
-        NSString * result = [className substringWithRange:NSMakeRange(0, rang.location)];
-        return result;
+    if ([className containsString:@"Controller"]) {
+        NSRange range = NSMakeRange(0, 0);
+        if ([className rangeOfString:@"ViewController"].location != NSNotFound) {
+            range = [className rangeOfString:@"ViewController"];
+        }
+        else if ([className rangeOfString:@"Controller"].location != NSNotFound){
+            range = [className rangeOfString:@"Controller"];
+        }
+        className = [className substringToIndex:range.location];
     }
     return className;
 }

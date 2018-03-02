@@ -10,11 +10,12 @@
 #define CategoryHeader_h
 
 #import "NSObject+Helper.h"
-#import "UIViewController+addView.h"
 #import "UIView+AddView.h"
 #import "UIView+Helper.h"
 #import "UIImage+Helper.h"
 #import "UIColor+Helper.h"
+#import "UIViewController+addView.h"
+#import "UIViewController+Helper.h"
 
 #import "NSString+Helper.h"
 #import "NSDictionary+Helper.h"

@@ -25,20 +25,13 @@
     // Do any additional setup after loading the view.
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    self.title = NSStringFromClass([self class]);
-    NSRange range = NSMakeRange(0, 0);
-    if ([self.title rangeOfString:@"ViewController"].location != NSNotFound) {
-        range = [self.title rangeOfString:@"ViewController"];
-    }
-    else if ([self.title rangeOfString:@"Controller"].location != NSNotFound){
-        range = [self.title rangeOfString:@"Controller"];
-    }
-    self.title = [self.title substringToIndex:range.location];
 
+    self.title = self.controllerName;
    
     [self createControls];
     
+    
+    UIAlertController
 }
 
 - (void)createControls{
