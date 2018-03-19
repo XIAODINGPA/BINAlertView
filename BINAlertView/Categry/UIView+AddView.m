@@ -120,6 +120,81 @@
     
 }
 
++(CALayer *)createLayerWithInView:(UIView *)inView patternType:(NSString *)patternType{
+    
+    CALayer * layer = [CALayer layer];
+    switch ([patternType integerValue]) {
+        case 0:
+        {
+            //上边框
+            layer.frame = CGRectMake(0, 0, CGRectGetWidth(inView.frame) - kW_LayerBorderWidth, kW_LayerBorderWidth);
+            
+        }
+            break;
+        case 1:
+        {
+            //左边框
+            layer.frame = CGRectMake(0, 0, kW_LayerBorderWidth, (CGRectGetHeight(inView.frame) - kW_LayerBorderWidth));
+        }
+            break;
+        case 2:
+        {
+            //下边框
+            layer.frame = CGRectMake(0, (CGRectGetHeight(inView.frame) - kW_LayerBorderWidth), (CGRectGetWidth(inView.frame) - kW_LayerBorderWidth), kW_LayerBorderWidth);
+        }
+            break;
+        case 3:
+        {
+            //右边框
+            layer.frame = CGRectMake(CGRectGetWidth(inView.frame), 0, kW_LayerBorderWidth, CGRectGetHeight(inView.frame));
+        }
+            break;
+        default:
+            break;
+    }
+    layer.backgroundColor = kC_LineColor.CGColor;
+    return layer;
+}
+
+-(CALayer *)createLayerByPatternType:(NSString *)patternType{
+    
+    UIView * view = self;
+    CALayer * layer = [CALayer layer];
+    switch ([patternType integerValue]) {
+        case 0:
+        {
+            //上边框
+            layer.frame = CGRectMake(0, 0, CGRectGetWidth(view.frame) - kW_LayerBorderWidth, kW_LayerBorderWidth);
+            
+        }
+            break;
+        case 1:
+        {
+            //左边框
+            layer.frame = CGRectMake(0, 0, kW_LayerBorderWidth, (CGRectGetHeight(view.frame) - kW_LayerBorderWidth));
+        }
+            break;
+        case 2:
+        {
+            //下边框
+            layer.frame = CGRectMake(0, (CGRectGetHeight(view.frame) - kW_LayerBorderWidth), (CGRectGetWidth(view.frame) - kW_LayerBorderWidth), kW_LayerBorderWidth);
+        }
+            break;
+        case 3:
+        {
+            //右边框
+            layer.frame = CGRectMake(CGRectGetWidth(view.frame), 0, kW_LayerBorderWidth, CGRectGetHeight(view.frame));
+        }
+            break;
+        default:
+            break;
+    }
+    layer.backgroundColor = kC_LineColor.CGColor;
+//    layer.backgroundColor = kC_RedColor.CGColor;
+
+    return layer;
+}
+
 #pragma mark - -类方法
 
 + (UIView *)createViewWithRect:(CGRect)rect tag:(NSInteger)tag{
@@ -174,6 +249,9 @@
     if ([text isKindOfClass:[NSString class]]) {
         label.text = text;
         label.textColor = textColor;
+        if (textColor == nil) {
+            label.textColor = [UIColor blackColor];
+        }
 
     }else if ([text isKindOfClass:[NSAttributedString class]]){
         label.attributedText = text;
@@ -237,7 +315,7 @@
     
     
     label.backgroundColor = [UIColor greenColor];
-    label.backgroundColor = [UIColor whiteColor];
+//    label.backgroundColor = [UIColor whiteColor];
     
 //    label.layer.borderWidth = 1;
 //    label.layer.borderColor = kC_RedColor.CGColor;
@@ -341,14 +419,14 @@
         {
             //小标志
             NSString * text = @"企";
-            CGSize textSize = [self sizeWithText:text font:@(KFZ_Fifth) width:kSCREEN_WIDTH];
+            CGSize textSize = [self sizeWithText:text font:@(KFZ_Fifth) width:kScreen_width];
             CGFloat textWH = textSize.height > textSize.width ? textSize.height :textSize.width;
             textWH += 5;
             CGFloat offsetXY = CGRectGetHeight(rect)/2.0 * sin(45 * M_PI/180.0);
             
             CGPoint tipCenter = CGPointMake(CGRectGetHeight(rect)/2.0 + offsetXY, CGRectGetHeight(rect)/2.0 + offsetXY);
             //
-            UILabel * labelTip = [UIView createTipLabelWithSize:CGSizeMake(textWH, textWH) tipCenter:tipCenter text:text textColor:kC_ThemeCOLOR tag:kTAG_LABEL fontSize:KFZ_Fifth backgroudColor:kC_WhiteColor alignment:NSTextAlignmentCenter];
+            UILabel * labelTip = [UIView createTipLabelWithSize:CGSizeMake(textWH, textWH) tipCenter:tipCenter text:text textColor:kC_ThemeCOLOR tag:kTAG_LABEL fontSize:KFZ_Fifth backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
             [imageView addSubview:labelTip];
             
         }
@@ -454,7 +532,7 @@
     //        textField.layer.borderWidth = 1;  // 给图层添加一个有色边框
     //        textField.layer.borderColor = [UtilityHelper colorWithHexString:@"d2d2d2"].CGColor;
     textField.backgroundColor = [UIColor cyanColor];
-//    textField.backgroundColor = [UIColor clearColor];
+    textField.backgroundColor = [UIColor whiteColor];
     
     return textField;
     
@@ -583,7 +661,7 @@
     backgroudView.tag = tag;
     backgroudView.backgroundColor = [UIColor whiteColor];
     
-    CGFloat labWidth = kSCREEN_WIDTH/titleArr.count;
+    CGFloat labWidth = kScreen_width/titleArr.count;
     CGSize lineViewSize = CGSizeMake(labWidth, 1.0);
     
     for (NSInteger i = 0; i < titleArr.count; i++) {
@@ -661,7 +739,7 @@
     [UIView animateWithDuration:0.3 animations:^{
         
         CGRect frame = lineView.frame;
-        frame.origin.x = selectedIndex * (kSCREEN_WIDTH/self.selectedArr.count);
+        frame.origin.x = selectedIndex * (kScreen_width/self.selectedArr.count);
         lineView.frame = frame;
         
     }];

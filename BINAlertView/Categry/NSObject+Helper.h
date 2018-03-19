@@ -22,7 +22,7 @@ void dispatchAfterDelay(double delay ,void(^block)());
 */
 @property (nonatomic, copy) BlockObject blockObject;//其他类使用该属性注意性能
 
-@property (nonatomic, strong, readonly) UIWindow * keyWindow;
+@property (nonatomic, strong, readonly) UIWindow * globleWindow;
 @property (nonatomic, strong, readonly) UIViewController * rootVC;
 @property (nonatomic, strong, readonly) NSUserDefaults * userDefaults;
 
@@ -61,10 +61,5 @@ void dispatchAfterDelay(double delay ,void(^block)());
  @return 富文本字符串
  */
 - (NSAttributedString *)getAttString:(NSString *)text textTaps:(NSArray *)textTaps font:(id)font tapFont:(id)tapFont tapColor:(UIColor *)tapColor alignment:(NSTextAlignment)alignment;
-/**
- 富文本产生
- */
-- (NSMutableAttributedString *)getAttString:(NSString *)string textTaps:(NSArray *)textTaps;
-
 
 @end

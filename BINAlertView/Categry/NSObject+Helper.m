@@ -174,7 +174,7 @@ void dispatchAfterDelay(double delay ,void(^block)()){
 
 }
 
--(UIWindow *)keyWindow{
+-(UIWindow *)globleWindow{
 //    return [UIApplication sharedApplication].keyWindow;
     UIWindow *keyWindow = [[UIApplication sharedApplication]keyWindow];;
     if (keyWindow == nil) {
@@ -191,7 +191,7 @@ void dispatchAfterDelay(double delay ,void(^block)()){
 
 -(UIViewController *)rootVC{
     //    return [UIApplication sharedApplication].keyWindow.rootViewController;
-    return self.keyWindow.rootViewController;
+    return self.globleWindow.rootViewController;
 }
 
 //-(void)setRootVC:(UIViewController *)rootVC{
@@ -264,7 +264,15 @@ void dispatchAfterDelay(double delay ,void(^block)()){
     }
     
     NSDictionary *attrDict = [self attrParaDictWithFont:font textColor:[UIColor blackColor] alignment:NSTextAlignmentLeft];
-    CGSize size = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading  attributes:attrDict context:nil].size;
+    
+    CGSize size = CGSizeZero;
+    if ([text isKindOfClass:[NSString class]]) {
+        size = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attrDict context:nil].size;
+
+    }else{
+        size = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size;
+
+    }
     size.height = ceil(size.height);
     return size;
 }
@@ -298,22 +306,6 @@ void dispatchAfterDelay(double delay ,void(^block)()){
         
     }
     return (NSAttributedString *)attString;
-}
-
-/**
- 富文本产生
- */
-- (NSMutableAttributedString *)getAttString:(NSString *)string textTaps:(NSArray *)textTaps{
-    
-    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:string];
-    [attString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:KFZ_Fouth] range:NSMakeRange(0, string.length)];
-    
-    for (NSInteger i = 0; i < textTaps.count; i++) {
-        [attString addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:[string rangeOfString:textTaps[i]]];
-        [attString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:KFZ_Fouth] range:[string rangeOfString:textTaps[i]]];
-        
-    }
-    return attString;
 }
 
 @end

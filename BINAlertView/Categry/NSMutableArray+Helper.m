@@ -22,4 +22,15 @@
     
 }
 
+
+- (void)replaceObject:(id)object withObject:(id)anObject{
+    
+    if (![self containsObject:object]) {
+        NSAssert([self containsObject:object], @"object不在数组中!");
+    }
+    NSUInteger index = [self indexOfObject:object];
+    [self replaceObjectAtIndex:index withObject:anObject];
+    
+}
+
 @end

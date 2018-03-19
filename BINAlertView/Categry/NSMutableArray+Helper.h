@@ -12,4 +12,6 @@
 
 -(void)addSafeObjct:(id)obj;
 
+- (void)replaceObject:(id)object withObject:(id)anObject;
+
 @end

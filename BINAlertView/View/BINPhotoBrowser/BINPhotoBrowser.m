@@ -56,7 +56,7 @@
     indexLabel.font = [UIFont boldSystemFontOfSize:20];
     indexLabel.backgroundColor = [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.3f];
     indexLabel.bounds = CGRectMake(0, 0, 80, 30);
-    indexLabel.center = CGPointMake(kSCREEN_WIDTH * 0.5, 30);
+    indexLabel.center = CGPointMake(kScreen_width * 0.5, 30);
     indexLabel.layer.cornerRadius = 15;
     indexLabel.clipsToBounds = YES;
     if (self.imageCount > 1) {
@@ -272,11 +272,11 @@
     CGFloat placeImageSizeH = tempView.image.size.height;
     CGRect targetTemp;
     
-    CGFloat placeHolderH = (placeImageSizeH * kSCREEN_WIDTH)/placeImageSizeW;
-    if (placeHolderH <= kSCREEN_HEIGHT) {
-        targetTemp = CGRectMake(0, (kSCREEN_HEIGHT - placeHolderH) * 0.5 , kSCREEN_WIDTH, placeHolderH);
+    CGFloat placeHolderH = (placeImageSizeH * kScreen_width)/placeImageSizeW;
+    if (placeHolderH <= kScreen_height) {
+        targetTemp = CGRectMake(0, (kScreen_height - placeHolderH) * 0.5 , kScreen_width, placeHolderH);
     } else {//图片高度>屏幕高度
-        targetTemp = CGRectMake(0, 0, kSCREEN_WIDTH, placeHolderH);
+        targetTemp = CGRectMake(0, 0, kScreen_width, placeHolderH);
     }
     
     //先隐藏scrollview
@@ -413,12 +413,12 @@
     tempImageView.image = currentImageView.image;
     CGFloat tempImageSizeH = tempImageView.image.size.height;
     CGFloat tempImageSizeW = tempImageView.image.size.width;
-    CGFloat tempImageViewH = (tempImageSizeH * kSCREEN_WIDTH)/tempImageSizeW;
+    CGFloat tempImageViewH = (tempImageSizeH * kScreen_width)/tempImageSizeW;
     
-    if (tempImageViewH < kSCREEN_HEIGHT) {//图片高度<屏幕高度
-        tempImageView.frame = CGRectMake(0, (kSCREEN_HEIGHT - tempImageViewH)*0.5, kSCREEN_WIDTH, tempImageViewH);
+    if (tempImageViewH < kScreen_height) {//图片高度<屏幕高度
+        tempImageView.frame = CGRectMake(0, (kScreen_height - tempImageViewH)*0.5, kScreen_width, tempImageViewH);
     } else {
-        tempImageView.frame = CGRectMake(0, 0, kSCREEN_WIDTH, tempImageViewH);
+        tempImageView.frame = CGRectMake(0, 0, kScreen_width, tempImageViewH);
     }
     [self addSubview:tempImageView];
     

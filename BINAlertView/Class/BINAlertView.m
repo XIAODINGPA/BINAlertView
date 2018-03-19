@@ -32,12 +32,12 @@ static const CGFloat padding = kPadding;
 @implementation BINAlertView
 
 -(CGFloat)maxWidth{
-    CGFloat width = kSCREEN_WIDTH - kX_GAP_OF_WINDOW * 2 - kXY_GAP*2;
+    CGFloat width = kScreen_width - kX_GAP_OF_WINDOW * 2 - kXY_GAP*2;
     return width;
 }
 
 -(CGFloat)maxHeight{
-    CGFloat heigth = kSCREEN_HEIGHT - 64 * 2 - kH_LABEL - kH_BTN - padding*2;
+    CGFloat heigth = kScreen_height - 64 * 2 - kH_LABEL - kH_BTN - padding*2;
     return heigth;
 }
 
@@ -77,7 +77,7 @@ static const CGFloat padding = kPadding;
         self.layer.borderWidth = 1.0 ;
         
         if (CGRectEqualToRect(self.frame, CGRectZero)) {
-            self.frame = CGRectMake(0, 0, kSCREEN_WIDTH - kX_GAP_OF_WINDOW * 2, 180);
+            self.frame = CGRectMake(0, 0, kScreen_width - kX_GAP_OF_WINDOW * 2, 180);
         }
         
         CGFloat maxWidth = self.maxWidth;
@@ -103,13 +103,16 @@ static const CGFloat padding = kPadding;
             customView.frame = CGRectMake(kXY_GAP, CGRectGetMaxY(labelRectTitle)+padding, customeViewSize.width, customeViewSize.height);
             for (UIView * view in customView.subviews) {
                 CGRect rect = view.frame;
-                rect.size.width = CGRectGetWidth(customView.frame);
+                if (rect.size.width > CGRectGetWidth(customView.frame)) {
+                    rect.size.width = CGRectGetWidth(customView.frame);
+
+                }
                 view.frame = rect;
             }
             
             [self addSubview:customView];
             self.customView = customView;
-//            self.customView.clipsToBounds = YES;
+            self.customView.clipsToBounds = YES;
             
             self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetMaxY(self.labTitle.frame)+CGRectGetHeight(customView.frame) + kH_BTN + padding*2);
 

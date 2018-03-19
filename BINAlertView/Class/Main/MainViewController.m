@@ -126,7 +126,7 @@
 //加tableview
 -(UIView *)createView{
     
-    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, kSCREEN_HEIGHT)];
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, kScreen_height)];
     view.backgroundColor = [UIColor redColor];
     
     UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame)) style:UITableViewStylePlain];
@@ -197,7 +197,7 @@
 //createSpeakStartView
 -(UIView *)createSpeakStartView{
     
-    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, 30)];
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, 30)];
     //    UIView * view = [[UIView alloc]initWithFrame:CGRectZero];
     
     view.backgroundColor = [UIColor clearColor];
@@ -209,8 +209,8 @@
     
     
     NSInteger count = kCOUNT_IMAGEVIEW;
-    CGFloat imgWH = (kSCREEN_WIDTH - 25 * 2 - (kCOUNT_IMAGEVIEW - 1) * 5)/kCOUNT_IMAGEVIEW;
-    view.frame = CGRectMake(0, 0, kSCREEN_WIDTH, imgWH+5);
+    CGFloat imgWH = (kScreen_width - 25 * 2 - (kCOUNT_IMAGEVIEW - 1) * 5)/kCOUNT_IMAGEVIEW;
+    view.frame = CGRectMake(0, 0, kScreen_width, imgWH+5);
     for (int i = 0; i < count; i++) {
         
         UIImageView * imgV = [[UIImageView alloc]initWithFrame:CGRectMake(10 + (imgWH + 5) * i , 0, imgWH, imgWH)];

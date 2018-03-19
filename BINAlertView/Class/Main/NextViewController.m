@@ -75,7 +75,7 @@
 
 -(UIView *)createSpeakStartView{
     
-    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, 30)];
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, 30)];
     //    UIView * view = [[UIView alloc]initWithFrame:CGRectZero];
     
     view.backgroundColor = [UIColor clearColor];
@@ -83,8 +83,8 @@
 
     
     NSInteger count = 6;
-    CGFloat imgWH = (kSCREEN_WIDTH - 25 * 2 - (6 - 1) * 5)/6;
-    view.frame = CGRectMake(0, 0, kSCREEN_WIDTH, imgWH+5);
+    CGFloat imgWH = (kScreen_width - 25 * 2 - (6 - 1) * 5)/6;
+    view.frame = CGRectMake(0, 0, kScreen_width, imgWH+5);
     for (int i = 0; i < count; i++) {
         
         UIImageView * imgV = [[UIImageView alloc]initWithFrame:CGRectMake(10 + (imgWH + 5) * i , 0, imgWH, imgWH)];

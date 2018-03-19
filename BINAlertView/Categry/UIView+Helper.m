@@ -184,7 +184,7 @@ static const char kTActionHandlerTapGestureKey;
 //    CGFloat textFieldHeight = 30;
 //    CGFloat YGap = (CGRectGetHeight(rect) - textFieldHeight)/2.0;
 //    
-//    CGRect textFieldRect = CGRectMake(0, YGap, kSCREEN_WIDTH, textFieldHeight);
+//    CGRect textFieldRect = CGRectMake(0, YGap, kScreen_width, textFieldHeight);
     BINTextField * textField = [BINTextField createBINTextFieldWithRect:rect text:text placeholder:placeholder fontSize:fontSize textAlignment:NSTextAlignmentLeft keyboardType:keyboardType];
     textField.textAlignment = textAlignment;
     

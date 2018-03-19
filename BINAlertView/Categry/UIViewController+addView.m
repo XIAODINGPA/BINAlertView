@@ -31,7 +31,7 @@
             self.navigationItem.rightBarButtonItem = rightItem;
             
         }else{
-            CGSize titleSize = [self sizeWithText:title font:@15 width:kSCREEN_WIDTH];
+            CGSize titleSize = [self sizeWithText:title font:@15 width:kScreen_width];
 //            DDLog(@"size %@",NSStringFromCGSize(titleSize));
             
             

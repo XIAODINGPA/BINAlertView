@@ -81,7 +81,7 @@
     btn.exclusiveTouch = YES;
 
     if (title.length >= 3) {
-        CGSize titleSize = [self sizeWithText:title font:@(font) width:kSCREEN_WIDTH];
+        CGSize titleSize = [self sizeWithText:title font:@(font) width:kScreen_width];
         
         btn.frame = CGRectMake(0, 0, titleSize.width, size.height);
         btn.titleEdgeInsets = UIEdgeInsetsMake(-10, -20, -10, -20);

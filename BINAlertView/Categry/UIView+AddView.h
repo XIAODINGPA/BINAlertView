@@ -27,6 +27,8 @@ typedef void(^SegmentViewBlock)(NSInteger selectIndex);  // SegmentViewBlock不�
 //
 //- (void)addBtnWithRect:(CGRect)rect title:(NSString *)title tag:(NSInteger)tag patternType:(NSString *)patternType Target:(id)target aSelector:(SEL)aSelector isHidden:(BOOL)isHidden isEnable:(BOOL)isEnable InView:(UIView *)inView;
 
++(CALayer *)createLayerWithInView:(UIView *)inView patternType:(NSString *)patternType;
+-(CALayer *)createLayerByPatternType:(NSString *)patternType;
 
 #pragma mark - - 类方法
 + (UIView *)createViewWithRect:(CGRect)rect tag:(NSInteger)tag;

@@ -141,7 +141,7 @@ static NSString *const kC_CurrentColor = @"PageControlCurrentColor";
 }
 #pragma mark - scrollView Delegate
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    NSInteger cuttentIndex = (NSInteger)(scrollView.contentOffset.x + kSCREEN_WIDTH/2)/kSCREEN_WIDTH;
+    NSInteger cuttentIndex = (NSInteger)(scrollView.contentOffset.x + kScreen_width/2)/kScreen_width;
     if (cuttentIndex == self.images.count - 1) {
         if ([self isScrolltoLeft:scrollView]) {
             if (!self.isScrollOut) {
@@ -153,7 +153,7 @@ static NSString *const kC_CurrentColor = @"PageControlCurrentColor";
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (scrollView == self.scrollView) {
-        NSInteger cuttentIndex = (NSInteger)(scrollView.contentOffset.x + kSCREEN_WIDTH/2)/kSCREEN_WIDTH;
+        NSInteger cuttentIndex = (NSInteger)(scrollView.contentOffset.x + kScreen_width/2)/kScreen_width;
         self.pageControl.currentPage = cuttentIndex;
     }
 }

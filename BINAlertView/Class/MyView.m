@@ -11,8 +11,8 @@
 #define iOS(version) (([[[UIDevice currentDevice] systemVersion] intValue] >= version)?1:0)
 
 
-#define kSCREEN_WIDTH  [[UIScreen mainScreen]bounds].size.width
-#define kSCREEN_HEIGHT [[UIScreen mainScreen]bounds].size.height
+#define kScreen_width  [[UIScreen mainScreen]bounds].size.width
+#define kScreen_height [[UIScreen mainScreen]bounds].size.height
 
 #define kX_GAP_OF_WINDOW 15//距离window边界
 
@@ -146,7 +146,7 @@
         
         if (CGRectEqualToRect(self.frame, CGRectZero)) {
             
-            self.frame = CGRectMake(0, 0, kSCREEN_WIDTH - kX_GAP_OF_WINDOW * 2, 180);
+            self.frame = CGRectMake(0, 0, kScreen_width - kX_GAP_OF_WINDOW * 2, 180);
         }
         /*
         if (title != nil) {
@@ -172,7 +172,7 @@
 
         */
         CGSize  titleSize = CGSizeZero;
-        CGFloat maxWidth = kSCREEN_WIDTH - (kX_GAP_OF_WINDOW + kXY_GAP)*2;
+        CGFloat maxWidth = kScreen_width - (kX_GAP_OF_WINDOW + kXY_GAP)*2;
         if (title != nil) {
             
             titleSize = [self sizeWithText:title fontSize:kFONTSIZE width:maxWidth];
@@ -219,7 +219,7 @@
                 
                 self.frame = CGRectMake(0, 0, self.frame.size.width,kXY_GAP + titleSize.height + 5 + customeViewSize.height + btnSize.height);
                 
-                CGFloat maxHeight = kSCREEN_HEIGHT - 64 * 2;
+                CGFloat maxHeight = kScreen_height - 64 * 2;
                 if (CGRectGetHeight(self.frame) > maxHeight) {
                     
                     self.frame = CGRectMake(0, 0, self.frame.size.width,maxHeight);

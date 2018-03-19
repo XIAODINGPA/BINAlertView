@@ -84,12 +84,12 @@
     view.backgroundColor = [UIColor whiteColor];
     
     CGSize imgSize = CGSizeMake(65, 75);
-    CGRect imgViewRect = CGRectMake((kSCREEN_WIDTH - imgSize.width)/2.0, (CGRectGetHeight(self.view.bounds) - imgSize.height)/2.0, imgSize.width, imgSize.height);
+    CGRect imgViewRect = CGRectMake((kScreen_width - imgSize.width)/2.0, (CGRectGetHeight(self.view.bounds) - imgSize.height)/2.0, imgSize.width, imgSize.height);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:imgViewRect];
     imageView.image = [UIImage imageNamed:@"error.png"];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    UILabel * tipLabel = [[UILabel alloc]initWithFrame:CGRectMake(kX_GAP, CGRectGetMaxY(imgViewRect)+5, kSCREEN_WIDTH - 2 * kX_GAP, 30)];
+    UILabel * tipLabel = [[UILabel alloc]initWithFrame:CGRectMake(kX_GAP, CGRectGetMaxY(imgViewRect)+5, kScreen_width - 2 * kX_GAP, 30)];
     tipLabel.text = title;
     tipLabel.font = [UIFont systemFontOfSize:15];
     tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -147,12 +147,12 @@
     view.backgroundColor = [UIColor whiteColor];
     
     CGSize imgSize = CGSizeMake(65, 75);
-    CGRect imgViewRect = CGRectMake((kSCREEN_WIDTH - imgSize.width)/2.0, (CGRectGetHeight(self.view.bounds) - imgSize.height)/2.0, imgSize.width, imgSize.height);
+    CGRect imgViewRect = CGRectMake((kScreen_width - imgSize.width)/2.0, (CGRectGetHeight(self.view.bounds) - imgSize.height)/2.0, imgSize.width, imgSize.height);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:imgViewRect];
     imageView.image = [UIImage imageNamed:@"mo_nor.png"];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    UILabel * tipLabel = [[UILabel alloc]initWithFrame:CGRectMake(kX_GAP, CGRectGetMaxY(imgViewRect)+5, kSCREEN_WIDTH - 2 * kX_GAP, 30)];
+    UILabel * tipLabel = [[UILabel alloc]initWithFrame:CGRectMake(kX_GAP, CGRectGetMaxY(imgViewRect)+5, kScreen_width - 2 * kX_GAP, 30)];
     tipLabel.text = title;
     tipLabel.font = [UIFont systemFontOfSize:15];
     tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -195,12 +195,12 @@
     view.backgroundColor = [UIColor whiteColor];
     
     CGSize imgSize = CGSizeMake(65, 75);
-    CGRect imgViewRect = CGRectMake((kSCREEN_WIDTH - imgSize.width)/2.0, (CGRectGetHeight(self.view.bounds) - imgSize.height)/2.0, imgSize.width, imgSize.height);
+    CGRect imgViewRect = CGRectMake((kScreen_width - imgSize.width)/2.0, (CGRectGetHeight(self.view.bounds) - imgSize.height)/2.0, imgSize.width, imgSize.height);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:imgViewRect];
     imageView.image = [UIImage imageNamed:image];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    UILabel * tipLabel = [[UILabel alloc]initWithFrame:CGRectMake(kX_GAP, CGRectGetMaxY(imgViewRect)+5, kSCREEN_WIDTH - 2 * kX_GAP, 30)];
+    UILabel * tipLabel = [[UILabel alloc]initWithFrame:CGRectMake(kX_GAP, CGRectGetMaxY(imgViewRect)+5, kScreen_width - 2 * kX_GAP, 30)];
     tipLabel.text = title;
     tipLabel.font = [UIFont systemFontOfSize:15];
     tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -343,7 +343,7 @@
 //            self.navigationItem.rightBarButtonItem = rightItem;
 //            return btn;
 //        }else{
-//            CGSize titleSize = [self sizeWithText:title fontSize:15 width:kSCREEN_WIDTH];
+//            CGSize titleSize = [self sizeWithText:title fontSize:15 width:kScreen_width];
 //            //            DDLog(@"size %@",NSStringFromCGSize(titleSize));
 //            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //            if (title.length <= 2) {
@@ -935,7 +935,7 @@
             return imgView;
         }
         else{
-            CGSize size = [self sizeWithText:unitString font:@(KFZ_Third) width:kSCREEN_WIDTH];
+            CGSize size = [self sizeWithText:unitString font:@(KFZ_Third) width:kScreen_width];
             
             UILabel * label = [UILabel createLabelWithRect:CGRectMake(0, 0, size.width+2, 25) text:unitString textColor:kC_TextColor_Title tag:kTAG_LABEL patternType:@"2" fontSize:KFZ_Third backgroudColor:[UIColor clearColor] alignment:NSTextAlignmentCenter];
             return label;
