@@ -251,7 +251,7 @@
             NSArray * array = @[@"*品种名称",@"*品种代号",@"*品种备注"];
             NSArray * arraySub = @[@"*品种名称",@"*品种备注"];
 
-            NSArray * attList = [self getAttListByString:@"*" titleList:array mustList:arraySub];
+            NSArray * attList = [self getAttListByPrefix:@"*" titleList:array mustList:arraySub];
             
             NSDictionary * dict = @{
                                     @"*品种名称" : @"汉字",
@@ -305,19 +305,31 @@
             break;
         case 11:
         {
-            NSArray * array = @[@"*品种名称",@"*品种代号",@"*品种备注"];
-            NSArray * arraySub = @[@"*品种名称",@"*品种备注"];
-            
-            NSArray * attList = [self getAttListByString:@"*" titleList:array mustList:arraySub];
-            
+            NSArray * array = @[@"品种名称",@"品种代号",@"品种备注"];
             NSDictionary * dict = @{
-                                    @"*品种名称" : @"汉字",
-                                    @"*品种代号" : @"英文字母大写",
-                                    @"*品种备注" : @"asdfasd"
+                                    @"品种名称" : @"汉字",
+                                    @"品种代号" : @"英文字母大写",
+                                    @"品种备注" : @"asdfasd"
                                     
                                     };
+            NSMutableArray * marr = [NSMutableArray arrayWithCapacity:0];
+            for (NSInteger i = 0; i < array.count; i++) {
+                ElementModel *model = [[ElementModel alloc]init];
+                
+                if (i == 0 || i== 2) {
+                    model.isMust = YES;
+                }
+                
+                NSString * title = array[i];
+                NSString * starString = @"*";
+                model.title = [self getAttringByPrefix:starString content:title isMust:model.isMust];
+                model.content = array[i];
+                model.placeHolder = dict[title];
+                
+                [marr addObject:model];
+            }
             
-            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" items:attList itemDict:dict btnTitles:@[@"取消",@"确认"]];
+            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" items:marr btnTitles:@[@"取消",@"确认"]];
             [alertView show];
             [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
 //                NSLog(@"%@====%@",alertView,@(btnIndex));
@@ -326,13 +338,25 @@
 
                 }
             }];
-            //            [UIView getLineWithView:alertView];
+//            [UIView getLineWithView:alertView];
         }
             break;
         default:
             break;
     }
 }
+
+- (NSAttributedString *)getAttringWithPrefix:(NSString *)prefix content:(NSString *)content isMust:(BOOL)isMust{
+    
+    if (![content hasPrefix:prefix]) content = [prefix stringByAppendingString:content];
+
+    UIColor * colorMust = isMust ? [UIColor redColor] : [UIColor clearColor];
+    
+    NSArray * textTaps = @[prefix];
+    NSAttributedString * attString = [self getAttString:content textTaps:textTaps font:@15 tapFont:@15 tapColor:colorMust alignment:NSTextAlignmentCenter];
+    return attString;
+}
+
 
 - (UIView *)createCustomeViewWithImage:(NSString *)image msg:(NSString *)msg{
     UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kWidth_customView, 200)];

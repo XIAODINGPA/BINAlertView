@@ -318,10 +318,8 @@ static const CGFloat padding = kPadding;
     }
 }
 
-
-+ (BINAlertView *)alertViewWithTitle:(NSString *)title items:(NSArray *)items itemDict:(NSDictionary *)itemDict btnTitles:(NSArray *)btnTitles{
-    UIView * customView = [UIView createViewByItems:items itemDict:itemDict width:kWidth_customView];
-    
++ (BINAlertView *)alertViewWithTitle:(NSString *)title items:(NSArray *)items btnTitles:(NSArray *)btnTitles{
+    UIView * customView = [self createViewByItems:items width:kWidth_customView];
     BINAlertView *alertView = [BINAlertView alertViewWithTitle:title message:nil customView:customView btnTitles:btnTitles];
     
     alertView.textFieldList = [NSMutableArray arrayWithCapacity:0];
@@ -329,15 +327,14 @@ static const CGFloat padding = kPadding;
         if ([view isKindOfClass:[UITextField class]]) {
             UITextField * textField = (UITextField *)view;
             [alertView.textFieldList addObject:textField];
-//            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextFieldTextDidChangeNoti:) name:UITextFieldTextDidChangeNotification object:textField];
+            //            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextFieldTextDidChangeNoti:) name:UITextFieldTextDidChangeNotification object:textField];
             
         }
-        
     }
     return alertView;
 }
 
-+ (UIView *)createViewByItems:(NSArray *)items itemDict:(NSDictionary *)itemDict width:(CGFloat)width{
++ (UIView *)createViewByItems:(NSArray *)items width:(CGFloat)width{
     
     CGFloat viewHeight = 30;
     CGFloat height = items.count *viewHeight + (items.count - 1)*kPadding;
@@ -345,8 +342,9 @@ static const CGFloat padding = kPadding;
     
     CGRect rectLab = CGRectZero;
     for (NSInteger i = 0; i<items.count; i++) {
+        ElementModel * modol = items[i];
         
-        CGSize size = [self sizeWithText:items[i] font:@15 width:kScreen_width];
+        CGSize size = [self sizeWithText:modol.title font:@15 width:kScreen_width];
         if (CGRectEqualToRect(rectLab, CGRectZero)) {
             rectLab = CGRectMake(0, CGRectGetMaxY(rectLab), size.width, viewHeight);
             
@@ -354,11 +352,11 @@ static const CGFloat padding = kPadding;
             rectLab = CGRectMake(0, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
             
         }
-        UILabel * label = [UIView createLabelWithRect:rectLab text:items[i] textColor:nil tag:kTAG_LABEL+i patternType:@"2" fontSize:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+        UILabel * label = [UIView createLabelWithRect:rectLab text:modol.title textColor:nil tag:kTAG_LABEL+i patternType:@"2" fontSize:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         
         CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding, viewHeight);
         
-        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:@"" placeholder:itemDict[items[i]] fontSize:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
+        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:modol.content placeholder:modol.placeHolder fontSize:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
         [backgroudView addSubview:label];
         [backgroudView addSubview:textField];
         

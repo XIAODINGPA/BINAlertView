@@ -37,7 +37,10 @@ typedef void (^BlockAlertView)(BINAlertView * alertView,  NSInteger btnIndex);
  */
 + (BINAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles;
 
-+ (BINAlertView *)alertViewWithTitle:(NSString *)title items:(NSArray *)items itemDict:(NSDictionary *)itemDict btnTitles:(NSArray *)btnTitles;
+/**
+ 多行输入框
+ */
++ (BINAlertView *)alertViewWithTitle:(NSString *)title items:(NSArray *)items btnTitles:(NSArray *)btnTitles;
 
 @property (nonatomic, strong, readonly) NSMutableArray * textFieldList;
 
@@ -59,7 +62,9 @@ typedef void (^BlockAlertView)(BINAlertView * alertView,  NSInteger btnIndex);
 
 @interface ElementModel : UIView
 
-@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSAttributedString * title;
+//@property (nonatomic, strong) NSAttributedString * titleAttr;
+
 @property (nonatomic, strong) NSString * content;
 @property (nonatomic, strong) NSString * placeHolder;
 @property (nonatomic, assign) BOOL  isMust;

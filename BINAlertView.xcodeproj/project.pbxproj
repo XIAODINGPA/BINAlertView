@@ -453,11 +453,11 @@
 		518372B81F7E117D00248179 /* Categry */ = {
 			isa = PBXGroup;
 			children = (
+				518372B91F7E117D00248179 /* CategoryHeader.h */,
 				51C5AF23205FA1C9000E8EA1 /* UIViewController+Helper.h */,
 				51C5AF22205FA1C9000E8EA1 /* UIViewController+Helper.m */,
 				51803C542049483000799B48 /* MBProgressHUD+Helper.h */,
 				51803C552049483100799B48 /* MBProgressHUD+Helper.m */,
-				518372B91F7E117D00248179 /* CategoryHeader.h */,
 				518FD84A204801A100FD7ADA /* UIApplication+Helper.h */,
 				518FD846204801A000FD7ADA /* UIApplication+Helper.m */,
 				518373531F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.h */,

@@ -62,6 +62,8 @@ void dispatchAfterDelay(double delay ,void(^block)());
  */
 - (NSAttributedString *)getAttString:(NSString *)text textTaps:(NSArray *)textTaps font:(id)font tapFont:(id)tapFont tapColor:(UIColor *)tapColor alignment:(NSTextAlignment)alignment;
 
--(NSArray *)getAttListByString:(NSString *)string titleList:(NSArray *)titleList mustList:(NSArray *)mustList;
+- (NSArray *)getAttListByPrefix:(NSString *)prefix titleList:(NSArray *)titleList mustList:(NSArray *)mustList;
+
+- (NSAttributedString *)getAttringByPrefix:(NSString *)prefix content:(NSString *)content isMust:(BOOL)isMust;
 
 @end
