@@ -119,6 +119,14 @@ static const char kTActionHandlerTapGestureKey;
     }
 }
 
+- (void)getLayerAllCorners:(UIColor *)borderColor{
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = 5.0;
+    self.layer.borderColor = borderColor.CGColor;
+    self.layer.borderWidth = kW_LayerBorderWidth;
+    
+}
+
 //- (UIViewController *)parController{//获取cell的控制器
 //
 //    UIViewController * viewController = nil;

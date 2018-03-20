@@ -16,6 +16,8 @@
 
 @interface MainNewViewController ()<UITableViewDataSource,UITableViewDelegate>
 
+@property (nonatomic ,strong) UIView * containView;
+
 @end
 
 @implementation MainNewViewController
@@ -26,22 +28,112 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
 
+    self.view.backgroundColor = [UIColor greenColor];
+    
     self.title = self.controllerName;
    
-    [self createControls];
+//    [self createControls];
     
-}
-
-- (void)createControls{
+    NSMutableArray * elementList = [NSMutableArray arrayWithCapacity:0];
     for (NSInteger i = 0; i< 9; i++) {
         NSString * title = [NSString stringWithFormat:@"点我%@",@(i)];
-        CGRect btnRect = CGRectMake(kX_GAP*4, kY_GAP*2 + (40 + 10)*i, kScreen_width - kX_GAP*8, 40);
-        UIButton * btn = [UIView  createBtnWithRect:btnRect title:title  fontSize:15 image:nil tag:kTAG_BTN+i patternType:@"8" target:self aSelector:@selector(handleActionBtn:)];
-        [self.view addSubview:btn];
+        [elementList addObject:title];
+        
     }
+    
+    UIView * containView = [self createViewElements:elementList numberOfRow:4 viewHeight:30 padding:15];
+    containView.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:containView];
+    
+    DDLog(@"%@",containView.subviews);
+    
+   
+    self.containView = containView;
 }
 
+- (UIView *)createViewElements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding{
+
+//    CGFloat padding = 15;
+//    CGFloat viewHeight = 30;
+//    NSInteger numberOfRow = 4;
+    NSInteger rowCount = elements.count % numberOfRow == 0 ? elements.count / numberOfRow : elements.count / numberOfRow +  elements.count % numberOfRow;
+    
+    //
+    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(20, 20, kScreen_width - 20*2, rowCount * viewHeight + (rowCount - 1) * padding)];
+    backgroudView.backgroundColor = [UIColor greenColor];
+    
+    CGSize viewSize = CGSizeMake((CGRectGetWidth(backgroudView.frame) - (numberOfRow-1)*padding)/numberOfRow, viewHeight);
+    for (NSInteger i = 0; i< elements.count; i++) {
+        
+        CGFloat w = viewSize.width;
+        CGFloat h = viewSize.height;
+        CGFloat x = w * ( i % numberOfRow) + padding * ( i % numberOfRow);
+        CGFloat y =  (i / numberOfRow) * (h + padding);
+        
+        NSString * title = [NSString stringWithFormat:@"点我%@",@(i)];
+        title = elements[i];
+        CGRect btnRect = CGRectMake(x, y, w, h);
+        UIButton * btn = [UIView  createBtnWithRect:btnRect title:title fontSize:15 image:nil tag:kTAG_BTN+i patternType:@"0" target:self aSelector:@selector(handleActionBtn:)];
+        [backgroudView addSubview:btn];
+        
+    }
+    return backgroudView;
+}
+
+//- (void)createControls{
+//    NSMutableArray * elementList = [NSMutableArray arrayWithCapacity:0];
+//    for (NSInteger i = 0; i< 9; i++) {
+//        NSString * title = [NSString stringWithFormat:@"点我%@",@(i)];
+//        [elementList addObject:title];
+//
+//    }
+//
+//    CGFloat padding = 15;
+//    CGFloat viewHeight = 30;
+//
+//    NSInteger numberOfRow = 4;
+//    NSInteger rowCount = elementList.count % numberOfRow == 0 ? elementList.count / numberOfRow : elementList.count / numberOfRow +  elementList.count % numberOfRow;
+//
+////
+//    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(20, 20, kScreen_width - 20*2, rowCount * viewHeight + (rowCount - 1) * padding)];
+//    backgroudView.backgroundColor = [UIColor greenColor];
+//
+//    CGSize viewSize = CGSizeMake((CGRectGetWidth(backgroudView.frame) - (numberOfRow-1)*padding)/numberOfRow, viewHeight);
+//    for (NSInteger i = 0; i< elementList.count; i++) {
+//
+//        CGFloat w = viewSize.width;
+//        CGFloat h = viewSize.height;
+//        CGFloat x = w * ( i % numberOfRow) + padding * ( i % numberOfRow);
+//        CGFloat y =  (i / numberOfRow) * (h + padding);
+//
+//        NSString * title = [NSString stringWithFormat:@"点我%@",@(i)];
+//        title = elementList[i];
+//        CGRect btnRect = CGRectMake(x, y, w, h);
+//        UIButton * btn = [UIView  createBtnWithRect:btnRect title:title fontSize:15 image:nil tag:kTAG_BTN+i patternType:@"8" target:self aSelector:@selector(handleActionBtn:)];
+//        [backgroudView addSubview:btn];
+//    }
+//    [self.view addSubview:backgroudView];
+//
+//    [UIView getLineWithView:self.view];
+//}
+
 - (void)handleActionBtn:(UIButton *)sender{
+    
+    for (UIButton * btn in sender.superview.subviews) {
+        
+        if ([btn isEqual:sender]) {
+            [btn setBackgroundImage:[UIImage imageWithColor:kC_ThemeCOLOR_Two] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            
+            [btn getLayerAllCorners:kC_ThemeCOLOR_Two];
+        }else{
+            [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [btn getLayerAllCorners:kC_LineColor];
+
+        }
+    }
+    
     
     switch (sender.tag-kTAG_BTN) {
         case 0:
@@ -189,9 +281,7 @@
             [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
                 NSLog(@"%@====%@",alertView,@(btnIndex));
             }];
-            
-            //            [UIView getLineWithView:alertView];
-
+//            [UIView getLineWithView:alertView];
             
         }
             break;
