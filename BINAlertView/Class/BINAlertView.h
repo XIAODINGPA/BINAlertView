@@ -10,7 +10,11 @@
 
 static const CGFloat kX_GAP_OF_WINDOW = 30;//弹窗距离屏幕边界距离
 static const CGFloat kXY_GAP = 10;//子视图相对弹窗的边界距离
-static const CGFloat kH_BTN = 45;//地下按钮高度
+
+//弹窗内容宽度
+#define kWidth_customView  (kScreen_width - (kX_GAP_OF_WINDOW + kXY_GAP)*2)
+
+static const CGFloat kH_BTN = 45;//底下按钮高度
 
 @class BINAlertView;
 
@@ -24,8 +28,12 @@ typedef void (^BlockAlertView)(BINAlertView * alertView,  NSInteger btnIndex);
  @param title 标题如果不想显示此控件空间置位nil,一般来说空字符@""比较推荐
  @param msg 信息主体,必须customView为nil,同时有msg和customView时,优先显示customView
  @param customView 如果customeView超出BINAlertView的尺寸则按比例缩小,类似UIViewContentModeScaleAspectFit
+
  @param btnTitles 底部按钮,支持2个以上
  @return 返回BINAlertView
+ 
+ 注意:customView宽度应为 kScreen_width - (kX_GAP_OF_WINDOW + kXY_GAP)*2
+
  */
 + (BINAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles;
 

@@ -89,6 +89,17 @@ static const char kTActionHandlerTapGestureKey;
     }
 }
 
+/**
+ 关联方法待改进
+ */
+- (void)handleActionTapGesture:(UITapGestureRecognizer *)tapGesture{
+    BlockObject block = objc_getAssociatedObject(self, @selector(addActionHandler:));
+    if (block){
+        block(tapGesture);
+        
+    }
+}
+
 
 // 获取所有子视图(需要注意的是，我的level设置是从1开始的，这与方法中加空格时变量 i 起始的值是相呼应的，要改就要都改。)
 + (void)getSub:(UIView *)view andLevel:(NSInteger)level {
@@ -126,35 +137,6 @@ static const char kTActionHandlerTapGestureKey;
     self.layer.borderWidth = kW_LayerBorderWidth;
     
 }
-
-//- (UIViewController *)parController{//获取cell的控制器
-//
-//    UIViewController * viewController = nil;
-//    for (UIView* next = [self superview]; next; next = next.superview) {
-//        UIResponder* nextResponder = [next nextResponder];
-//        if ([nextResponder isKindOfClass:[UIViewController class]]) {
-//            NSLog(@"%@,%@,%@",NSStringFromClass([next class]),NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-//            viewController = (UIViewController*)nextResponder;
-//            break;
-//        }
-//    }
-//    return viewController;
-//
-//}
-//\
-//
-///** 获取当前View的控制器对象 */
-//-(UIViewController *)getCurrentViewController{
-//    UIResponder *next = [self nextResponder];
-//    do {
-//        if ([next isKindOfClass:[UIViewController class]]) {
-//            NSLog(@"%@,%@,%@",NSStringFromClass([next class]),NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-//            return (UIViewController *)next;
-//        }
-//        next = [next nextResponder];
-//    } while (next != nil);
-//    return nil;
-//}
 
 
 + (BINTextField *)createBINTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder fontSize:(NSInteger)fontSize textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType
@@ -359,39 +341,70 @@ static const char kTActionHandlerTapGestureKey;
     
     return backgroudView;
 }
-////图片+文字
-//+ (UIView *)getImgLabViewRect:(CGRect)rect image:(id)image text:(NSString *)text imgViewSize:(CGSize)imgViewSize{
-//    UIView * backgroudView = [[UIView alloc]initWithFrame:rect];
-//    
-//    CGFloat padding = kPadding;
-//    CGRect imgViewRect = CGRectMake(0, 0, imgViewSize.width, imgViewSize.height);
-//    
-//    if (imgViewSize.height > CGRectGetHeight(rect)) {
-//        CGRect rect = backgroudView.frame;
-//        rect.size.height = imgViewSize.height;
-//        backgroudView.frame = rect;
-//        
-//    }else{
-//        CGFloat XYGap = (CGRectGetHeight(backgroudView.frame) - imgViewSize.height)/2.0;
-//        imgViewRect = CGRectMake(XYGap, XYGap, imgViewSize.width, imgViewSize.height);
-//        
-//    }
-//    
-//    CGRect labelRect = CGRectMake(CGRectGetMaxX(imgViewRect) + padding, CGRectGetMinY(imgViewRect), CGRectGetWidth(backgroudView.frame) - CGRectGetWidth(imgViewRect) - padding, CGRectGetHeight(imgViewRect));
-//    
-//    UIImageView * imgView = [UIView createImageViewWithRect:imgViewRect image:image tag:kTAG_IMGVIEW patternType:@"0"];
-//    imgView.tag = kTAG_IMGVIEW;
-//    [backgroudView addSubview:imgView];
-//    
-//    UILabel * labelVehicle = [UIView createLabelWithRect:labelRect text:text textColor:nil tag:kTAG_LABEL patternType:@"2" fontSize:KFZ_Fouth backgroudColor:nil alignment:NSTextAlignmentLeft];
-//    labelVehicle.tag = kTAG_LABEL;
-//    [backgroudView addSubview:labelVehicle];
-//    
-//    //    backgroudView.layer.borderColor = [[UIColor whiteColor] CGColor];
-//    //    backgroudView.layer.borderWidth = 0.5;
-//    
-//    return backgroudView;
-//}
+
++ (UIView *)createViewElements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding{
+    
+//    CGFloat padding = 15;
+//    CGFloat viewHeight = 30;
+//    NSInteger numberOfRow = 4;
+    NSInteger rowCount = elements.count % numberOfRow == 0 ? elements.count/numberOfRow : elements.count/numberOfRow + 1;
+    //
+    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(20, 20, kScreen_width - 20*2, rowCount * viewHeight + (rowCount - 1) * padding)];
+    backgroudView.backgroundColor = [UIColor greenColor];
+    
+    CGSize viewSize = CGSizeMake((CGRectGetWidth(backgroudView.frame) - (numberOfRow-1)*padding)/numberOfRow, viewHeight);
+    for (NSInteger i = 0; i< elements.count; i++) {
+        
+        CGFloat w = viewSize.width;
+        CGFloat h = viewSize.height;
+        CGFloat x = w * ( i % numberOfRow) + padding * ( i % numberOfRow);
+        CGFloat y =  (i / numberOfRow) * (h + padding);
+        
+        NSString * title = elements[i];
+        CGRect btnRect = CGRectMake(x, y, w, h);
+        UIButton * btn = [UIView createBtnWithRect:btnRect title:title fontSize:15 image:nil tag:kTAG_BTN+i patternType:@"0" target:self aSelector:@selector(handleActionBtn:)];
+        
+        [btn removeTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [backgroudView addSubview:btn];
+        
+    }
+    return backgroudView;
+}
+
++ (UIView *)createViewByItems:(NSArray *)items itemDict:(NSDictionary *)itemDict width:(CGFloat)width{
+    
+    CGFloat viewHeight = 30;
+    CGFloat height = items.count *viewHeight + (items.count - 1)*kPadding;
+    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
+    
+    CGRect rectLab = CGRectZero;
+    for (NSInteger i = 0; i<items.count; i++) {
+        
+        CGSize size = [self sizeWithText:items[i] font:@15 width:kScreen_width];
+        if (CGRectEqualToRect(rectLab, CGRectZero)) {
+            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab), size.width, viewHeight);
+            
+        }else{
+            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
+            
+        }
+        UILabel * label = [UIView createLabelWithRect:rectLab text:items[i] textColor:nil tag:kTAG_LABEL+i patternType:@"2" fontSize:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+        
+        CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding, viewHeight);
+        
+        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:@"" placeholder:itemDict[items[i]] fontSize:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
+        [backgroudView addSubview:label];
+        [backgroudView addSubview:textField];
+        
+        textField.borderStyle = UITextBorderStyleNone;
+        [textField.layer addSublayer:[textField createLayerByPatternType:@"2"]];//下线条
+        
+        textField.backgroundColor = [UIColor cyanColor];
+        
+    }
+    return backgroudView;
+    
+}
 
 - (void)setOriginX:(CGFloat)originX{
     CGRect rect = self.frame;

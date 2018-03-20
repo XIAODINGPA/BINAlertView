@@ -32,22 +32,45 @@
     
     self.title = self.controllerName;
    
-//    [self createControls];
     
     NSMutableArray * elementList = [NSMutableArray arrayWithCapacity:0];
-    for (NSInteger i = 0; i< 9; i++) {
+    for (NSInteger i = 0; i< 13; i++) {
         NSString * title = [NSString stringWithFormat:@"点我%@",@(i)];
         [elementList addObject:title];
         
     }
     
-    UIView * containView = [self createViewElements:elementList numberOfRow:4 viewHeight:30 padding:15];
+//    UIView * containView = [self createViewElements:elementList numberOfRow:4 viewHeight:30 padding:15];
+//    containView.backgroundColor = [UIColor orangeColor];
+//    [self.view addSubview:containView];
+    
+    
+    UIView * containView = [UIView createViewElements:elementList numberOfRow:4 viewHeight:30 padding:15];
     containView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:containView];
     
-    DDLog(@"%@",containView.subviews);
-    
-   
+    for (UIButton * view in containView.subviews) {
+        
+        [view addTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
+//        [view addActionHandler:^(id objc) {
+//            DDLog(@"%@",objc);
+//            for (UIButton * btn in view.superview.subviews) {
+//
+//                if ([btn isEqual:view]) {
+//                    [btn setBackgroundImage:[UIImage imageWithColor:kC_ThemeCOLOR_Two] forState:UIControlStateNormal];
+//                    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//
+//                    [btn getLayerAllCorners:kC_ThemeCOLOR_Two];
+//                }else{
+//                    [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+//                    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//                    [btn getLayerAllCorners:kC_LineColor];
+//
+//                }
+//            }
+//        }];
+    }
     self.containView = containView;
 }
 
@@ -56,8 +79,7 @@
 //    CGFloat padding = 15;
 //    CGFloat viewHeight = 30;
 //    NSInteger numberOfRow = 4;
-    NSInteger rowCount = elements.count % numberOfRow == 0 ? elements.count / numberOfRow : elements.count / numberOfRow +  elements.count % numberOfRow;
-    
+    NSInteger rowCount = elements.count % numberOfRow == 0 ? elements.count/numberOfRow : elements.count/numberOfRow + 1;
     //
     UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(20, 20, kScreen_width - 20*2, rowCount * viewHeight + (rowCount - 1) * padding)];
     backgroudView.backgroundColor = [UIColor greenColor];
@@ -70,52 +92,15 @@
         CGFloat x = w * ( i % numberOfRow) + padding * ( i % numberOfRow);
         CGFloat y =  (i / numberOfRow) * (h + padding);
         
-        NSString * title = [NSString stringWithFormat:@"点我%@",@(i)];
-        title = elements[i];
+        NSString * title = elements[i];
         CGRect btnRect = CGRectMake(x, y, w, h);
-        UIButton * btn = [UIView  createBtnWithRect:btnRect title:title fontSize:15 image:nil tag:kTAG_BTN+i patternType:@"0" target:self aSelector:@selector(handleActionBtn:)];
+        UIButton * btn = [UIView createBtnWithRect:btnRect title:title fontSize:15 image:nil tag:kTAG_BTN+i patternType:@"0" target:self aSelector:@selector(handleActionBtn:)];
+        [btn removeTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
         [backgroudView addSubview:btn];
         
     }
     return backgroudView;
 }
-
-//- (void)createControls{
-//    NSMutableArray * elementList = [NSMutableArray arrayWithCapacity:0];
-//    for (NSInteger i = 0; i< 9; i++) {
-//        NSString * title = [NSString stringWithFormat:@"点我%@",@(i)];
-//        [elementList addObject:title];
-//
-//    }
-//
-//    CGFloat padding = 15;
-//    CGFloat viewHeight = 30;
-//
-//    NSInteger numberOfRow = 4;
-//    NSInteger rowCount = elementList.count % numberOfRow == 0 ? elementList.count / numberOfRow : elementList.count / numberOfRow +  elementList.count % numberOfRow;
-//
-////
-//    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(20, 20, kScreen_width - 20*2, rowCount * viewHeight + (rowCount - 1) * padding)];
-//    backgroudView.backgroundColor = [UIColor greenColor];
-//
-//    CGSize viewSize = CGSizeMake((CGRectGetWidth(backgroudView.frame) - (numberOfRow-1)*padding)/numberOfRow, viewHeight);
-//    for (NSInteger i = 0; i< elementList.count; i++) {
-//
-//        CGFloat w = viewSize.width;
-//        CGFloat h = viewSize.height;
-//        CGFloat x = w * ( i % numberOfRow) + padding * ( i % numberOfRow);
-//        CGFloat y =  (i / numberOfRow) * (h + padding);
-//
-//        NSString * title = [NSString stringWithFormat:@"点我%@",@(i)];
-//        title = elementList[i];
-//        CGRect btnRect = CGRectMake(x, y, w, h);
-//        UIButton * btn = [UIView  createBtnWithRect:btnRect title:title fontSize:15 image:nil tag:kTAG_BTN+i patternType:@"8" target:self aSelector:@selector(handleActionBtn:)];
-//        [backgroudView addSubview:btn];
-//    }
-//    [self.view addSubview:backgroudView];
-//
-//    [UIView getLineWithView:self.view];
-//}
 
 - (void)handleActionBtn:(UIButton *)sender{
     
@@ -128,7 +113,7 @@
             [btn getLayerAllCorners:kC_ThemeCOLOR_Two];
         }else{
             [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [btn setTitleColor:kC_TextColor_Title forState:UIControlStateNormal];
             [btn getLayerAllCorners:kC_LineColor];
 
         }
@@ -212,7 +197,7 @@
                                     
                                     };
 
-            UIView * view = [self createViewByItems:array itemDict:dict];
+            UIView * view = [UIView createViewByItems:array itemDict:dict width:kScreen_width - (kX_GAP_OF_WINDOW - kXY_GAP)*2];
             BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" message:nil customView:view btnTitles:@[@"取消",@"确认"]];
             [alertView show];
             [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
@@ -275,7 +260,7 @@
 
                                     };
             
-            UIView * view = [self createViewByItems:attList itemDict:dict];
+            UIView * view = [UIView createViewByItems:attList itemDict:dict width:kWidth_customView];
             BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" message:nil customView:view btnTitles:@[@"取消",@"确认"]];
             [alertView show];
             [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
@@ -285,34 +270,97 @@
             
         }
             break;
+        case 9:
+        {
+            NSString * text = @"母猪.已不再断奶空怀状态,是否进行修改?";
+            UIView* view = [self createCustomeViewWithImage:@"修改" msg:text];
+            
+            BINAlertView * alertView = [BINAlertView alertViewWithTitle:nil message:nil customView:view btnTitles:@[@"取消",@"确认"]];
+            [alertView show];
+            [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
+                NSLog(@"%@====%@",alertView,@(btnIndex));
+                
+              
+            }];
+            
+            [UIView getLineWithView:alertView];
+
+        }
+            break;
+        case 10:
+        {
+            NSString * text = @"是否删除盘存记录?";
+            UIView* view = [self createCustomeViewWithImage:@"警告" msg:text];
+            
+            BINAlertView * alertView = [BINAlertView alertViewWithTitle:nil message:nil customView:view btnTitles:@[@"取消",@"确认"]];
+            [alertView show];
+            [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
+                NSLog(@"%@====%@",alertView,@(btnIndex));
+                
+                
+            }];
+            
+            [UIView getLineWithView:alertView];
+        }
+            break;
+        case 11:
+        {
+//            UIView * view = [UIView createViewByItems:attList itemDict:dict];
+//            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" message:nil customView:view btnTitles:@[@"取消",@"确认"]];
+//            [alertView show];
+//            [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
+//                NSLog(@"%@====%@",alertView,@(btnIndex));
+//            }];
+        }
+            break;
         default:
             break;
     }
 }
 
--(NSArray *)getAttListByString:(NSString *)string titleList:(NSArray *)titleList mustList:(NSArray *)mustList{
+- (UIView *)createCustomeViewWithImage:(NSString *)image msg:(NSString *)msg{
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kWidth_customView, 200)];
+    view.backgroundColor = [UIColor cyanColor];
     
-    NSMutableArray * marr = [NSMutableArray arrayWithCapacity:0];
-
-    for (NSString * item in titleList) {
-        NSString * title = item;
-        if (![title hasPrefix:string]) title = [string stringByAppendingString:title];
-        if (![marr containsObject:title]) [marr addObject:title];
-        
-        UIColor * colorMust = [mustList containsObject:title] ? [UIColor redColor] : [UIColor clearColor];
-        
-        NSArray * textTaps = @[string];
-        NSAttributedString * attString = [self getAttString:title textTaps:textTaps font:@15 tapFont:@15 tapColor:colorMust alignment:NSTextAlignmentCenter];
-        
-        if (![marr containsObject:attString]) {
-            NSUInteger index = [marr indexOfObject:title];
-            [marr replaceObjectAtIndex:index withObject:attString];
-            
-        }
-    }
-    return marr.copy;
+    UIImageView * imgView = [UIView createImageViewWithRect:CGRectMake(0, 0, CGRectGetWidth(view.frame), 40) image:image tag:300 patternType:@"0"];
+    [view addSubview:imgView];
+    
+    NSString * text = msg;
+    CGSize size = [self sizeWithText:text font:@15 width:CGRectGetWidth(view.frame)];
+    
+    CGRect rect = CGRectMake(0, CGRectGetMaxY(imgView.frame)+kY_GAP, CGRectGetWidth(view.frame), size.height);
+    UILabel * label = [UIView createLabelWithRect:rect text:text textColor:nil tag:kTAG_LABEL patternType:@"0" fontSize:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+    [view addSubview:label];
+    
+    [view setHeight:(CGRectGetHeight(label.frame) + CGRectGetHeight(imgView.frame) + kY_GAP*2)];
+    
+    return view;
     
 }
+
+//-(NSArray *)getAttListByString:(NSString *)string titleList:(NSArray *)titleList mustList:(NSArray *)mustList{
+//    
+//    NSMutableArray * marr = [NSMutableArray arrayWithCapacity:0];
+//
+//    for (NSString * item in titleList) {
+//        NSString * title = item;
+//        if (![title hasPrefix:string]) title = [string stringByAppendingString:title];
+//        if (![marr containsObject:title]) [marr addObject:title];
+//        
+//        UIColor * colorMust = [mustList containsObject:title] ? [UIColor redColor] : [UIColor clearColor];
+//        
+//        NSArray * textTaps = @[string];
+//        NSAttributedString * attString = [self getAttString:title textTaps:textTaps font:@15 tapFont:@15 tapColor:colorMust alignment:NSTextAlignmentCenter];
+//        
+//        if (![marr containsObject:attString]) {
+//            NSUInteger index = [marr indexOfObject:title];
+//            [marr replaceObjectAtIndex:index withObject:attString];
+//            
+//        }
+//    }
+//    return marr.copy;
+//    
+//}
 
 - (UIView *)getCodeViewWithSize:(CGSize)viewSize count:(NSInteger)count{
     
@@ -408,37 +456,37 @@
 }
 
 
-- (UIView *)createViewByItems:(NSArray *)items itemDict:(NSDictionary *)itemDict{
-    
-    CGFloat viewHeight = 30;
-    CGFloat height = items.count *viewHeight + (items.count - 1)*kPadding;
-    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, height)];
-    
-    CGRect rectLab = CGRectZero;
-    for (NSInteger i = 0; i<items.count; i++) {
-        
-        CGSize size = [self sizeWithText:items[i] font:@15 width:kScreen_width];
-        if (CGRectEqualToRect(rectLab, CGRectZero)) {
-            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab), size.width, viewHeight);
-
-        }else{
-            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
-
-        }
-        UILabel * label = [UIView createLabelWithRect:rectLab text:items[i] textColor:nil tag:kTAG_LABEL+i patternType:@"2" fontSize:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
-        
-        CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding, viewHeight);
-        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:@"" placeholder:itemDict[items[i]] fontSize:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
-        [backgroudView addSubview:label];
-        [backgroudView addSubview:textField];
-        
-        textField.borderStyle = UITextBorderStyleNone;
-        [textField.layer addSublayer:[textField createLayerByPatternType:@"2"]];//下线条
-
-    }
-    return backgroudView;
-    
-}
+//- (UIView *)createViewByItems:(NSArray *)items itemDict:(NSDictionary *)itemDict{
+//
+//    CGFloat viewHeight = 30;
+//    CGFloat height = items.count *viewHeight + (items.count - 1)*kPadding;
+//    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, height)];
+//
+//    CGRect rectLab = CGRectZero;
+//    for (NSInteger i = 0; i<items.count; i++) {
+//
+//        CGSize size = [self sizeWithText:items[i] font:@15 width:kScreen_width];
+//        if (CGRectEqualToRect(rectLab, CGRectZero)) {
+//            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab), size.width, viewHeight);
+//
+//        }else{
+//            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
+//
+//        }
+//        UILabel * label = [UIView createLabelWithRect:rectLab text:items[i] textColor:nil tag:kTAG_LABEL+i patternType:@"2" fontSize:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+//
+//        CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding, viewHeight);
+//        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:@"" placeholder:itemDict[items[i]] fontSize:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
+//        [backgroudView addSubview:label];
+//        [backgroudView addSubview:textField];
+//
+//        textField.borderStyle = UITextBorderStyleNone;
+//        [textField.layer addSublayer:[textField createLayerByPatternType:@"2"]];//下线条
+//
+//    }
+//    return backgroudView;
+//
+//}
 
 
 - (void)didReceiveMemoryWarning {

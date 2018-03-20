@@ -25,6 +25,8 @@
 		34E450C91A7F0D1800AAFB18 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 34E450C61A7F0D1800AAFB18 /* star.png */; };
 		34E450CA1A7F0D1800AAFB18 /* star_h.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34E450C71A7F0D1800AAFB18 /* star_h.jpg */; };
 		34E450CB1A7F0D1800AAFB18 /* star_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34E450C81A7F0D1800AAFB18 /* star_n.jpg */; };
+		5105C4842060B322007579B0 /* 修改.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105C4822060B322007579B0 /* 修改.png */; };
+		5105C4852060B322007579B0 /* 警告.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105C4832060B322007579B0 /* 警告.png */; };
 		512861B51F95AD2900CD1372 /* MQVerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861B21F95AD2900CD1372 /* MQVerCodeInputView.m */; };
 		512861B61F95AD2900CD1372 /* UIView+MQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861B41F95AD2900CD1372 /* UIView+MQ.m */; };
 		512861D21F95AD6D00CD1372 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 512861B81F95AD6D00CD1372 /* Info.plist */; };
@@ -128,6 +130,8 @@
 		34E450C61A7F0D1800AAFB18 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		34E450C71A7F0D1800AAFB18 /* star_h.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star_h.jpg; sourceTree = "<group>"; };
 		34E450C81A7F0D1800AAFB18 /* star_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star_n.jpg; sourceTree = "<group>"; };
+		5105C4822060B322007579B0 /* 修改.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "修改.png"; sourceTree = "<group>"; };
+		5105C4832060B322007579B0 /* 警告.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "警告.png"; sourceTree = "<group>"; };
 		512861B11F95AD2900CD1372 /* MQVerCodeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQVerCodeInputView.h; sourceTree = "<group>"; };
 		512861B21F95AD2900CD1372 /* MQVerCodeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQVerCodeInputView.m; sourceTree = "<group>"; };
 		512861B31F95AD2900CD1372 /* UIView+MQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MQ.h"; sourceTree = "<group>"; };
@@ -588,6 +592,8 @@
 		518FD8502048028500FD7ADA /* Resoure */ = {
 			isa = PBXGroup;
 			children = (
+				5105C4832060B322007579B0 /* 警告.png */,
+				5105C4822060B322007579B0 /* 修改.png */,
 				34E450C61A7F0D1800AAFB18 /* star.png */,
 				34E450C71A7F0D1800AAFB18 /* star_h.jpg */,
 				34E450C81A7F0D1800AAFB18 /* star_n.jpg */,
@@ -717,7 +723,9 @@
 				34098D2319EF962A006806A6 /* InfoPlist.strings in Resources */,
 				34E450C91A7F0D1800AAFB18 /* star.png in Resources */,
 				34E450CB1A7F0D1800AAFB18 /* star_n.jpg in Resources */,
+				5105C4842060B322007579B0 /* 修改.png in Resources */,
 				34098D2B19EF962A006806A6 /* Images.xcassets in Resources */,
+				5105C4852060B322007579B0 /* 警告.png in Resources */,
 				34ACDC671A7B78CA00794B59 /* dragon.png in Resources */,
 				513F8C801F430B680031C8C6 /* Default-568h@2x.png in Resources */,
 				34E450CA1A7F0D1800AAFB18 /* star_h.jpg in Resources */,

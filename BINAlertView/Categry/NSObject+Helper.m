@@ -308,4 +308,33 @@ void dispatchAfterDelay(double delay ,void(^block)()){
     return (NSAttributedString *)attString;
 }
 
+
+/**
+ 标题前加*
+
+ */
+-(NSArray *)getAttListByString:(NSString *)string titleList:(NSArray *)titleList mustList:(NSArray *)mustList{
+    
+    NSMutableArray * marr = [NSMutableArray arrayWithCapacity:0];
+    
+    for (NSString * item in titleList) {
+        NSString * title = item;
+        if (![title hasPrefix:string]) title = [string stringByAppendingString:title];
+        if (![marr containsObject:title]) [marr addObject:title];
+        
+        UIColor * colorMust = [mustList containsObject:title] ? [UIColor redColor] : [UIColor clearColor];
+        
+        NSArray * textTaps = @[string];
+        NSAttributedString * attString = [self getAttString:title textTaps:textTaps font:@15 tapFont:@15 tapColor:colorMust alignment:NSTextAlignmentCenter];
+        
+        if (![marr containsObject:attString]) {
+            NSUInteger index = [marr indexOfObject:title];
+            [marr replaceObjectAtIndex:index withObject:attString];
+            
+        }
+    }
+    return marr.copy;
+    
+}
+
 @end

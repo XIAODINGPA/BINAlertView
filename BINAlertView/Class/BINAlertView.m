@@ -95,7 +95,7 @@ static const CGFloat padding = kPadding;
             
         }else{
             labelRectTitle = CGRectMake(kXY_GAP, kXY_GAP, maxWidth, 0);
-            
+            self.labTitle.frame = labelRectTitle;
         }
      
         if (customView != nil) {
@@ -112,9 +112,10 @@ static const CGFloat padding = kPadding;
             
             [self addSubview:customView];
             self.customView = customView;
-            self.customView.clipsToBounds = YES;
+//            self.customView.clipsToBounds = YES;
             
-            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetMaxY(self.labTitle.frame)+CGRectGetHeight(customView.frame) + kH_BTN + padding*2);
+            CGFloat topYGap = title ? CGRectGetMaxY(self.labTitle.frame) : kXY_GAP;
+            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), topYGap+CGRectGetHeight(customView.frame) + kH_BTN + padding*2);
 
         }else{
             if (msg != nil) {
