@@ -39,6 +39,8 @@ typedef void (^BlockAlertView)(BINAlertView * alertView,  NSInteger btnIndex);
 
 + (BINAlertView *)alertViewWithTitle:(NSString *)title items:(NSArray *)items itemDict:(NSDictionary *)itemDict btnTitles:(NSArray *)btnTitles;
 
+@property (nonatomic, strong, readonly) NSMutableArray * textFieldList;
+
 /**
  msg或者customView的最大宽度值(屏幕宽度-60)
  */
@@ -54,3 +56,13 @@ typedef void (^BlockAlertView)(BINAlertView * alertView,  NSInteger btnIndex);
 - (void)dismiss;
 
 @end
+
+@interface ElementModel : UIView
+
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSString * content;
+@property (nonatomic, strong) NSString * placeHolder;
+@property (nonatomic, assign) BOOL  isMust;
+
+@end
+

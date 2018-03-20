@@ -320,7 +320,11 @@
             BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" items:attList itemDict:dict btnTitles:@[@"取消",@"确认"]];
             [alertView show];
             [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
-                NSLog(@"%@====%@",alertView,@(btnIndex));
+//                NSLog(@"%@====%@",alertView,@(btnIndex));
+                for (UITextField * textFiled in alertView.textFieldList) {
+                    NSLog(@"_____%@:%@",@(textFiled.tag),textFiled.text);
+
+                }
             }];
             //            [UIView getLineWithView:alertView];
         }

@@ -27,9 +27,20 @@ static const CGFloat padding = kPadding;
 
 @property (nonatomic, strong) NSMutableArray * btnMarr;
 
+@property (nonatomic, strong, readwrite) NSMutableArray * textFieldList;
+
 @end
 
 @implementation BINAlertView
+
+-(NSMutableArray *)textFieldList{
+    if (!_textFieldList) {
+        _textFieldList = [NSMutableArray arrayWithCapacity:0];
+        
+    }
+    return _textFieldList;
+    
+}
 
 -(CGFloat)maxWidth{
     CGFloat width = kScreen_width - kX_GAP_OF_WINDOW * 2 - kXY_GAP*2;
@@ -71,6 +82,8 @@ static const CGFloat padding = kPadding;
     
     self = [super init];
     if (self) {
+        [self.textFieldList removeAllObjects];
+        
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 8 ;
         self.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -307,8 +320,20 @@ static const CGFloat padding = kPadding;
 
 
 + (BINAlertView *)alertViewWithTitle:(NSString *)title items:(NSArray *)items itemDict:(NSDictionary *)itemDict btnTitles:(NSArray *)btnTitles{
-    UIView * view = [UIView createViewByItems:items itemDict:itemDict width:kWidth_customView];
-    BINAlertView *alertView = [BINAlertView alertViewWithTitle:title message:nil customView:view btnTitles:btnTitles];
+    UIView * customView = [UIView createViewByItems:items itemDict:itemDict width:kWidth_customView];
+    
+    BINAlertView *alertView = [BINAlertView alertViewWithTitle:title message:nil customView:customView btnTitles:btnTitles];
+    
+    alertView.textFieldList = [NSMutableArray arrayWithCapacity:0];
+    for (UIView * view in customView.subviews) {
+        if ([view isKindOfClass:[UITextField class]]) {
+            UITextField * textField = (UITextField *)view;
+            [alertView.textFieldList addObject:textField];
+//            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextFieldTextDidChangeNoti:) name:UITextFieldTextDidChangeNotification object:textField];
+            
+        }
+        
+    }
     return alertView;
 }
 
@@ -347,5 +372,17 @@ static const CGFloat padding = kPadding;
     
 }
 
+//- (void)handleTextFieldTextDidChangeNotification:(NSNotification *)notification {
+//    UITextField *textField = notification.object;
+//    // Enforce a minimum length of >= 5 characters for secure text alerts.
+//
+//
+//}
+
+
 @end
 
+
+@implementation ElementModel
+
+@end
