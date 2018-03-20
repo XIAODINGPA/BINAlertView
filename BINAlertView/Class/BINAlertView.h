@@ -37,6 +37,8 @@ typedef void (^BlockAlertView)(BINAlertView * alertView,  NSInteger btnIndex);
  */
 + (BINAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles;
 
++ (BINAlertView *)alertViewWithTitle:(NSString *)title items:(NSArray *)items itemDict:(NSDictionary *)itemDict btnTitles:(NSArray *)btnTitles;
+
 /**
  msg或者customView的最大宽度值(屏幕宽度-60)
  */

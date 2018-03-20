@@ -392,7 +392,8 @@ static const char kTActionHandlerTapGestureKey;
         
         CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding, viewHeight);
         
-        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:@"" placeholder:itemDict[items[i]] fontSize:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
+        NSString * itemString = [items[i] string];
+        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:@"" placeholder:itemDict[itemString] fontSize:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
         [backgroudView addSubview:label];
         [backgroudView addSubview:textField];
         

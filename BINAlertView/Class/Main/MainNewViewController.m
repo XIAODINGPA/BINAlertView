@@ -305,12 +305,24 @@
             break;
         case 11:
         {
-//            UIView * view = [UIView createViewByItems:attList itemDict:dict];
-//            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" message:nil customView:view btnTitles:@[@"取消",@"确认"]];
-//            [alertView show];
-//            [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
-//                NSLog(@"%@====%@",alertView,@(btnIndex));
-//            }];
+            NSArray * array = @[@"*品种名称",@"*品种代号",@"*品种备注"];
+            NSArray * arraySub = @[@"*品种名称",@"*品种备注"];
+            
+            NSArray * attList = [self getAttListByString:@"*" titleList:array mustList:arraySub];
+            
+            NSDictionary * dict = @{
+                                    @"*品种名称" : @"汉字",
+                                    @"*品种代号" : @"英文字母大写",
+                                    @"*品种备注" : @"asdfasd"
+                                    
+                                    };
+            
+            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" items:attList itemDict:dict btnTitles:@[@"取消",@"确认"]];
+            [alertView show];
+            [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
+                NSLog(@"%@====%@",alertView,@(btnIndex));
+            }];
+            //            [UIView getLineWithView:alertView];
         }
             break;
         default:

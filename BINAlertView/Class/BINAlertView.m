@@ -305,5 +305,47 @@ static const CGFloat padding = kPadding;
     }
 }
 
+
++ (BINAlertView *)alertViewWithTitle:(NSString *)title items:(NSArray *)items itemDict:(NSDictionary *)itemDict btnTitles:(NSArray *)btnTitles{
+    UIView * view = [UIView createViewByItems:items itemDict:itemDict width:kWidth_customView];
+    BINAlertView *alertView = [BINAlertView alertViewWithTitle:title message:nil customView:view btnTitles:btnTitles];
+    return alertView;
+}
+
++ (UIView *)createViewByItems:(NSArray *)items itemDict:(NSDictionary *)itemDict width:(CGFloat)width{
+    
+    CGFloat viewHeight = 30;
+    CGFloat height = items.count *viewHeight + (items.count - 1)*kPadding;
+    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
+    
+    CGRect rectLab = CGRectZero;
+    for (NSInteger i = 0; i<items.count; i++) {
+        
+        CGSize size = [self sizeWithText:items[i] font:@15 width:kScreen_width];
+        if (CGRectEqualToRect(rectLab, CGRectZero)) {
+            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab), size.width, viewHeight);
+            
+        }else{
+            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
+            
+        }
+        UILabel * label = [UIView createLabelWithRect:rectLab text:items[i] textColor:nil tag:kTAG_LABEL+i patternType:@"2" fontSize:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+        
+        CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding, viewHeight);
+        
+        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:@"" placeholder:itemDict[items[i]] fontSize:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
+        [backgroudView addSubview:label];
+        [backgroudView addSubview:textField];
+        
+        textField.borderStyle = UITextBorderStyleNone;
+        [textField.layer addSublayer:[textField createLayerByPatternType:@"2"]];//下线条
+        
+        textField.backgroundColor = [UIColor cyanColor];
+        
+    }
+    return backgroudView;
+    
+}
+
 @end
 
