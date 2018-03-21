@@ -139,14 +139,14 @@ static const char kTActionHandlerTapGestureKey;
 }
 
 
-+ (BINTextField *)createBINTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder fontSize:(NSInteger)fontSize textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType
++ (BINTextField *)createBINTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(NSInteger)font textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType
 
 {
     BINTextField * tf = [[BINTextField alloc]initWithFrame:rect];
     
     tf.text = text;
     tf.placeholder = placeholder;
-    tf.font = [UIFont systemFontOfSize:fontSize];
+    tf.font = [UIFont systemFontOfSize:font];
     tf.textAlignment = textAlignment;
     tf.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     
@@ -168,14 +168,14 @@ static const char kTActionHandlerTapGestureKey;
     
 }
 
-+ (BINTextField *)createBINTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder fontSize:(NSInteger)fontSize textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType leftView:(UIView *)leftView leftPadding:(CGFloat)leftPadding rightView:(UIView *)rightView rightPadding:(CGFloat)rightPadding
++ (BINTextField *)createBINTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(NSInteger)font textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType leftView:(UIView *)leftView leftPadding:(CGFloat)leftPadding rightView:(UIView *)rightView rightPadding:(CGFloat)rightPadding
 
 {
 //    CGFloat textFieldHeight = 30;
 //    CGFloat YGap = (CGRectGetHeight(rect) - textFieldHeight)/2.0;
 //    
 //    CGRect textFieldRect = CGRectMake(0, YGap, kScreen_width, textFieldHeight);
-    BINTextField * textField = [BINTextField createBINTextFieldWithRect:rect text:text placeholder:placeholder fontSize:fontSize textAlignment:NSTextAlignmentLeft keyboardType:keyboardType];
+    BINTextField * textField = [BINTextField createBINTextFieldWithRect:rect text:text placeholder:placeholder font:font textAlignment:NSTextAlignmentLeft keyboardType:keyboardType];
     textField.textAlignment = textAlignment;
     
     //    UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"img_cardAdd.png"]];
@@ -186,7 +186,7 @@ static const char kTActionHandlerTapGestureKey;
 
     textField.leftViewMode = UITextFieldViewModeAlways;
     
-    //    UIButton * btn = [UIButton createBtnWithRect:CGRectMake(0, 0, 40, textFieldHeight) title:@"搜 索" fontSize:KFZ_Second image:nil tag:kTAG_BTN patternType:@"2" target:self aSelector:@selector(goSearch)];
+    //    UIButton * btn = [UIButton createBtnWithRect:CGRectMake(0, 0, 40, textFieldHeight) title:@"搜 索" font:KFZ_Second image:nil tag:kTAG_BTN patternType:@"2" target:self aSelector:@selector(goSearch)];
     textField.rightView = rightView;
 //    textField.rightViewPadding = 5;
     textField.rightViewPadding = rightPadding;
@@ -200,7 +200,7 @@ static const char kTActionHandlerTapGestureKey;
     return textField;
 }
 
-+ (BINTextView *)createTextViewWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder fontSize:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment keyType:(UIKeyboardType)keyboardType{
++ (BINTextView *)createTextViewWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(CGFloat)font textAlignment:(NSTextAlignment)textAlignment keyType:(UIKeyboardType)keyboardType{
     
     BINTextView *textView = [[BINTextView alloc] initWithFrame:rect];
     
@@ -208,7 +208,7 @@ static const char kTActionHandlerTapGestureKey;
     textView.placeholder = placeholder;
     textView.placeholderColor = kC_TextColor_TitleSub;
 
-    textView.font = [UIFont systemFontOfSize:fontSize];
+    textView.font = [UIFont systemFontOfSize:font];
     textView.textAlignment = NSTextAlignmentLeft;
     
     textView.keyboardAppearance = UIKeyboardAppearanceDefault;
@@ -231,7 +231,7 @@ static const char kTActionHandlerTapGestureKey;
     return textView;
 }
 
-+ (UITextView *)createTextShowWithRect:(CGRect)rect text:(id)text fontSize:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment
++ (UITextView *)createTextShowWithRect:(CGRect)rect text:(id)text font:(CGFloat)font textAlignment:(NSTextAlignment)textAlignment
 {
     UITextView *textView = [[UITextView alloc] initWithFrame:rect];
     if ([text isKindOfClass:[NSString class]]) {
@@ -242,7 +242,7 @@ static const char kTActionHandlerTapGestureKey;
         textView.attributedText = text;
         
     }
-    textView.font = [UIFont systemFontOfSize:fontSize];
+    textView.font = [UIFont systemFontOfSize:font];
     textView.textAlignment = NSTextAlignmentLeft;
     
     textView.keyboardAppearance = UIKeyboardAppearanceDefault;
@@ -262,13 +262,13 @@ static const char kTActionHandlerTapGestureKey;
     return textView;
 }
 
-+ (UITextView *)createTextShowWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder fontSize:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment keyType:(UIKeyboardType)keyboardType{
++ (UITextView *)createTextShowWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(CGFloat)font textAlignment:(NSTextAlignment)textAlignment keyType:(UIKeyboardType)keyboardType{
     
     UITextView *textView = [[UITextView alloc] initWithFrame:rect];
     
     textView.text = text;
     
-    textView.font = [UIFont systemFontOfSize:fontSize];
+    textView.font = [UIFont systemFontOfSize:font];
     textView.textAlignment = NSTextAlignmentLeft;
     
     textView.keyboardAppearance = UIKeyboardAppearanceDefault;
@@ -332,7 +332,7 @@ static const char kTActionHandlerTapGestureKey;
     imgView.tag = kTAG_IMGVIEW;
     [backgroudView addSubview:imgView];
     
-    UILabel * labelVehicle = [UIView createLabelWithRect:labelRect text:text textColor:nil tag:kTAG_LABEL patternType:@"2" fontSize:KFZ_Fouth backgroudColor:nil alignment:NSTextAlignmentLeft];
+    UILabel * labelVehicle = [UIView createLabelWithRect:labelRect text:text textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_Fouth backgroudColor:nil alignment:NSTextAlignmentLeft];
     labelVehicle.tag = kTAG_LABEL;
     [backgroudView addSubview:labelVehicle];
     
@@ -362,7 +362,7 @@ static const char kTActionHandlerTapGestureKey;
         
         NSString * title = elements[i];
         CGRect btnRect = CGRectMake(x, y, w, h);
-        UIButton * btn = [UIView createBtnWithRect:btnRect title:title fontSize:15 image:nil tag:kTAG_BTN+i patternType:@"0" target:self aSelector:@selector(handleActionBtn:)];
+        UIButton * btn = [UIView createBtnWithRect:btnRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:@"0" target:self aSelector:@selector(handleActionBtn:)];
         
         [btn removeTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
         [backgroudView addSubview:btn];
@@ -391,7 +391,7 @@ static const char kTActionHandlerTapGestureKey;
         
         NSString * title = elements[i];
         CGRect btnRect = CGRectMake(x, y, w, h);
-        UIButton * btn = [UIView createBtnWithRect:btnRect title:title fontSize:15 image:nil tag:kTAG_BTN+i patternType:@"0" target:self aSelector:@selector(handleActionBtn:)];
+        UIButton * btn = [UIView createBtnWithRect:btnRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:@"0" target:self aSelector:@selector(handleActionBtn:)];
         [btn removeTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
         [backgroudView addSubview:btn];
         

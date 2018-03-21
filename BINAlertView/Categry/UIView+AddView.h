@@ -23,7 +23,7 @@ typedef void(^SegmentViewBlock)(NSInteger selectIndex);  // SegmentViewBlock不�
 
 - (void)addRightArrowWithSize:(CGRect)arrowRect WithRowHeight:(CGFloat)rowHeight Tag:(NSInteger)tag inView:(UIView *)inView;
 
-//- (void)addTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder fontSize:(NSInteger)fontSize tag:(NSInteger)tag delegate:(id)delagate textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType isEnable:(BOOL)isEnable inView:(UIView *)inView;
+//- (void)addTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(NSInteger)font tag:(NSInteger)tag delegate:(id)delagate textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType isEnable:(BOOL)isEnable inView:(UIView *)inView;
 //
 //- (void)addBtnWithRect:(CGRect)rect title:(NSString *)title tag:(NSInteger)tag patternType:(NSString *)patternType Target:(id)target aSelector:(SEL)aSelector isHidden:(BOOL)isHidden isEnable:(BOOL)isEnable InView:(UIView *)inView;
 
@@ -35,9 +35,9 @@ typedef void(^SegmentViewBlock)(NSInteger selectIndex);  // SegmentViewBlock不�
 
 + (UIView *)createLineWithRect:(CGRect)rect isDash:(BOOL)isDash tag:(NSInteger)tag;
 
-+ (UILabel *)createLabelWithRect:(CGRect)rect text:(id)text textColor:(UIColor *)textColor tag:(NSInteger)tag patternType:(NSString *)patternType fontSize:(CGFloat)fontSize  backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment;
++ (UILabel *)createLabelWithRect:(CGRect)rect text:(id)text textColor:(UIColor *)textColor tag:(NSInteger)tag patternType:(NSString *)patternType font:(CGFloat)font backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment;
 //小标志专用,例如左侧头像上的"企"
-+ (UILabel *)createTipLabelWithSize:(CGSize)size tipCenter:(CGPoint)tipCenter text:(NSString *)text textColor:(UIColor *)textColor tag:(NSInteger)tag fontSize:(CGFloat)fontSize backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment;
++ (UILabel *)createTipLabelWithSize:(CGSize)size tipCenter:(CGPoint)tipCenter text:(NSString *)text textColor:(UIColor *)textColor tag:(NSInteger)tag font:(CGFloat)font backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment;
 
 + (UIView *)createViewForTextFieldWithViewRect:(CGRect)viewRect image:(NSString *)image tag:(NSInteger)tag target:(id)target aSelector:(SEL)aSelector subViewRect:(CGRect)subViewRect;
 
@@ -48,11 +48,11 @@ typedef void(^SegmentViewBlock)(NSInteger selectIndex);  // SegmentViewBlock不�
 //选择图片使用
 + (UIImageView *)createImageViewWithRect:(CGRect)rect image:(id)image tag:(NSInteger)tag patternType:(NSString *)patternType hasDeleteBtn:(BOOL)hasDeleteBtn;
 
-+ (UITextField *)createTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder fontSize:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType;
++ (UITextField *)createTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(CGFloat)font textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType;
 
-+ (UIButton *)createBtnWithRect:(CGRect)rect title:(NSString *)title fontSize:(CGFloat)fontSize image:(NSString *)image tag:(NSInteger)tag patternType:(NSString *)patternType target:(id)target aSelector:(SEL)aSelector;
++ (UIButton *)createBtnWithRect:(CGRect)rect title:(NSString *)title font:(CGFloat)font image:(NSString *)image tag:(NSInteger)tag patternType:(NSString *)patternType target:(id)target aSelector:(SEL)aSelector;
 
-+ (UIView *)createCustomSegmentWithTitleArr:(NSArray *)titleArr rect:(CGRect)rect tag:(NSInteger)tag selectedIndex:(NSInteger)selectedIndex fontSize:(CGFloat)fontSize isBottom:(BOOL)isBottom;
++ (UIView *)createCustomSegmentWithTitleArr:(NSArray *)titleArr rect:(CGRect)rect tag:(NSInteger)tag selectedIndex:(NSInteger)selectedIndex font:(CGFloat)font isBottom:(BOOL)isBottom;
 
 + (UIView *)createBtnViewWithRect:(CGRect)rect imgName:(NSString *)imgName imgHeight:(CGFloat)imgHeight title:(NSString *)title titleColor:(UIColor *)titleColor patternType:(NSString *)patternType;
 

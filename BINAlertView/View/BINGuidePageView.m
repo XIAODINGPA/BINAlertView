@@ -103,7 +103,7 @@ static NSString *const kC_CurrentColor = @"PageControlCurrentColor";
                    
                     CGRect btnRect = CGRectMake(btnPadding + (btnWith + btnPadding)*i,  CGRectGetHeight(self.scrollView.frame) * 0.8, btnWith, btnHeight);
                     
-                    UIButton * btn = [UIButton createBtnWithRect:btnRect title:btnTitleArr[i] fontSize:KFZ_Second image:nil tag:kTAG_BTN+i patternType:@"4" target:self aSelector:@selector(handleAction:)];
+                    UIButton * btn = [UIButton createBtnWithRect:btnRect title:btnTitleArr[i] font:KFZ_Second image:nil tag:kTAG_BTN+i patternType:@"4" target:self aSelector:@selector(handleAction:)];
                     
                     [imageView addSubview:btn];
                 }

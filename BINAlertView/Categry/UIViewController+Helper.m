@@ -343,7 +343,7 @@
 //            self.navigationItem.rightBarButtonItem = rightItem;
 //            return btn;
 //        }else{
-//            CGSize titleSize = [self sizeWithText:title fontSize:15 width:kScreen_width];
+//            CGSize titleSize = [self sizeWithText:title font:15 width:kScreen_width];
 //            //            DDLog(@"size %@",NSStringFromCGSize(titleSize));
 //            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //            if (title.length <= 2) {
@@ -937,7 +937,7 @@
         else{
             CGSize size = [self sizeWithText:unitString font:@(KFZ_Third) width:kScreen_width];
             
-            UILabel * label = [UILabel createLabelWithRect:CGRectMake(0, 0, size.width+2, 25) text:unitString textColor:kC_TextColor_Title tag:kTAG_LABEL patternType:@"2" fontSize:KFZ_Third backgroudColor:[UIColor clearColor] alignment:NSTextAlignmentCenter];
+            UILabel * label = [UILabel createLabelWithRect:CGRectMake(0, 0, size.width+2, 25) text:unitString textColor:kC_TextColor_Title tag:kTAG_LABEL patternType:@"2" font:KFZ_Third backgroudColor:[UIColor clearColor] alignment:NSTextAlignmentCenter];
             return label;
         }
     }

@@ -152,7 +152,7 @@
 //    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
 //    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;//折行方式
 //    
-//    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:fontSize],NSFontAttributeName,paragraphStyle.copy,NSParagraphStyleAttributeName,nil];
+//    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:font],NSFontAttributeName,paragraphStyle.copy,NSParagraphStyleAttributeName,nil];
 //    CGSize size = [text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading  attributes:dict context:nil].size;
 //    
 //    size.height = ceil(size.height);

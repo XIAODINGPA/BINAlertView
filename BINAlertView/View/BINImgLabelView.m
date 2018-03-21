@@ -28,7 +28,7 @@
 -(UILabel *)labelTitle{
     
     if (!_labelTitle) {
-        _labelTitle = [self createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"0" fontSize:KFZ_Third backgroudColor:nil alignment:NSTextAlignmentLeft];;
+        _labelTitle = [self createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"0" font:KFZ_Third backgroudColor:nil alignment:NSTextAlignmentLeft];;
     }
     return _labelTitle;
 }
@@ -56,7 +56,7 @@
 //        UIImageView *imgView = [[UIImageView alloc]init];
 //        [self addSubview:imgView];
 //        
-//        UILabel * labelTitle = [self createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"0" fontSize:KFZ_Third backgroudColor:nil alignment:NSTextAlignmentLeft];
+//        UILabel * labelTitle = [self createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"0" font:KFZ_Third backgroudColor:nil alignment:NSTextAlignmentLeft];
 //        [self addSubview:labelTitle];
 //        
 //        //
@@ -100,7 +100,7 @@
 //
 //        [self addSubview:imgView];
 //
-//        UILabel * labelTitle = [self createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"2" fontSize:KFZ_Third backgroudColor:nil alignment:NSTextAlignmentLeft];
+//        UILabel * labelTitle = [self createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_Third backgroudColor:nil alignment:NSTextAlignmentLeft];
 //        labelTitle.frame = CGRectMake(CGRectGetMaxX(imgView.frame) + padding, CGRectGetMinY(frame), CGRectGetWidth(frame) - CGRectGetMaxX(imgView.frame) - padding, CGRectGetHeight(frame));
 //        [self addSubview:labelTitle];
 //
@@ -142,13 +142,13 @@
 }
 
 #pragma mark - -otherFuntions
-- (UILabel *)createLabelWithRect:(CGRect)rect text:(NSString *)text textColor:(UIColor *)textColor tag:(NSInteger)tag patternType:(NSString *)patternType fontSize:(CGFloat)fontSize  backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
+- (UILabel *)createLabelWithRect:(CGRect)rect text:(NSString *)text textColor:(UIColor *)textColor tag:(NSInteger)tag patternType:(NSString *)patternType font:(CGFloat)font  backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
 {
     UILabel * label = [[UILabel alloc] initWithFrame:rect];
     
     [label setText:text];
     [label setTextColor:textColor];
-    [label setFont:[UIFont systemFontOfSize:fontSize]];
+    [label setFont:[UIFont systemFontOfSize:font]];
     [label setTextAlignment:alignment];
     label.userInteractionEnabled = YES;
     switch ([patternType integerValue]) {

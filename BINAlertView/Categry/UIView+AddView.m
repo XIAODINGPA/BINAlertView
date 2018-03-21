@@ -243,7 +243,7 @@
     }
 }
 
-+ (UILabel *)createLabelWithRect:(CGRect)rect text:(id)text textColor:(UIColor *)textColor tag:(NSInteger)tag patternType:(NSString *)patternType fontSize:(CGFloat)fontSize  backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
++ (UILabel *)createLabelWithRect:(CGRect)rect text:(id)text textColor:(UIColor *)textColor tag:(NSInteger)tag patternType:(NSString *)patternType font:(CGFloat)font  backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
 {
     UILabel * label = [[UILabel alloc] initWithFrame:rect];
     if ([text isKindOfClass:[NSString class]]) {
@@ -258,7 +258,7 @@
         
     }
     label.tag = tag;
-    label.font = [UIFont systemFontOfSize:fontSize];
+    label.font = [UIFont systemFontOfSize:font];
     label.textAlignment = alignment;
     
     switch ([patternType integerValue]) {
@@ -323,7 +323,7 @@
     return label;
 }
 //小标志专用,例如左侧头像上的"企"
-+ (UILabel *)createTipLabelWithSize:(CGSize)size tipCenter:(CGPoint)tipCenter text:(NSString *)text textColor:(UIColor *)textColor tag:(NSInteger)tag fontSize:(CGFloat)fontSize backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment{
++ (UILabel *)createTipLabelWithSize:(CGSize)size tipCenter:(CGPoint)tipCenter text:(NSString *)text textColor:(UIColor *)textColor tag:(NSInteger)tag font:(CGFloat)font backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment{
     
     UILabel * labelTip = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     labelTip.center = tipCenter;
@@ -332,7 +332,7 @@
     labelTip.textColor = textColor;
     labelTip.textAlignment = NSTextAlignmentCenter;
     
-    labelTip.font = [UIFont boldSystemFontOfSize:fontSize];
+    labelTip.font = [UIFont boldSystemFontOfSize:font];
     labelTip.layer.masksToBounds = YES;
     labelTip.layer.cornerRadius = CGRectGetHeight(labelTip.frame)/2.0;
     labelTip.layer.borderWidth = 1;
@@ -426,7 +426,7 @@
             
             CGPoint tipCenter = CGPointMake(CGRectGetHeight(rect)/2.0 + offsetXY, CGRectGetHeight(rect)/2.0 + offsetXY);
             //
-            UILabel * labelTip = [UIView createTipLabelWithSize:CGSizeMake(textWH, textWH) tipCenter:tipCenter text:text textColor:kC_ThemeCOLOR tag:kTAG_LABEL fontSize:KFZ_Fifth backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+            UILabel * labelTip = [UIView createTipLabelWithSize:CGSizeMake(textWH, textWH) tipCenter:tipCenter text:text textColor:kC_ThemeCOLOR tag:kTAG_LABEL font:KFZ_Fifth backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
             [imageView addSubview:labelTip];
             
         }
@@ -510,13 +510,13 @@
     return imageView;
 }
 
-+ (UITextField *)createTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder fontSize:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType
++ (UITextField *)createTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(CGFloat)font textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType
 {
     UITextField * textField = [[UITextField alloc]initWithFrame:rect];
     
     textField.text = text;
     textField.placeholder = placeholder;
-    textField.font = [UIFont systemFontOfSize:fontSize];
+    textField.font = [UIFont systemFontOfSize:font];
     textField.textAlignment = textAlignment;
     textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     
@@ -538,12 +538,12 @@
     
 }
 
-+ (UIButton *)createBtnWithRect:(CGRect)rect title:(NSString *)title fontSize:(CGFloat)fontSize image:(NSString *)image tag:(NSInteger)tag patternType:(NSString *)patternType target:(id)target aSelector:(SEL)aSelector{
++ (UIButton *)createBtnWithRect:(CGRect)rect title:(NSString *)title font:(CGFloat)font image:(NSString *)image tag:(NSInteger)tag patternType:(NSString *)patternType target:(id)target aSelector:(SEL)aSelector{
     
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setFrame:rect];
     [btn setTitle:title forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:fontSize];
+    btn.titleLabel.font = [UIFont systemFontOfSize:font];
     [btn setTag:tag];
     
     switch ([patternType integerValue]) {
@@ -652,7 +652,7 @@
     return btn;
 }
 
-+ (UIView *)createCustomSegmentWithTitleArr:(NSArray *)titleArr rect:(CGRect)rect tag:(NSInteger)tag selectedIndex:(NSInteger)selectedIndex fontSize:(CGFloat)fontSize isBottom:(BOOL)isBottom{
++ (UIView *)createCustomSegmentWithTitleArr:(NSArray *)titleArr rect:(CGRect)rect tag:(NSInteger)tag selectedIndex:(NSInteger)selectedIndex font:(CGFloat)font isBottom:(BOOL)isBottom{
     
 //    self.selectedArr = titleArr;
 //    self.selectedIndex = selectedIndex;
@@ -670,7 +670,7 @@
         lab.tag = kTAG_LABEL+i;
         lab.text = titleArr[i];
         [lab setTextColor:[UIColor blackColor]];
-        [lab setFont:[UIFont systemFontOfSize:fontSize]];
+        [lab setFont:[UIFont systemFontOfSize:font]];
         [lab setTextAlignment:NSTextAlignmentCenter];
         
         

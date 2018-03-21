@@ -28,7 +28,7 @@
 
 @implementation MyView
 
-- (void)addLabelWithRect:(CGRect)rect text:(NSString *)text tag:(NSInteger)tag fontSize:(CGFloat)fontSize textColor:(UIColor *)textColor backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
+- (void)addLabelWithRect:(CGRect)rect text:(NSString *)text tag:(NSInteger)tag font:(CGFloat)font textColor:(UIColor *)textColor backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
 {
     if (![self viewWithTag:tag]) {
 		UILabel * label = [[UILabel alloc] initWithFrame:rect];
@@ -36,7 +36,7 @@
 //        [label setBackgroundColor:[UIColor clearColor]];
         
         [label setText:text];
-        [label setFont:[UIFont systemFontOfSize:fontSize]];
+        [label setFont:[UIFont systemFontOfSize:font]];
         [label setTextColor:textColor];
         [label setTextAlignment:alignment];
         [label setNumberOfLines:1];
@@ -97,12 +97,12 @@
     
 }
 
-- (CGSize)sizeWithText:(NSString *)text fontSize:(CGFloat)fontSize width:(CGFloat)maxWidth{
+- (CGSize)sizeWithText:(NSString *)text font:(CGFloat)font width:(CGFloat)maxWidth{
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
     paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;//折行方式
     
-    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:fontSize],NSFontAttributeName,paragraphStyle.copy,NSParagraphStyleAttributeName,nil];
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:font],NSFontAttributeName,paragraphStyle.copy,NSParagraphStyleAttributeName,nil];
     CGSize size =[text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading  attributes:dict context:nil].size;
 
     size.height = ceil(size.height);
@@ -151,12 +151,12 @@
         /*
         if (title != nil) {
             
-            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP, self.frame.size.width - kXY_GAP * 2, 25) text:@"11111" tag:101 fontSize:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP, self.frame.size.width - kXY_GAP * 2, 25) text:@"11111" tag:101 font:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         }
         
         if (msg != nil) {
             
-            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP + 25+5, self.frame.size.width - kXY_GAP * 2, 25) text:@"2222" tag:102 fontSize:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP + 25+5, self.frame.size.width - kXY_GAP * 2, 25) text:@"2222" tag:102 font:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         }
         
         if (customeView != nil) {
@@ -175,8 +175,8 @@
         CGFloat maxWidth = kScreen_width - (kX_GAP_OF_WINDOW + kXY_GAP)*2;
         if (title != nil) {
             
-            titleSize = [self sizeWithText:title fontSize:kFONTSIZE width:maxWidth];
-            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP, self.frame.size.width - kXY_GAP * 2, kH_LABLE) text:title tag:101 fontSize:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            titleSize = [self sizeWithText:title font:@(kFONTSIZE) width:maxWidth];
+            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP, self.frame.size.width - kXY_GAP * 2, kH_LABLE) text:title tag:101 font:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         }
         
         
@@ -203,8 +203,8 @@
             [self addSubview:customeView];
         }else{
             
-            msgSize = [self sizeWithText:msg fontSize:kFONTSIZE width:maxWidth];
-            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP + kH_LABLE + 5, self.frame.size.width - kXY_GAP * 2, kH_LABLE) text:msg tag:102 fontSize:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            msgSize = [self sizeWithText:msg font:@(kFONTSIZE) width:maxWidth];
+            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP + kH_LABLE + 5, self.frame.size.width - kXY_GAP * 2, kH_LABLE) text:msg tag:102 font:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
 
         }
         
