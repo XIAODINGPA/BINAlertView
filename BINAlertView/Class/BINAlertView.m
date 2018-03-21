@@ -14,7 +14,7 @@
 //RGB色值
 #define kC_RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
-static const CGFloat padding = kPadding;
+static const CGFloat padding = 10;
 
 @interface BINAlertView ()<UITextViewDelegate>
 
