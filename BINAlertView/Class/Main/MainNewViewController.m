@@ -44,8 +44,8 @@
 //    containView.backgroundColor = [UIColor orangeColor];
 //    [self.view addSubview:containView];
     
-    
-    UIView * containView = [UIView createViewElements:elementList numberOfRow:4 viewHeight:30 padding:15];
+    CGRect rect = CGRectMake(20, 20, kScreen_width - 20*2, 0);
+    UIView * containView = [UIView createViewWithRect:rect elements:elementList numberOfRow:4 viewHeight:30 padding:15];
     containView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:containView];
     
@@ -74,14 +74,14 @@
     self.containView = containView;
 }
 
-- (UIView *)createViewElements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding{
+- (UIView *)createViewWithRect:(CGRect)rect elements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding{
 
 //    CGFloat padding = 15;
 //    CGFloat viewHeight = 30;
 //    NSInteger numberOfRow = 4;
     NSInteger rowCount = elements.count % numberOfRow == 0 ? elements.count/numberOfRow : elements.count/numberOfRow + 1;
     //
-    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(20, 20, kScreen_width - 20*2, rowCount * viewHeight + (rowCount - 1) * padding)];
+    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), rowCount * viewHeight + (rowCount - 1) * padding)];
     backgroudView.backgroundColor = [UIColor greenColor];
     
     CGSize viewSize = CGSizeMake((CGRectGetWidth(backgroudView.frame) - (numberOfRow-1)*padding)/numberOfRow, viewHeight);
@@ -329,7 +329,7 @@
                 [marr addObject:model];
             }
             
-            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" items:marr btnTitles:@[@"取消",@"确认"]];
+            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加品种(最终版)" items:marr btnTitles:@[@"取消",@"确认"]];
             [alertView show];
             [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
 //                NSLog(@"%@====%@",alertView,@(btnIndex));

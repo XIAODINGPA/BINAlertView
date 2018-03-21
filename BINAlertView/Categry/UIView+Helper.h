@@ -45,7 +45,7 @@
 //图片+文字
 + (UIView *)getImgLabViewRect:(CGRect)rect image:(id)image text:(id)text imgViewSize:(CGSize)imgViewSize;
 
-+ (UIView *)createViewElements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding;
++ (UIView *)createViewWithRect:(CGRect)rect elements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding;
 
 + (UIView *)createViewByItems:(NSArray *)items itemDict:(NSDictionary *)itemDict width:(CGFloat)width;
 
