@@ -45,6 +45,7 @@
 		512861E71F95C47300CD1372 /* BINTableViewHandleSections.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861E61F95C47300CD1372 /* BINTableViewHandleSections.m */; };
 		513F8C801F430B680031C8C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */; };
 		5170B4BF1FC26AF600873EA8 /* StackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5170B4BE1FC26AF600873EA8 /* StackListViewController.m */; };
+		517561AF206264E900968433 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 517561AE206264E800968433 /* UIViewController+Helper.m */; };
 		51795B6B1F4432FB002AF228 /* BINStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51795B6A1F4432FB002AF228 /* BINStarsView.m */; };
 		51803C4A2049471800799B48 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C492049471800799B48 /* MBProgressHUD.m */; };
 		51803C562049483100799B48 /* MBProgressHUD+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C552049483100799B48 /* MBProgressHUD+Helper.m */; };
@@ -67,7 +68,6 @@
 		518372FC1F7E117D00248179 /* UIView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372DB1F7E117D00248179 /* UIView+Helper.m */; };
 		518372FD1F7E117D00248179 /* UIViewController+addView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372DD1F7E117D00248179 /* UIViewController+addView.m */; };
 		518372FE1F7E117D00248179 /* UIViewController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372DF1F7E117D00248179 /* UIViewController+Cloudox.m */; };
-		518372FF1F7E117D00248179 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372E11F7E117D00248179 /* UIViewController+Helper.m */; };
 		518373091F7E225D00248179 /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373081F7E225D00248179 /* NextViewController.m */; };
 		518373391F7E22FD00248179 /* BINDataPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5183730E1F7E22FD00248179 /* BINDataPicker.m */; };
 		5183733A1F7E22FD00248179 /* BINGuidePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373101F7E22FD00248179 /* BINGuidePageView.m */; };
@@ -171,6 +171,8 @@
 		513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5170B4BD1FC26AF600873EA8 /* StackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackListViewController.h; sourceTree = "<group>"; };
 		5170B4BE1FC26AF600873EA8 /* StackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackListViewController.m; sourceTree = "<group>"; };
+		517561AD206264E800968433 /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Helper.h"; sourceTree = "<group>"; };
+		517561AE206264E800968433 /* UIViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Helper.m"; sourceTree = "<group>"; };
 		51795B691F4432FB002AF228 /* BINStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINStarsView.h; sourceTree = "<group>"; };
 		51795B6A1F4432FB002AF228 /* BINStarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINStarsView.m; sourceTree = "<group>"; };
 		51803C482049471800799B48 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -216,8 +218,6 @@
 		518372DD1F7E117D00248179 /* UIViewController+addView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+addView.m"; sourceTree = "<group>"; };
 		518372DE1F7E117D00248179 /* UIViewController+Cloudox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Cloudox.h"; sourceTree = "<group>"; };
 		518372DF1F7E117D00248179 /* UIViewController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Cloudox.m"; sourceTree = "<group>"; };
-		518372E01F7E117D00248179 /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Helper.h"; sourceTree = "<group>"; };
-		518372E11F7E117D00248179 /* UIViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Helper.m"; sourceTree = "<group>"; };
 		518373071F7E225D00248179 /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
 		518373081F7E225D00248179 /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
 		5183730D1F7E22FD00248179 /* BINDataPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINDataPicker.h; sourceTree = "<group>"; };
@@ -453,6 +453,8 @@
 		518372B81F7E117D00248179 /* Categry */ = {
 			isa = PBXGroup;
 			children = (
+				517561AD206264E800968433 /* UIViewController+Helper.h */,
+				517561AE206264E800968433 /* UIViewController+Helper.m */,
 				518372B91F7E117D00248179 /* CategoryHeader.h */,
 				51C5AF23205FA1C9000E8EA1 /* UIViewController+Helper.h */,
 				51C5AF22205FA1C9000E8EA1 /* UIViewController+Helper.m */,
@@ -498,8 +500,6 @@
 				518372DD1F7E117D00248179 /* UIViewController+addView.m */,
 				518372DE1F7E117D00248179 /* UIViewController+Cloudox.h */,
 				518372DF1F7E117D00248179 /* UIViewController+Cloudox.m */,
-				518372E01F7E117D00248179 /* UIViewController+Helper.h */,
-				518372E11F7E117D00248179 /* UIViewController+Helper.m */,
 			);
 			path = Categry;
 			sourceTree = "<group>";
@@ -771,6 +771,7 @@
 				518372F81F7E117D00248179 /* UIImageView+ClickImageEnlarge.m in Sources */,
 				518373091F7E225D00248179 /* NextViewController.m in Sources */,
 				518372FB1F7E117D00248179 /* UIView+AddView.m in Sources */,
+				517561AF206264E900968433 /* UIViewController+Helper.m in Sources */,
 				51C5AF24205FA1CA000E8EA1 /* UIViewController+Helper.m in Sources */,
 				518372F11F7E117D00248179 /* NSObject+Helper.m in Sources */,
 				512861E41F95C45400CD1372 /* BINTableViewHandle.m in Sources */,
@@ -793,7 +794,6 @@
 				518373481F7E22FD00248179 /* BINTextField.m in Sources */,
 				5183733A1F7E22FD00248179 /* BINGuidePageView.m in Sources */,
 				518FD862204803C100FD7ADA /* Utilities_DigitalMedia.m in Sources */,
-				518372FF1F7E117D00248179 /* UIViewController+Helper.m in Sources */,
 				512861B51F95AD2900CD1372 /* MQVerCodeInputView.m in Sources */,
 				518373441F7E22FD00248179 /* BINShareDataModel.m in Sources */,
 				518373471F7E22FD00248179 /* BINShareView.m in Sources */,
