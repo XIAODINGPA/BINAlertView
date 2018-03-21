@@ -188,15 +188,15 @@ static const CGFloat padding = 10;
             [self addSubview:btn];
             [self.btnMarr addObject:btn];
             
-            if (i == 0 && btnTitles.count > 1) {
+            if ([btnTitles[i] isEqualToString:@"取消"]) {
                 [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-               
+                
             }else{
-//                [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-                [btn setTitleColor:kC_RGBA(13, 95, 255, 1.0) forState:UIControlStateNormal];
+//                [btn setTitleColor:kC_RGBA(13, 95, 255, 1.0) forState:UIControlStateNormal];
                 [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
+                
             }
+            
             if (i != btnCount - 1) {
                 //右边框
                 CALayer * rightLayer = [CALayer layer];
