@@ -170,8 +170,9 @@ static const CGFloat padding = kPadding;
             self.textView.textAlignment = NSTextAlignmentCenter;
         }
         self.backgroundColor = [UIColor whiteColor];
-        self.center = [[[[UIApplication sharedApplication]windows]firstObject]center];
-        
+//        self.center = [[[[UIApplication sharedApplication]windows]firstObject]center];
+        CGPoint center = [[[[UIApplication sharedApplication]windows]firstObject]center];
+        self.center = CGPointMake(center.x, center.y*2/3);
     }
     return self;
 }
@@ -233,7 +234,6 @@ static const CGFloat padding = kPadding;
     [self addActivityBackgroundView];
         self.transform = CGAffineTransformMakeScale(0.01, 0.01);
 //    self.transform = CGAffineTransformMakeScale(2.01, 2.01);
-    
 
     [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.transform = CGAffineTransformIdentity;
@@ -336,6 +336,8 @@ static const CGFloat padding = kPadding;
 
 + (UIView *)createViewByItems:(NSArray *)items width:(CGFloat)width{
     
+    CGFloat labelGapX = 20;
+
     CGFloat viewHeight = 30;
     CGFloat height = items.count *viewHeight + (items.count - 1)*kPadding;
     UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
@@ -346,15 +348,15 @@ static const CGFloat padding = kPadding;
         
         CGSize size = [self sizeWithText:modol.title font:@15 width:kScreen_width];
         if (CGRectEqualToRect(rectLab, CGRectZero)) {
-            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab), size.width, viewHeight);
+            rectLab = CGRectMake(labelGapX, CGRectGetMaxY(rectLab), size.width, viewHeight);
             
         }else{
-            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
+            rectLab = CGRectMake(labelGapX, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
             
         }
         UILabel * label = [UIView createLabelWithRect:rectLab text:modol.title textColor:nil tag:kTAG_LABEL+i patternType:@"2" fontSize:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         
-        CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding, viewHeight);
+        CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding - labelGapX, viewHeight);
         
         UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:modol.content placeholder:modol.placeHolder fontSize:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
         [backgroudView addSubview:label];
