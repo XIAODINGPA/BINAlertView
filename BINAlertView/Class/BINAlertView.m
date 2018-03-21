@@ -256,7 +256,6 @@ static const CGFloat padding = kPadding;
     
 }
 
-
 - (void)dismiss{
     [self removeActivityBackgroundView];
     [self removeFromSuperview];

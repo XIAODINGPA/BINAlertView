@@ -56,9 +56,9 @@ typedef void (^BlockAlertView)(BINAlertView * alertView,  NSInteger btnIndex);
 - (void)actionWithBlock:(BlockAlertView)blockAlertView;
 
 - (void)show;
-- (void)dismiss;
-
 - (void)showByCenter:(CGPoint)center;
+
+- (void)dismiss;
 
 @end
 
