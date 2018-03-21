@@ -188,7 +188,7 @@ static const CGFloat padding = 10;
             [self addSubview:btn];
             [self.btnMarr addObject:btn];
             
-            if ([btnTitles[i] isEqualToString:@"取消"]) {
+            if ([btnTitles[i] isEqualToString:kActionTitle_Cancell]) {
                 [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                 
             }else{
