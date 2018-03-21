@@ -14,7 +14,7 @@ static const CGFloat kXY_GAP = 10;//子视图相对弹窗的边界距离
 //弹窗内容宽度
 #define kWidth_customView  (kScreen_width - (kX_GAP_OF_WINDOW + kXY_GAP)*2)
 
-static const CGFloat kH_BTN = 45;//底下按钮高度
+static const CGFloat kH_BTN = 50;//底下按钮高度
 
 @class BINAlertView;
 
