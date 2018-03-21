@@ -58,6 +58,8 @@ typedef void (^BlockAlertView)(BINAlertView * alertView,  NSInteger btnIndex);
 - (void)show;
 - (void)dismiss;
 
+- (void)showByCenter:(CGPoint)center;
+
 @end
 
 @interface ElementModel : UIView

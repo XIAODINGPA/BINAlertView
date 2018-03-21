@@ -249,6 +249,14 @@ static const CGFloat padding = kPadding;
     
 }
 
+
+- (void)showByCenter:(CGPoint)center{
+    self.center = CGPointEqualToPoint(CGPointZero, center) ?  CGPointMake(center.x, center.y*2/3) : center;
+    [self show];
+    
+}
+
+
 - (void)dismiss{
     [self removeActivityBackgroundView];
     [self removeFromSuperview];
