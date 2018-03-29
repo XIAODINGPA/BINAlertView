@@ -59,6 +59,10 @@ static const char kTActionHandlerTapGestureKey;
         [(UIButton *)self addTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
         
     }
+    else if ([self isKindOfClass:[UIControl class]]) {
+        [(UIControl *)self addTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventValueChanged];
+        
+    }
     else{
         UITapGestureRecognizer *tapGesture = objc_getAssociatedObject(self, _cmd);
         if (!tapGesture){
@@ -454,6 +458,37 @@ static const char kTActionHandlerTapGestureKey;
     view.layer.shadowRadius = 2;//阴影半径，默认3
 }
 
++ (void)DisplayLastLineViewWithInset:(UIEdgeInsets)separatorInset cell:(UITableViewCell *)cell{
+    for (UIView *subview in cell.contentView.superview.subviews) {
+        if ([NSStringFromClass(subview.class) hasSuffix:@"SeparatorView"]) {
+            subview.hidden = NO;
+            CGRect frame = subview.frame;
+            frame.origin.x += separatorInset.left;
+            //            frame.size.width -= self.separatorInset.right;
+            //            frame.size.width = kScreen_width;
+            subview.frame = frame;
+        }
+    }
+}
+
+- (void)reloadItems:(NSArray *)items itemWidth:(CGFloat)itemWidth{
+    
+    if ([self isKindOfClass:[UISegmentedControl class]]) {
+        UISegmentedControl * segmentCtl = (UISegmentedControl *)self;
+        for (NSInteger i = 0; i < segmentCtl.numberOfSegments; i++) {
+            if (i < items.count) {
+                [segmentCtl setTitle:items[i] forSegmentAtIndex:i];
+            }else{
+                [segmentCtl removeSegmentAtIndex:i animated:YES];
+            }
+        }
+        
+        CGRect rect = segmentCtl.frame;
+        rect.size.width = items.count*itemWidth;
+        segmentCtl.frame = rect;
+    }
+}
+
 ///
 //- (void (^)(UIView *))tapBlock
 //{
@@ -486,6 +521,9 @@ static const char kTActionHandlerTapGestureKey;
 //    }];
 //    
 //}
+
+
+
 
 
 @end

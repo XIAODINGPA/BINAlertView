@@ -170,9 +170,9 @@ static const CGFloat padding = 10;
             self.textView.textAlignment = NSTextAlignmentCenter;
         }
         self.backgroundColor = [UIColor whiteColor];
-//        self.center = [[[[UIApplication sharedApplication]windows]firstObject]center];
-        CGPoint center = [[[[UIApplication sharedApplication]windows]firstObject]center];
-        self.center = CGPointMake(center.x, center.y*2/3);
+        self.center = [[[[UIApplication sharedApplication]windows]firstObject]center];
+//        CGPoint center = [[[[UIApplication sharedApplication]windows]firstObject]center];
+//        self.center = CGPointMake(center.x, center.y*2/3);
     }
     return self;
 }

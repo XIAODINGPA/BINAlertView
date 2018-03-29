@@ -58,4 +58,6 @@ typedef void(^SegmentViewBlock)(NSInteger selectIndex);  // SegmentViewBlock‰∏çÊ
 
 + (UISegmentedControl *)createSegmentWithRect:(CGRect)rect titles:(NSArray *)titleArr textColor:(UIColor *)textColor backgroudColor:(UIColor *)backgroudColor selectedIndex:(NSInteger)selectedIndex tagert:(id)target aSelector:(SEL)aSelector;
 
++ (UISegmentedControl *)createSegmentCtlWithRect:(CGRect)rect items:(NSArray *)items selectedIndex:(NSInteger)selectedIndex type:(NSString *)type;
+
 @end

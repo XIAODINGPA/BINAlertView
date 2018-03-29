@@ -850,5 +850,38 @@
     
 }
 
++ (UISegmentedControl *)createSegmentCtlWithRect:(CGRect)rect items:(NSArray *)items selectedIndex:(NSInteger)selectedIndex type:(NSString *)type{
+    UISegmentedControl *segmentCtrl = [[UISegmentedControl alloc] initWithItems:items];
+    segmentCtrl.frame = rect;
+    
+    segmentCtrl.backgroundColor = [UIColor whiteColor];
+    segmentCtrl.tintColor = kC_ThemeCOLOR;
+    
+    segmentCtrl.selectedSegmentIndex = selectedIndex ? selectedIndex : 0;
+    switch ([type integerValue]) {
+        case 1:
+        {
+            
+            segmentCtrl.layer.borderWidth = 1;
+            segmentCtrl.layer.borderColor = [UIColor whiteColor].CGColor;
+            
+            NSDictionary * dict = @{
+                                    NSForegroundColorAttributeName :   [UIColor blackColor],
+                                    NSFontAttributeName            :   [UIFont systemFontOfSize:16],
+                                    
+                                    };
+            
+            [segmentCtrl setTitleTextAttributes:dict forState:UIControlStateNormal];
+            [segmentCtrl setDividerImage:[UIImage imageWithColor:[UIColor whiteColor]] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+            
+        }
+            break;
+        default:
+            break;
+    }
+    
+    //    [segmentCtrl addTarget:self action:@selector(handleActionSwitch:) forControlEvents:UIControlEventValueChanged];   // 开关事件切换通知
+    return segmentCtrl;
+}
 
 @end

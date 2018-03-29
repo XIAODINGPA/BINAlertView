@@ -44,9 +44,15 @@
 		512861E41F95C45400CD1372 /* BINTableViewHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861E21F95C45400CD1372 /* BINTableViewHandle.m */; };
 		512861E71F95C47300CD1372 /* BINTableViewHandleSections.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861E61F95C47300CD1372 /* BINTableViewHandleSections.m */; };
 		513F8C801F430B680031C8C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */; };
+		516E87D72064A00D0037C75B /* BINGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E87D62064A00D0037C75B /* BINGroupView.m */; };
 		5170B4BF1FC26AF600873EA8 /* StackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5170B4BE1FC26AF600873EA8 /* StackListViewController.m */; };
 		517561AF206264E900968433 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 517561AE206264E800968433 /* UIViewController+Helper.m */; };
 		51795B6B1F4432FB002AF228 /* BINStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51795B6A1F4432FB002AF228 /* BINStarsView.m */; };
+		517C23EB206B454B00149016 /* WHKTableViewFiftyFiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C23E9206B454B00149016 /* WHKTableViewFiftyFiveCell.m */; };
+		517C23EE206B496100149016 /* WHKTableViewZeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C23ED206B496100149016 /* WHKTableViewZeroCell.m */; };
+		517C2408206B998C00149016 /* BINTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C2407206B998C00149016 /* BINTabBarView.m */; };
+		517D3904206CBEA8005BC021 /* BN_TabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D3903206CBEA8005BC021 /* BN_TabBarView.m */; };
+		517D3907206CBEFF005BC021 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D3906206CBEFF005BC021 /* LeftMenuViewController.m */; };
 		51803C4A2049471800799B48 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C492049471800799B48 /* MBProgressHUD.m */; };
 		51803C562049483100799B48 /* MBProgressHUD+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C552049483100799B48 /* MBProgressHUD+Helper.m */; };
 		51803C5A204948AF00799B48 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C59204948AE00799B48 /* UIView+Toast.m */; };
@@ -88,6 +94,7 @@
 		518373491F7E22FD00248179 /* BINTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373311F7E22FD00248179 /* BINTextView.m */; };
 		5183734A1F7E22FD00248179 /* WHKLeftMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373331F7E22FD00248179 /* WHKLeftMenuView.m */; };
 		518373571F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373541F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.m */; };
+		518BDE242065FBE800DC925D /* NSObject+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = 518BDE232065FBE800DC925D /* NSObject+Testing.m */; };
 		518FD84C204801A200FD7ADA /* UIApplication+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD846204801A000FD7ADA /* UIApplication+Helper.m */; };
 		518FD861204803C100FD7ADA /* StaticNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD85A204803BF00FD7ADA /* StaticNSString.m */; };
 		518FD862204803C100FD7ADA /* Utilities_DigitalMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD85C204803BF00FD7ADA /* Utilities_DigitalMedia.m */; };
@@ -169,12 +176,24 @@
 		512861E51F95C47300CD1372 /* BINTableViewHandleSections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINTableViewHandleSections.h; sourceTree = "<group>"; };
 		512861E61F95C47300CD1372 /* BINTableViewHandleSections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINTableViewHandleSections.m; sourceTree = "<group>"; };
 		513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		516E87D52064A00D0037C75B /* BINGroupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BINGroupView.h; sourceTree = "<group>"; };
+		516E87D62064A00D0037C75B /* BINGroupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BINGroupView.m; sourceTree = "<group>"; };
 		5170B4BD1FC26AF600873EA8 /* StackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackListViewController.h; sourceTree = "<group>"; };
 		5170B4BE1FC26AF600873EA8 /* StackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackListViewController.m; sourceTree = "<group>"; };
 		517561AD206264E800968433 /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Helper.h"; sourceTree = "<group>"; };
 		517561AE206264E800968433 /* UIViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Helper.m"; sourceTree = "<group>"; };
 		51795B691F4432FB002AF228 /* BINStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINStarsView.h; sourceTree = "<group>"; };
 		51795B6A1F4432FB002AF228 /* BINStarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINStarsView.m; sourceTree = "<group>"; };
+		517C23E9206B454B00149016 /* WHKTableViewFiftyFiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHKTableViewFiftyFiveCell.m; sourceTree = "<group>"; };
+		517C23EA206B454B00149016 /* WHKTableViewFiftyFiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHKTableViewFiftyFiveCell.h; sourceTree = "<group>"; };
+		517C23EC206B495B00149016 /* WHKTableViewZeroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHKTableViewZeroCell.h; sourceTree = "<group>"; };
+		517C23ED206B496100149016 /* WHKTableViewZeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHKTableViewZeroCell.m; sourceTree = "<group>"; };
+		517C2406206B998C00149016 /* BINTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BINTabBarView.h; sourceTree = "<group>"; };
+		517C2407206B998C00149016 /* BINTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BINTabBarView.m; sourceTree = "<group>"; };
+		517D3902206CBEA8005BC021 /* BN_TabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_TabBarView.h; sourceTree = "<group>"; };
+		517D3903206CBEA8005BC021 /* BN_TabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_TabBarView.m; sourceTree = "<group>"; };
+		517D3905206CBEFF005BC021 /* LeftMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
+		517D3906206CBEFF005BC021 /* LeftMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
 		51803C482049471800799B48 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		51803C492049471800799B48 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		51803C542049483000799B48 /* MBProgressHUD+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Helper.h"; sourceTree = "<group>"; };
@@ -261,6 +280,8 @@
 		5183734E1F7E238000248179 /* BINAlertView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BINAlertView-Prefix.pch"; sourceTree = "<group>"; };
 		518373531F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
 		518373541F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
+		518BDE222065FBE800DC925D /* NSObject+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Testing.h"; sourceTree = "<group>"; };
+		518BDE232065FBE800DC925D /* NSObject+Testing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Testing.m"; sourceTree = "<group>"; };
 		518FD846204801A000FD7ADA /* UIApplication+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Helper.m"; sourceTree = "<group>"; };
 		518FD84A204801A100FD7ADA /* UIApplication+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Helper.h"; sourceTree = "<group>"; };
 		518FD859204803BF00FD7ADA /* StaticNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticNSString.h; sourceTree = "<group>"; };
@@ -335,6 +356,7 @@
 		34098D1E19EF962A006806A6 /* BINAlertView */ = {
 			isa = PBXGroup;
 			children = (
+				517C23E8206B452F00149016 /* CellModel */,
 				518FD85F204803C000FD7ADA /* AppDelegate.h */,
 				518FD860204803C000FD7ADA /* AppDelegate.m */,
 				518FD8542048031100FD7ADA /* Class */,
@@ -432,6 +454,17 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		517C23E8206B452F00149016 /* CellModel */ = {
+			isa = PBXGroup;
+			children = (
+				517C23EA206B454B00149016 /* WHKTableViewFiftyFiveCell.h */,
+				517C23E9206B454B00149016 /* WHKTableViewFiftyFiveCell.m */,
+				517C23EC206B495B00149016 /* WHKTableViewZeroCell.h */,
+				517C23ED206B496100149016 /* WHKTableViewZeroCell.m */,
+			);
+			path = CellModel;
+			sourceTree = "<group>";
+		};
 		51803C47204946F800799B48 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +533,8 @@
 				518372DD1F7E117D00248179 /* UIViewController+addView.m */,
 				518372DE1F7E117D00248179 /* UIViewController+Cloudox.h */,
 				518372DF1F7E117D00248179 /* UIViewController+Cloudox.m */,
+				518BDE222065FBE800DC925D /* NSObject+Testing.h */,
+				518BDE232065FBE800DC925D /* NSObject+Testing.m */,
 			);
 			path = Categry;
 			sourceTree = "<group>";
@@ -532,6 +567,8 @@
 				518373311F7E22FD00248179 /* BINTextView.m */,
 				518373321F7E22FD00248179 /* WHKLeftMenuView.h */,
 				518373331F7E22FD00248179 /* WHKLeftMenuView.m */,
+				516E87D52064A00D0037C75B /* BINGroupView.h */,
+				516E87D62064A00D0037C75B /* BINGroupView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -613,6 +650,8 @@
 				518373081F7E225D00248179 /* NextViewController.m */,
 				5170B4BD1FC26AF600873EA8 /* StackListViewController.h */,
 				5170B4BE1FC26AF600873EA8 /* StackListViewController.m */,
+				517D3905206CBEFF005BC021 /* LeftMenuViewController.h */,
+				517D3906206CBEFF005BC021 /* LeftMenuViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -627,6 +666,10 @@
 				34098D4E19EF9784006806A6 /* CustomAlertView.m */,
 				518057661F94DB68008D1C0E /* BINAlertView.h */,
 				518057671F94DB68008D1C0E /* BINAlertView.m */,
+				517C2406206B998C00149016 /* BINTabBarView.h */,
+				517C2407206B998C00149016 /* BINTabBarView.m */,
+				517D3902206CBEA8005BC021 /* BN_TabBarView.h */,
+				517D3903206CBEA8005BC021 /* BN_TabBarView.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -766,6 +809,7 @@
 				512861D51F95AD6E00CD1372 /* MASConstraintMaker.m in Sources */,
 				512861D61F95AD6E00CD1372 /* MASLayoutConstraint.m in Sources */,
 				518372F21F7E117D00248179 /* NSString+Helper.m in Sources */,
+				517D3907206CBEFF005BC021 /* LeftMenuViewController.m in Sources */,
 				34098D4C19EF965C006806A6 /* MainViewController.m in Sources */,
 				512861D91F95AD6E00CD1372 /* NSArray+MASAdditions.m in Sources */,
 				518372F81F7E117D00248179 /* UIImageView+ClickImageEnlarge.m in Sources */,
@@ -774,15 +818,19 @@
 				517561AF206264E900968433 /* UIViewController+Helper.m in Sources */,
 				51C5AF24205FA1CA000E8EA1 /* UIViewController+Helper.m in Sources */,
 				518372F11F7E117D00248179 /* NSObject+Helper.m in Sources */,
+				516E87D72064A00D0037C75B /* BINGroupView.m in Sources */,
 				512861E41F95C45400CD1372 /* BINTableViewHandle.m in Sources */,
 				512861DC1F95AD6E00CD1372 /* ViewController+MASAdditions.m in Sources */,
 				518FD8692048086100FD7ADA /* UIButton+Helper.m in Sources */,
+				517C23EE206B496100149016 /* WHKTableViewZeroCell.m in Sources */,
 				5183733F1F7E22FD00248179 /* BINPhotoGroup.m in Sources */,
+				517C23EB206B454B00149016 /* WHKTableViewFiftyFiveCell.m in Sources */,
 				518372F31F7E117D00248179 /* NSString+Regex.m in Sources */,
 				518373431F7E22FD00248179 /* BINRadioView.m in Sources */,
 				5170B4BF1FC26AF600873EA8 /* StackListViewController.m in Sources */,
 				518FD861204803C100FD7ADA /* StaticNSString.m in Sources */,
 				5183733B1F7E22FD00248179 /* BINIconLabelView.m in Sources */,
+				517C2408206B998C00149016 /* BINTabBarView.m in Sources */,
 				518FD84C204801A200FD7ADA /* UIApplication+Helper.m in Sources */,
 				518372FC1F7E117D00248179 /* UIView+Helper.m in Sources */,
 				518372FA1F7E117D00248179 /* UITableViewCell+Helper.m in Sources */,
@@ -796,6 +844,7 @@
 				518FD862204803C100FD7ADA /* Utilities_DigitalMedia.m in Sources */,
 				512861B51F95AD2900CD1372 /* MQVerCodeInputView.m in Sources */,
 				518373441F7E22FD00248179 /* BINShareDataModel.m in Sources */,
+				518BDE242065FBE800DC925D /* NSObject+Testing.m in Sources */,
 				518373471F7E22FD00248179 /* BINShareView.m in Sources */,
 				512861D81F95AD6E00CD1372 /* MASViewConstraint.m in Sources */,
 				518372FD1F7E117D00248179 /* UIViewController+addView.m in Sources */,
@@ -803,6 +852,7 @@
 				518372F91F7E117D00248179 /* UINavigationController+Cloudox.m in Sources */,
 				5183734A1F7E22FD00248179 /* WHKLeftMenuView.m in Sources */,
 				512861DB1F95AD6E00CD1372 /* View+MASAdditions.m in Sources */,
+				517D3904206CBEA8005BC021 /* BN_TabBarView.m in Sources */,
 				518372F41F7E117D00248179 /* UIButton+EdgeInsets.m in Sources */,
 				518372F01F7E117D00248179 /* NSMutableDictionary+Helper.m in Sources */,
 				512861E71F95C47300CD1372 /* BINTableViewHandleSections.m in Sources */,

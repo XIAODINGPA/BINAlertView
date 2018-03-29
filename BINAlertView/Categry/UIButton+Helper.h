@@ -40,4 +40,6 @@ typedef void(^BlockButton)(id objc);
  */
 - (void)startCountdown;
 
+- (void)handleBackColor:(UIColor *)backColor textColor:(UIColor *)textColor layerColor:(UIColor *)layerColor;
+
 @end

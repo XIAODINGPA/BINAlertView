@@ -47,8 +47,6 @@
 
 + (UIView *)createViewWithRect:(CGRect)rect elements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding;
 
-+ (UIView *)createViewByItems:(NSArray *)items itemDict:(NSDictionary *)itemDict width:(CGFloat)width;
-
 - (void)setOriginX:(CGFloat)originX;
 - (void)setOriginY:(CGFloat)originY;
 
@@ -58,8 +56,13 @@
 //向屏幕倾斜
 + (void)transformStateEventWithView:(UIView *)view;
 
++ (void)DisplayLastLineViewWithInset:(UIEdgeInsets)separatorInset cell:(UITableViewCell *)cell;
+- (void)reloadItems:(NSArray *)items itemWidth:(CGFloat)itemWidth;
 
 //- (void)tapActionWithView:(void (^) (UIView * view))tapClick;
 //- (void)tapView:(UIView* )view tapClick:(void (^) (UIView *View))tapClick;
+
+
+
 
 @end

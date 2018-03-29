@@ -1,68 +1,32 @@
 //
-//  StackListViewController.m
-//  CustomeAlertView
+//  LeftMenuViewController.m
+//  BINAlertView
 //
-//  Created by hsf on 2017/11/20.
-//  Copyright © 2017年 SouFun. All rights reserved.
+//  Created by hsf on 2018/3/29.
+//  Copyright © 2018年 SouFun. All rights reserved.
 //
 
-#import "StackListViewController.h"
+#import "LeftMenuViewController.h"
 
-#import "UIView+Helper.h"
-#import "UIView+AddView.h"
+#import "BN_TabBarView.h"
 
-#import "WHKTableViewZeroCell.h"
-#import "WHKTableViewFiftyFiveCell.h"
+@interface LeftMenuViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-#import "BINTabBarView.h"
-
-@interface StackListViewController ()<UITableViewDataSource,UITableViewDelegate>
-
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray * titleMarr;
-
-@property (nonatomic, strong) UISegmentedControl *segmentCtrl;
-@property (nonatomic, strong) UIView *containView;
+//@property (nonatomic, strong) UITableView *tableView;
+//@property (nonatomic, strong) NSMutableArray * titleMarr;
+//
+//@property (nonatomic, strong) UISegmentedControl *segmentCtrl;
+//@property (nonatomic, strong) UIView *containView;
 
 
-@property (strong, nonatomic) BINTabBarView *tabBarView;
-@property (assign) NSInteger tabCount;
+@property (strong, nonatomic) BN_TabBarView *tabBarView;
 
 @property (strong, nonatomic) NSMutableArray *dataList;
 @property (strong, nonatomic) NSMutableArray *itemList;
 
 @end
 
-@implementation StackListViewController
-
-
--(UISegmentedControl *)segmentCtrl{
-    
-    if (!_segmentCtrl) {
-        /*********************************************************************/
-        _segmentCtrl = [[UISegmentedControl alloc] initWithItems:@[@"今天",@"昨天",@"前天",@"item"]];
-        _segmentCtrl.frame = CGRectMake(0, kScreen_height/2.0, kScreen_width, 44);
-        _segmentCtrl.backgroundColor = [UIColor whiteColor];
-        _segmentCtrl.tintColor = [UIColor cyanColor];
-        _segmentCtrl.selectedSegmentIndex = 0;
-        _segmentCtrl.layer.borderWidth = 1;
-        _segmentCtrl.layer.borderColor = [UIColor whiteColor].CGColor;
-        
-        NSDictionary * dict = @{
-                                NSForegroundColorAttributeName :   [UIColor blackColor],
-                                NSFontAttributeName            :   [UIFont systemFontOfSize:14],
-                                
-                                };
-        
-        [_segmentCtrl setTitleTextAttributes:dict forState:UIControlStateNormal];
-//        [_segmentCtrl addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
-        
-        //    [_segmentCtrl setDividerImage:[UIImage imageNamed:@"31"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [_segmentCtrl setDividerImage:[UIImage imageWithColor:[UIColor whiteColor]] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    }
-    return _segmentCtrl;
-    
-}
+@implementation LeftMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,15 +35,15 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = self.controllerName;
 
-//    [self.view addSubview:self.tableView];
+    //    [self.view addSubview:self.tableView];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
     
     
     [self createBarBtnItemWithTitle:@"+" imageName:nil isLeft:NO target:self aSelector:@selector(add:) isHidden:NO];
-//    [self createBarBtnItemWithTitle:@"-" imageName:nil isLeft:YES target:self aSelector:@selector(jian:) isHidden:NO];
+    //    [self createBarBtnItemWithTitle:@"-" imageName:nil isLeft:YES target:self aSelector:@selector(jian:) isHidden:NO];
     self.itemList = [NSMutableArray arrayWithCapacity:0];
     
-    self.itemList = @[@"abc",@"eeee",@"gggg "].mutableCopy;
+    self.itemList = @[@"abc",@"eeee",@"gggg",@"mmmm"].mutableCopy;
     [self initSlideWithCount];
 }
 
@@ -99,10 +63,10 @@
 
 -(void) initSlideWithCount{
     [_tabBarView removeFromSuperview];
-
+    
     CGRect rect = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
-//    _tabBarView = [[BINTabBarView alloc] initWithFrame:rect items:self.itemList];
-    _tabBarView = [BINTabBarView viewWithRect:rect items:self.itemList];
+    //    _tabBarView = [[BINTabBarView alloc] initWithFrame:rect items:self.itemList];
+    _tabBarView = [BN_TabBarView viewWithRect:rect items:self.itemList];
     [self.view addSubview:_tabBarView];
     _tabBarView.selectedPage = 1;
     
@@ -135,10 +99,10 @@
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    NSMutableArray *tempArray = _dataList[_currentPage];
-//    return tempArray.count;
+    //    NSMutableArray *tempArray = _dataList[_currentPage];
+    //    return tempArray.count;
     return [_dataList[section] count];
-
+    
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -154,10 +118,10 @@
     }
     //    cell.backgroundColor = [UIColor orangeColor];
     
-//    if ([tableView isEqual:_scrollTableViews[_currentPage%2]]) {
-//        cell.textLabel.text = _dataList[_currentPage][indexPath.row];
-//    }
-    NSString * title = _dataList[_tabBarView.currentPage][indexPath.row];
+    //    if ([tableView isEqual:_scrollTableViews[_currentPage%2]]) {
+    //        cell.textLabel.text = _dataList[_currentPage][indexPath.row];
+    //    }
+    NSString * title = _dataList[_tabBarView.segmentCtrl.selectedSegmentIndex][indexPath.row];
     cell.textLabel.text = title;
     cell.detailTextLabel.text = [@(tableView.tag) stringValue];
     

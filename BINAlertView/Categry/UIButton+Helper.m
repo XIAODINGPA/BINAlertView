@@ -123,4 +123,13 @@
     dispatch_resume(_timer);
 }
 
+
+- (void)handleBackColor:(UIColor *)backColor textColor:(UIColor *)textColor layerColor:(UIColor *)layerColor{
+
+    [self setBackgroundImage:[UIImage imageWithColor:backColor] forState:UIControlStateNormal];
+    [self setTitleColor:textColor forState:UIControlStateNormal];
+    [self getLayerAllCorners:layerColor];
+
+}
+
 @end

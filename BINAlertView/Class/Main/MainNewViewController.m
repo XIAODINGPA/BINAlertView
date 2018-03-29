@@ -14,13 +14,62 @@
 
 #import "MyView.h"
 
+#import "BINGroupView.h"
+
+
+#import "NextViewController.h"
+
 @interface MainNewViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic ,strong) UIView * containView;
+@property (nonatomic ,strong) NSMutableArray * elementList;
+
+@property (nonatomic, strong) UISegmentedControl *segmentCtrl;
 
 @end
 
 @implementation MainNewViewController
+
+-(UISegmentedControl *)segmentCtrl{
+    
+    if (!_segmentCtrl) {
+        /*********************************************************************/
+        _segmentCtrl = [[UISegmentedControl alloc] initWithItems:@[@"今天",@"昨天",@"前天"]];
+        _segmentCtrl.frame = CGRectMake(0, kScreen_height/2.0, kScreen_width, 44);
+        _segmentCtrl.backgroundColor = [UIColor whiteColor];
+        _segmentCtrl.tintColor = [UIColor cyanColor];
+        _segmentCtrl.selectedSegmentIndex = 0;
+        _segmentCtrl.layer.borderWidth = 1;
+        _segmentCtrl.layer.borderColor = [UIColor whiteColor].CGColor;
+        
+        NSDictionary * dict = @{
+                                NSForegroundColorAttributeName :   [UIColor blackColor],
+                                NSFontAttributeName            :   [UIFont systemFontOfSize:14],
+                                
+                                };
+        
+        [_segmentCtrl setTitleTextAttributes:dict forState:UIControlStateNormal];
+        [_segmentCtrl addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
+        
+        //    [_segmentCtrl setDividerImage:[UIImage imageNamed:@"31"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        [_segmentCtrl setDividerImage:[UIImage imageWithColor:[UIColor whiteColor]] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    }
+    return _segmentCtrl;
+    
+}
+
+-(NSMutableArray *)elementList{
+    
+    if (!_elementList) {
+        _elementList = [NSMutableArray arrayWithCapacity:0];
+        for (NSInteger i = 0; i< 16; i++) {
+            NSString * title = [NSString stringWithFormat:@"点我%@",@(i)];
+            [_elementList addObject:title];
+            
+        }
+    }
+    return _elementList;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,21 +80,20 @@
     self.view.backgroundColor = [UIColor greenColor];
     
     self.title = self.controllerName;
-   
     
-    NSMutableArray * elementList = [NSMutableArray arrayWithCapacity:0];
-    for (NSInteger i = 0; i< 13; i++) {
-        NSString * title = [NSString stringWithFormat:@"点我%@",@(i)];
-        [elementList addObject:title];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Left" style:UIBarButtonItemStyleDone target:self action:@selector(handleActionItem:)];
+
+    [self createBarBtnItemWithTitle:@"Right" imageName:nil isLeft:YES isHidden:NO handler:^(id objc) {
+        [self goController:@"LeftMenuViewController"];
         
-    }
-    
+    }];
 //    UIView * containView = [self createViewElements:elementList numberOfRow:4 viewHeight:30 padding:15];
 //    containView.backgroundColor = [UIColor orangeColor];
 //    [self.view addSubview:containView];
     
     CGRect rect = CGRectMake(20, 20, kScreen_width - 20*2, 0);
-    UIView * containView = [UIView createViewWithRect:rect elements:elementList numberOfRow:4 viewHeight:30 padding:15];
+    UIView * containView = [UIView createViewWithRect:rect elements:self.elementList numberOfRow:4 viewHeight:30 padding:15];
     containView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:containView];
     
@@ -72,6 +120,12 @@
 //        }];
     }
     self.containView = containView;
+}
+
+- (void)handleActionItem:(UIBarButtonItem *)sender{
+    [self goController:@"StackListViewController"];
+
+    
 }
 
 - (UIView *)createViewWithRect:(CGRect)rect elements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding{
@@ -183,47 +237,34 @@
             break;
         case 5:
         {
-            NSString * string = @"*品种名称";
-            NSArray * textTaps = @[@"*"];
-            NSAttributedString * attString = [self getAttString:string textTaps:textTaps font:@15 tapFont:@15 tapColor:[UIColor redColor] alignment:NSTextAlignmentCenter];
+            CGRect rect = CGRectMake(20, (kScreen_height - 64)/2.0, kScreen_width - 20*2, 0);
+   
+            NSArray * selectedList = @[_elementList[1],_elementList[3]];
+            BINGroupView * groupView = [[BINGroupView alloc]initWithRect:rect items:_elementList numberOfRow:4 itemHeight:30 padding:15 selectedList:selectedList];
+//            groupView.isOnlyOne = YES;
+            groupView.backgroundColor = [UIColor orangeColor];
+            [self.view addSubview:groupView];
             
-            NSAttributedString * attStringOne = [self getAttString:string textTaps:textTaps font:@15 tapFont:@15 tapColor:[UIColor clearColor] alignment:NSTextAlignmentCenter];
-
-            
-            NSArray * array = @[attStringOne,attString];
-            NSDictionary * dict = @{
-                                    @"*品种名称" : @"汉字",
-                                    @"*品种代号" : @"英文字母大写"
-                                    
-                                    };
-
-            UIView * view = [UIView createViewByItems:array itemDict:dict width:kScreen_width - (kX_GAP_OF_WINDOW - kXY_GAP)*2];
-            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" message:nil customView:view btnTitles:@[@"取消",@"确认"]];
-            [alertView show];
-            [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
-                NSLog(@"%@====%@",alertView,@(btnIndex));
-            }];
-            
-//            [UIView getLineWithView:alertView];
+            groupView.viewBlock = ^(BINGroupView *groupView, id selectedItems, NSString *title) {
+                NSLog(@"%@,%@,%@",groupView,selectedItems,title);
+            };
 
         }
             break;
         case 6:
         {
-            NSString * string = @"*品种名称";
-            NSArray * textTaps = @[@"*"];
-            NSAttributedString * attString = [self getAttString:string textTaps:textTaps font:@15 tapFont:@15 tapColor:[UIColor redColor] alignment:NSTextAlignmentCenter];
+            CGRect rect = CGRectMake(20, (kScreen_height - 64)/2.0, kScreen_width - 20*2, 0);
             
-            UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreen_width, 50)];
-            label.attributedText = attString;
-            label.font = [UIFont systemFontOfSize:15];
+            NSArray * selectedList = @[_elementList[1],_elementList[3]];
+            BINGroupView * groupView = [BINGroupView viewWithRect:rect items:_elementList numberOfRow:4 itemHeight:30 padding:15 selectedList:selectedList];
+            groupView.isOnlyOne = YES;
+            groupView.backgroundColor = [UIColor orangeColor];
+            [self.view addSubview:groupView];
             
-            UIView * view = label;
-            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" message:nil customView:view btnTitles:@[@"取消",@"确认"]];
-            [alertView show];
-            [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
-                NSLog(@"%@====%@",alertView,@(btnIndex));
-            }];
+            groupView.viewBlock = ^(BINGroupView *groupView, id selectedItems, NSString *title) {
+                NSLog(@"%@,%@,%@",groupView,selectedItems,title);
+            };
+
             
         }
             break;
@@ -248,25 +289,40 @@
             break;
         case 8:
         {
-            NSArray * array = @[@"*品种名称",@"*品种代号",@"*品种备注"];
-            NSArray * arraySub = @[@"*品种名称",@"*品种备注"];
-
-            NSArray * attList = [self getAttListByPrefix:@"*" titleList:array mustList:arraySub];
-            
+            NSArray * array = @[@"品种名称",@"品种代号",@"品种备注"];
             NSDictionary * dict = @{
-                                    @"*品种名称" : @"汉字",
-                                    @"*品种代号" : @"英文字母大写",
-                                    @"*品种备注" : @""
-
+                                    @"品种名称" : @"汉字",
+                                    @"品种代号" : @"英文字母大写",
+                                    @"品种备注" : @"asdfasd"
+                                    
                                     };
+            NSMutableArray * marr = [NSMutableArray arrayWithCapacity:0];
+            for (NSInteger i = 0; i < array.count; i++) {
+                ElementModel *model = [[ElementModel alloc]init];
+                
+                if (i == 0 || i== 2) {
+                    model.isMust = YES;
+                }
+                
+                NSString * title = array[i];
+                NSString * starString = @"*";
+                model.title = [self getAttringByPrefix:starString content:title isMust:model.isMust];
+                model.content = array[i];
+                model.placeHolder = dict[title];
+                
+                [marr addObject:model];
+            }
             
-            UIView * view = [UIView createViewByItems:attList itemDict:dict width:kWidth_customView];
-            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加猪品种" message:nil customView:view btnTitles:@[@"取消",@"确认"]];
+            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加品种(最终版)" items:marr btnTitles:@[@"取消",@"确认"]];
             [alertView show];
             [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
-                NSLog(@"%@====%@",alertView,@(btnIndex));
+                //                NSLog(@"%@====%@",alertView,@(btnIndex));
+                for (UITextField * textFiled in alertView.textFieldList) {
+                    NSLog(@"_____%@:%@",@(textFiled.tag),textFiled.text);
+                    
+                }
             }];
-//            [UIView getLineWithView:alertView];
+            //            [UIView getLineWithView:alertView];
             
         }
             break;
@@ -305,40 +361,42 @@
             break;
         case 11:
         {
-            NSArray * array = @[@"品种名称",@"品种代号",@"品种备注"];
-            NSDictionary * dict = @{
-                                    @"品种名称" : @"汉字",
-                                    @"品种代号" : @"英文字母大写",
-                                    @"品种备注" : @"asdfasd"
-                                    
-                                    };
-            NSMutableArray * marr = [NSMutableArray arrayWithCapacity:0];
-            for (NSInteger i = 0; i < array.count; i++) {
-                ElementModel *model = [[ElementModel alloc]init];
-                
-                if (i == 0 || i== 2) {
-                    model.isMust = YES;
-                }
-                
-                NSString * title = array[i];
-                NSString * starString = @"*";
-                model.title = [self getAttringByPrefix:starString content:title isMust:model.isMust];
-                model.content = array[i];
-                model.placeHolder = dict[title];
-                
-                [marr addObject:model];
-            }
-            
-            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"添加品种(最终版)" items:marr btnTitles:@[@"取消",@"确认"]];
-            [alertView show];
-            [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
-//                NSLog(@"%@====%@",alertView,@(btnIndex));
-                for (UITextField * textFiled in alertView.textFieldList) {
-                    NSLog(@"_____%@:%@",@(textFiled.tag),textFiled.text);
 
-                }
-            }];
-//            [UIView getLineWithView:alertView];
+            [self.view addSubview:self.segmentCtrl];
+        }
+            break;
+        case 12:
+        {
+            //个性推荐 歌单 主播电台 排行榜
+            NSArray* promoteArray=@[@"个性推荐",@"歌单",@"主播电台",@"排行榜"];
+            UISegmentedControl* promoteSgement=[[UISegmentedControl alloc]initWithItems:promoteArray];
+            promoteSgement.frame=CGRectMake(0, kScreen_width/2.0+80, kScreen_width, 40);
+            [promoteSgement setSelectedSegmentIndex:0];//默认选择第一个
+            promoteSgement.tintColor = [UIColor yellowColor];//去掉颜色 现在整个segment都看不见
+            promoteSgement.backgroundColor = [UIColor whiteColor];
+            NSDictionary* selectedTextAttributes = @{
+                                                     NSFontAttributeName:[UIFont systemFontOfSize:15],
+                                                     NSForegroundColorAttributeName:[UIColor colorWithRed:212/256.0 green:21/256.0 blue:10/256.0 alpha:1]};
+            [promoteSgement setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];//设置选择时文字的属性
+            NSDictionary* unselectedTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName: [UIColor blackColor]};
+            [promoteSgement setTitleTextAttributes:unselectedTextAttributes forState:UIControlStateNormal];//设置未选择时文字的属性
+            [self.view addSubview:promoteSgement];
+            
+        }
+            break;
+        case 13:
+        {
+            NSArray * items = [@"产房,保育,育肥" componentsSeparatedByString:@","];
+        
+            [self.segmentCtrl reloadItems:items itemWidth:60];
+            
+        }
+            break;
+        case 14:
+        {
+            NextViewController * viewController = [NextViewController new];
+            [self.navigationController pushViewController:viewController animated:YES];
+            
         }
             break;
         default:
@@ -535,5 +593,9 @@
     
 }
 
+- (void)change:(UISegmentedControl *)seg{
+    
+    
+}
 
 @end
