@@ -53,10 +53,14 @@
 		517C2408206B998C00149016 /* BINTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C2407206B998C00149016 /* BINTabBarView.m */; };
 		517D3904206CBEA8005BC021 /* BN_TabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D3903206CBEA8005BC021 /* BN_TabBarView.m */; };
 		517D3907206CBEFF005BC021 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D3906206CBEFF005BC021 /* LeftMenuViewController.m */; };
+		517D3911206CDD04005BC021 /* DKSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D3910206CDD03005BC021 /* DKSButton.m */; };
 		51803C4A2049471800799B48 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C492049471800799B48 /* MBProgressHUD.m */; };
 		51803C562049483100799B48 /* MBProgressHUD+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C552049483100799B48 /* MBProgressHUD+Helper.m */; };
 		51803C5A204948AF00799B48 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C59204948AE00799B48 /* UIView+Toast.m */; };
 		518057691F94DB68008D1C0E /* BINAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518057671F94DB68008D1C0E /* BINAlertView.m */; };
+		5181E9F5207B132900F6C895 /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181E9F0207B132900F6C895 /* PopoverAction.m */; };
+		5181E9F6207B132900F6C895 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181E9F2207B132900F6C895 /* PopoverView.m */; };
+		5181E9F7207B132900F6C895 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181E9F4207B132900F6C895 /* PopoverViewCell.m */; };
 		518372EE1F7E117D00248179 /* NSDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372BF1F7E117D00248179 /* NSDictionary+Helper.m */; };
 		518372EF1F7E117D00248179 /* NSMutableArray+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372C11F7E117D00248179 /* NSMutableArray+Helper.m */; };
 		518372F01F7E117D00248179 /* NSMutableDictionary+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518372C31F7E117D00248179 /* NSMutableDictionary+Helper.m */; };
@@ -194,6 +198,8 @@
 		517D3903206CBEA8005BC021 /* BN_TabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_TabBarView.m; sourceTree = "<group>"; };
 		517D3905206CBEFF005BC021 /* LeftMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		517D3906206CBEFF005BC021 /* LeftMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
+		517D390F206CDD03005BC021 /* DKSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSButton.h; sourceTree = "<group>"; };
+		517D3910206CDD03005BC021 /* DKSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSButton.m; sourceTree = "<group>"; };
 		51803C482049471800799B48 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		51803C492049471800799B48 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		51803C542049483000799B48 /* MBProgressHUD+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Helper.h"; sourceTree = "<group>"; };
@@ -202,6 +208,12 @@
 		51803C59204948AE00799B48 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		518057661F94DB68008D1C0E /* BINAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINAlertView.h; sourceTree = "<group>"; };
 		518057671F94DB68008D1C0E /* BINAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINAlertView.m; sourceTree = "<group>"; };
+		5181E9EF207B132900F6C895 /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
+		5181E9F0207B132900F6C895 /* PopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverAction.m; sourceTree = "<group>"; };
+		5181E9F1207B132900F6C895 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		5181E9F2207B132900F6C895 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		5181E9F3207B132900F6C895 /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
+		5181E9F4207B132900F6C895 /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		518372B91F7E117D00248179 /* CategoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryHeader.h; sourceTree = "<group>"; };
 		518372BE1F7E117D00248179 /* NSDictionary+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Helper.h"; sourceTree = "<group>"; };
 		518372BF1F7E117D00248179 /* NSDictionary+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Helper.m"; sourceTree = "<group>"; };
@@ -465,6 +477,15 @@
 			path = CellModel;
 			sourceTree = "<group>";
 		};
+		517D390E206CDD03005BC021 /* DKSButton */ = {
+			isa = PBXGroup;
+			children = (
+				517D390F206CDD03005BC021 /* DKSButton.h */,
+				517D3910206CDD03005BC021 /* DKSButton.m */,
+			);
+			path = DKSButton;
+			sourceTree = "<group>";
+		};
 		51803C47204946F800799B48 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +502,19 @@
 				51803C59204948AE00799B48 /* UIView+Toast.m */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		5181E9EE207B132900F6C895 /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				5181E9EF207B132900F6C895 /* PopoverAction.h */,
+				5181E9F0207B132900F6C895 /* PopoverAction.m */,
+				5181E9F1207B132900F6C895 /* PopoverView.h */,
+				5181E9F2207B132900F6C895 /* PopoverView.m */,
+				5181E9F3207B132900F6C895 /* PopoverViewCell.h */,
+				5181E9F4207B132900F6C895 /* PopoverViewCell.m */,
+			);
+			path = PopoverView;
 			sourceTree = "<group>";
 		};
 		518372B81F7E117D00248179 /* Categry */ = {
@@ -607,6 +641,8 @@
 		518FD84E204801D400FD7ADA /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				5181E9EE207B132900F6C895 /* PopoverView */,
+				517D390E206CDD03005BC021 /* DKSButton */,
 				51803C57204948AE00799B48 /* Toast */,
 				51803C47204946F800799B48 /* MBProgressHUD */,
 				512861B71F95AD6D00CD1372 /* Masonry */,
@@ -793,6 +829,7 @@
 			files = (
 				518372F61F7E117D00248179 /* UIDevice+Helper.m in Sources */,
 				34098D2519EF962A006806A6 /* main.m in Sources */,
+				5181E9F6207B132900F6C895 /* PopoverView.m in Sources */,
 				512861DA1F95AD6E00CD1372 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				518372F71F7E117D00248179 /* UIImage+Helper.m in Sources */,
 				518057691F94DB68008D1C0E /* BINAlertView.m in Sources */,
@@ -836,12 +873,14 @@
 				518372FA1F7E117D00248179 /* UITableViewCell+Helper.m in Sources */,
 				518372EF1F7E117D00248179 /* NSMutableArray+Helper.m in Sources */,
 				518372FE1F7E117D00248179 /* UIViewController+Cloudox.m in Sources */,
+				5181E9F5207B132900F6C895 /* PopoverAction.m in Sources */,
 				51803C4A2049471800799B48 /* MBProgressHUD.m in Sources */,
 				518FD863204803C100FD7ADA /* AppDelegate.m in Sources */,
 				518372F51F7E117D00248179 /* UIColor+Helper.m in Sources */,
 				518373481F7E22FD00248179 /* BINTextField.m in Sources */,
 				5183733A1F7E22FD00248179 /* BINGuidePageView.m in Sources */,
 				518FD862204803C100FD7ADA /* Utilities_DigitalMedia.m in Sources */,
+				517D3911206CDD04005BC021 /* DKSButton.m in Sources */,
 				512861B51F95AD2900CD1372 /* MQVerCodeInputView.m in Sources */,
 				518373441F7E22FD00248179 /* BINShareDataModel.m in Sources */,
 				518BDE242065FBE800DC925D /* NSObject+Testing.m in Sources */,
@@ -854,6 +893,7 @@
 				512861DB1F95AD6E00CD1372 /* View+MASAdditions.m in Sources */,
 				517D3904206CBEA8005BC021 /* BN_TabBarView.m in Sources */,
 				518372F41F7E117D00248179 /* UIButton+EdgeInsets.m in Sources */,
+				5181E9F7207B132900F6C895 /* PopoverViewCell.m in Sources */,
 				518372F01F7E117D00248179 /* NSMutableDictionary+Helper.m in Sources */,
 				512861E71F95C47300CD1372 /* BINTableViewHandleSections.m in Sources */,
 				512861DF1F95ADBC00CD1372 /* MainNewViewController.m in Sources */,

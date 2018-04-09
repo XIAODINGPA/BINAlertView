@@ -88,7 +88,7 @@ static const char kTActionHandlerTapGestureKey;
 - (void)handleActionBtn:(UIButton *)sender{
     BlockObject block = objc_getAssociatedObject(self, @selector(addActionHandler:));
     if (block){
-        block(sender);
+        block(sender,nil,0);
         
     }
 }
@@ -99,7 +99,7 @@ static const char kTActionHandlerTapGestureKey;
 - (void)handleActionTapGesture:(UITapGestureRecognizer *)tapGesture{
     BlockObject block = objc_getAssociatedObject(self, @selector(addActionHandler:));
     if (block){
-        block(tapGesture);
+        block(tapGesture,tapGesture.view,0);
         
     }
 }

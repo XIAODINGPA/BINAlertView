@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^BlockObject)(id objc);
+typedef void(^BlockObject)(id objc, id item, NSInteger idx);
 
 @interface NSObject (Helper)
 

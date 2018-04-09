@@ -84,10 +84,11 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Left" style:UIBarButtonItemStyleDone target:self action:@selector(handleActionItem:)];
 
-    [self createBarBtnItemWithTitle:@"Right" imageName:nil isLeft:YES isHidden:NO handler:^(id objc) {
+    [self createBarBtnItemWithTitle:@"Right" imageName:nil isLeft:YES isHidden:NO handler:^(id objc, id item, NSInteger idx) {
         [self goController:@"LeftMenuViewController"];
         
     }];
+
 //    UIView * containView = [self createViewElements:elementList numberOfRow:4 viewHeight:30 padding:15];
 //    containView.backgroundColor = [UIColor orangeColor];
 //    [self.view addSubview:containView];
@@ -101,7 +102,7 @@
         
         [view addTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
         
-//        [view addActionHandler:^(id objc) {
+//        [view addActionHandler:^(id objc, id item, NSInteger idx) {
 //            DDLog(@"%@",objc);
 //            for (UIButton * btn in view.superview.subviews) {
 //
