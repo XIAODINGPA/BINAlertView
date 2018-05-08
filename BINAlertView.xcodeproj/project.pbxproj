@@ -104,7 +104,6 @@
 		518FD862204803C100FD7ADA /* Utilities_DigitalMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD85C204803BF00FD7ADA /* Utilities_DigitalMedia.m */; };
 		518FD863204803C100FD7ADA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD860204803C000FD7ADA /* AppDelegate.m */; };
 		518FD8692048086100FD7ADA /* UIButton+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD8672048085F00FD7ADA /* UIButton+Helper.m */; };
-		51C5AF24205FA1CA000E8EA1 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C5AF22205FA1C9000E8EA1 /* UIViewController+Helper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -305,7 +304,6 @@
 		518FD8672048085F00FD7ADA /* UIButton+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Helper.m"; sourceTree = "<group>"; };
 		518FD8682048086000FD7ADA /* UIButton+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Helper.h"; sourceTree = "<group>"; };
 		518FD86A20480DC700FD7ADA /* MarcoFuntions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarcoFuntions.h; sourceTree = "<group>"; };
-		51C5AF22205FA1C9000E8EA1 /* UIViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Helper.m"; path = "../../../../../HuiZhuBang/HuiZhuBang/HuiZhuBang/Expand/Category/UIViewController+Helper.m"; sourceTree = "<group>"; };
 		51C5AF23205FA1C9000E8EA1 /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Helper.h"; path = "../../../../../HuiZhuBang/HuiZhuBang/HuiZhuBang/Expand/Category/UIViewController+Helper.h"; sourceTree = "<group>"; };
 		51C5AF25205FA2F1000E8EA1 /* MacroBIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroBIN.h; sourceTree = "<group>"; };
 		51C5AF26205FA2F1000E8EA1 /* MacroUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroUtilities.h; sourceTree = "<group>"; };
@@ -524,7 +522,6 @@
 				517561AE206264E800968433 /* UIViewController+Helper.m */,
 				518372B91F7E117D00248179 /* CategoryHeader.h */,
 				51C5AF23205FA1C9000E8EA1 /* UIViewController+Helper.h */,
-				51C5AF22205FA1C9000E8EA1 /* UIViewController+Helper.m */,
 				51803C542049483000799B48 /* MBProgressHUD+Helper.h */,
 				51803C552049483100799B48 /* MBProgressHUD+Helper.m */,
 				518FD84A204801A100FD7ADA /* UIApplication+Helper.h */,
@@ -853,7 +850,6 @@
 				518373091F7E225D00248179 /* NextViewController.m in Sources */,
 				518372FB1F7E117D00248179 /* UIView+AddView.m in Sources */,
 				517561AF206264E900968433 /* UIViewController+Helper.m in Sources */,
-				51C5AF24205FA1CA000E8EA1 /* UIViewController+Helper.m in Sources */,
 				518372F11F7E117D00248179 /* NSObject+Helper.m in Sources */,
 				516E87D72064A00D0037C75B /* BINGroupView.m in Sources */,
 				512861E41F95C45400CD1372 /* BINTableViewHandle.m in Sources */,
