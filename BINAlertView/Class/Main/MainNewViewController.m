@@ -199,7 +199,7 @@
         }
         [backgroudView addSubview:view];
         [view addActionHandler:^(id obj, id item, NSInteger idx) {
-            handler(objc, item, idx);
+            handler(obj, item, idx);
             
         }];
         
