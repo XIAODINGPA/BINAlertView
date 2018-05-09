@@ -86,7 +86,6 @@ NSString *const BN_ItemControlName = @"BN_ItemControlName";
     UIView * view = [self createViewWithRect:CGRectMake(0, 80, kScreen_width, 60) items:self.itemList];
     [self.view addSubview:view];
     
-    [UIView getLineWithView:view];
 }
 
 - (UIView *)createViewWithRect:(CGRect)rect items:(NSArray<NSDictionary *> *)items{

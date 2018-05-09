@@ -53,8 +53,8 @@ static const char kTActionHandlerTapGestureKey;
 /**
  关联方法待改进
  */
-- (void)addActionHandler:(BlockObject)handler{
-    
+- (void)addActionHandler:(void(^)(id obj, id item, NSInteger idx))handler{
+
     if ([self isKindOfClass:[UIButton class]]) {
         [(UIButton *)self addTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -85,10 +85,10 @@ static const char kTActionHandlerTapGestureKey;
 /**
  关联方法待改进
  */
-- (void)handleActionBtn:(UIButton *)sender{
-    BlockObject block = objc_getAssociatedObject(self, @selector(addActionHandler:));
+- (void)handleActionBtn:(id)sender{
+    void(^block)(id obj, id item, NSInteger idx) = objc_getAssociatedObject(self, @selector(addActionHandler:));
     if (block){
-        block(sender,nil,0);
+        block(sender,sender,0);
         
     }
 }
@@ -97,7 +97,7 @@ static const char kTActionHandlerTapGestureKey;
  关联方法待改进
  */
 - (void)handleActionTapGesture:(UITapGestureRecognizer *)tapGesture{
-    BlockObject block = objc_getAssociatedObject(self, @selector(addActionHandler:));
+    void(^block)(id obj, id item, NSInteger idx) = objc_getAssociatedObject(self, @selector(addActionHandler:));
     if (block){
         block(tapGesture,tapGesture.view,0);
         
@@ -121,15 +121,16 @@ static const char kTActionHandlerTapGestureKey;
     }
 }
 
-//给所有自视图加框
-+ (void)getLineWithView:(UIView *)containView{
-    
-    NSArray *subviews = [containView subviews];
+//给所有子视图加框
+- (void)getViewLayer{
+    NSArray *subviews = [self subviews];
     if ([subviews count] == 0) return;
     for (UIView *subview in subviews) {
-        subview.layer.borderColor = [[UIColor redColor] CGColor];
-        subview.layer.borderWidth = 0.5;
-        [self getLineWithView:subview];
+        subview.layer.borderWidth = kW_LayerBorderWidth;
+        subview.layer.borderColor = [[UIColor blueColor] CGColor];
+        //        subview.layer.borderColor = [[UIColor clearColor] CGColor];
+        //        subview.backgroundColor = [UIColor randomColor];
+        [subview getViewLayer];
         
     }
 }
@@ -398,6 +399,62 @@ static const char kTActionHandlerTapGestureKey;
         UIButton * btn = [UIView createBtnWithRect:btnRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:@"0" target:self aSelector:@selector(handleActionBtn:)];
         [btn removeTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
         [backgroudView addSubview:btn];
+        
+    }
+    return backgroudView;
+}
+
+
++ (UIView *)createViewWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
+    
+    //    CGFloat padding = 15;
+    //    CGFloat viewHeight = 30;
+    //    NSInteger numberOfRow = 4;
+    NSInteger rowCount = items.count % numberOfRow == 0 ? items.count/numberOfRow : items.count/numberOfRow + 1;
+    CGFloat itemWidth = (CGRectGetWidth(rect) - (numberOfRow-1)*padding)/numberOfRow;
+    itemHeight = itemHeight == 0.0 ? itemWidth : itemHeight;;
+    
+    //
+    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), rowCount * itemHeight + (rowCount - 1) * padding)];
+    backgroudView.backgroundColor = [UIColor greenColor];
+    
+    for (NSInteger i = 0; i< items.count; i++) {
+        
+        CGFloat w = itemWidth;
+        CGFloat h = itemHeight;
+        CGFloat x = (i % numberOfRow) * (w + padding);
+        CGFloat y = (i / numberOfRow) * (h + padding);
+        
+        NSString * title = items[i];
+        CGRect itemRect = CGRectMake(x, y, w, h);
+        
+        UIView * view = nil;
+        switch ([type integerValue] ) {
+            case 0://uibutton
+            {
+                view = [UIView createBtnWithRect:itemRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:@"5" target:nil aSelector:nil];
+            }
+                break;
+            case 1://UIImageVIew
+            {
+                view = [UIView createImageViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
+                
+            }
+                break;
+            case 2://UILabel
+            {
+                view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+                
+            }
+                break;
+            default:
+                break;
+        }
+        [backgroudView addSubview:view];
+        [view addActionHandler:^(id obj, id item, NSInteger idx) {
+            handler(objc, item, idx);
+            
+        }];
         
     }
     return backgroudView;

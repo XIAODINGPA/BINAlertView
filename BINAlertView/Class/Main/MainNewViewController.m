@@ -16,6 +16,8 @@
 
 #import "BINGroupView.h"
 
+#import "BN_ItemsView.h"
+
 
 #import "NextViewController.h"
 
@@ -25,10 +27,24 @@
 @property (nonatomic ,strong) NSMutableArray * elementList;
 
 @property (nonatomic, strong) UISegmentedControl *segmentCtrl;
+@property (nonatomic ,strong) BN_ItemsView * itemsView;
 
 @end
 
 @implementation MainNewViewController
+
+-(BN_ItemsView *)itemsView{
+    if (!_itemsView) {
+        _itemsView = [[BN_ItemsView alloc]initWithFrame:CGRectZero];
+        
+        _itemsView.numberOfRow = 4;
+        _itemsView.itemHeight = 0.0;
+        _itemsView.padding = 10;
+        _itemsView.type = @0;
+
+    }
+    return _itemsView;
+}
 
 -(UISegmentedControl *)segmentCtrl{
     
@@ -84,43 +100,50 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Left" style:UIBarButtonItemStyleDone target:self action:@selector(handleActionItem:)];
 
-    [self createBarBtnItemWithTitle:@"Right" imageName:nil isLeft:YES isHidden:NO handler:^(id objc, id item, NSInteger idx) {
+    [self createBarBtnItemWithTitle:@"Right" imageName:nil isLeft:YES isHidden:NO handler:^(id obj, id item, NSInteger idx) {
         [self goController:@"LeftMenuViewController"];
         
     }];
 
-//    UIView * containView = [self createViewElements:elementList numberOfRow:4 viewHeight:30 padding:15];
-//    containView.backgroundColor = [UIColor orangeColor];
-//    [self.view addSubview:containView];
-    
+
     CGRect rect = CGRectMake(20, 20, kScreen_width - 20*2, 0);
-    UIView * containView = [UIView createViewWithRect:rect elements:self.elementList numberOfRow:4 viewHeight:30 padding:15];
+    UIView * containView = [UIView createViewWithRect:rect items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@0 handler:^(id obj, id item, NSInteger idx) {
+        [self handleActionBtn:item];
+        
+    }];
     containView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:containView];
-    
-    for (UIButton * view in containView.subviews) {
-        
-        [view addTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
-        
-//        [view addActionHandler:^(id objc, id item, NSInteger idx) {
-//            DDLog(@"%@",objc);
-//            for (UIButton * btn in view.superview.subviews) {
-//
-//                if ([btn isEqual:view]) {
-//                    [btn setBackgroundImage:[UIImage imageWithColor:kC_ThemeCOLOR_Two] forState:UIControlStateNormal];
-//                    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//
-//                    [btn getLayerAllCorners:kC_ThemeCOLOR_Two];
-//                }else{
-//                    [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
-//                    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//                    [btn getLayerAllCorners:kC_LineColor];
-//
-//                }
-//            }
-//        }];
-    }
+
     self.containView = containView;
+    
+    CGRect rectNew = CGRectMake(20, CGRectGetMaxY(self.containView.frame) + 20, kScreen_width - 20*2, 0);
+    UIView * containViewNew = [UIView createViewWithRect:rectNew items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@2 handler:^(id obj, id item, NSInteger idx) {
+        DDLog(@"%ld",((UIView *)item).tag);
+
+    }];
+    containViewNew.backgroundColor = [UIColor cyanColor];
+//    [self.view addSubview:containViewNew];
+    
+    
+    BN_ItemsView * itemsView = [BN_ItemsView viewWithRect:rectNew items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@2 handler:^(id obj, id item, NSInteger idx) {
+        DDLog(@"%ld",((UIView *)item).tag);
+        
+    }];
+//    [self.view addSubview:itemsView];
+    
+    
+    
+    self.itemsView.frame = rectNew;
+    self.itemsView.items = self.elementList;
+    self.itemsView.type = @1;
+    [self.view addSubview:self.itemsView];
+    self.itemsView.blockView = ^(id obj, id item, NSInteger idx) {
+        DDLog(@"%ld",((UIView *)item).tag);
+
+    };
+    
+
+    [self.view getViewLayer];
 }
 
 - (void)handleActionItem:(UIBarButtonItem *)sender{
@@ -129,29 +152,56 @@
     
 }
 
-- (UIView *)createViewWithRect:(CGRect)rect elements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding{
-
-//    CGFloat padding = 15;
-//    CGFloat viewHeight = 30;
-//    NSInteger numberOfRow = 4;
-    NSInteger rowCount = elements.count % numberOfRow == 0 ? elements.count/numberOfRow : elements.count/numberOfRow + 1;
+- (UIView *)createViewWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
+    
+    //    CGFloat padding = 15;
+    //    CGFloat viewHeight = 30;
+    //    NSInteger numberOfRow = 4;
+    NSInteger rowCount = items.count % numberOfRow == 0 ? items.count/numberOfRow : items.count/numberOfRow + 1;
+    CGFloat itemWidth = (CGRectGetWidth(rect) - (numberOfRow-1)*padding)/numberOfRow;
+    itemHeight = itemHeight == 0.0 ? itemWidth : itemHeight;;
+    
     //
-    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), rowCount * viewHeight + (rowCount - 1) * padding)];
+    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), rowCount * itemHeight + (rowCount - 1) * padding)];
     backgroudView.backgroundColor = [UIColor greenColor];
     
-    CGSize viewSize = CGSizeMake((CGRectGetWidth(backgroudView.frame) - (numberOfRow-1)*padding)/numberOfRow, viewHeight);
-    for (NSInteger i = 0; i< elements.count; i++) {
+    for (NSInteger i = 0; i< items.count; i++) {
         
-        CGFloat w = viewSize.width;
-        CGFloat h = viewSize.height;
-        CGFloat x = w * ( i % numberOfRow) + padding * ( i % numberOfRow);
-        CGFloat y =  (i / numberOfRow) * (h + padding);
+        CGFloat w = itemWidth;
+        CGFloat h = itemHeight;
+        CGFloat x = (i % numberOfRow) * (w + padding);
+        CGFloat y = (i / numberOfRow) * (h + padding);
         
-        NSString * title = elements[i];
-        CGRect btnRect = CGRectMake(x, y, w, h);
-        UIButton * btn = [UIView createBtnWithRect:btnRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:@"0" target:self aSelector:@selector(handleActionBtn:)];
-        [btn removeTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
-        [backgroudView addSubview:btn];
+        NSString * title = items[i];
+        CGRect itemRect = CGRectMake(x, y, w, h);
+        
+        UIView * view = nil;
+        switch ([type integerValue] ) {
+            case 0://uibutton
+            {
+                view = [UIView createBtnWithRect:itemRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:@"5" target:nil aSelector:nil];
+            }
+                break;
+            case 1://UIImageVIew
+            {
+                view = [UIView createImageViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
+                
+            }
+                break;
+            case 2://UILabel
+            {
+                view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+                
+            }
+                break;
+            default:
+                break;
+        }
+        [backgroudView addSubview:view];
+        [view addActionHandler:^(id obj, id item, NSInteger idx) {
+            handler(objc, item, idx);
+            
+        }];
         
     }
     return backgroudView;
@@ -340,8 +390,7 @@
               
             }];
             
-            [UIView getLineWithView:alertView];
-
+            [alertView getViewLayer];
         }
             break;
         case 10:
@@ -357,7 +406,7 @@
                 
             }];
             
-            [UIView getLineWithView:alertView];
+            [alertView getViewLayer];
         }
             break;
         case 11:
@@ -397,6 +446,11 @@
         {
             NextViewController * viewController = [NextViewController new];
             [self.navigationController pushViewController:viewController animated:YES];
+            
+        }
+            break;
+        case 15:
+        {
             
         }
             break;
@@ -598,5 +652,29 @@
     
     
 }
+
+
+//-(UITableView *)tableView{
+//    if (!_tableView) {
+//        _tableView = ({
+//            UITableView * tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+//            tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;//确保TablView能够正确的调整大小
+//            tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//            tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//            tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+//            //        tableView.separatorColor = kC_LineColor;
+//            tableView.backgroundColor = [UIColor greenColor];
+//            //        tableView.backgroundColor = kC_BackgroudColor;
+//
+//            tableView.estimatedRowHeight = 0.0;
+//            tableView.estimatedSectionHeaderHeight = 0.0;
+//            tableView.estimatedSectionFooterHeight = 0.0;
+//            tableView.rowHeight = 50;
+//
+//            tableView;
+//        });
+//    }
+//    return _tableView;
+//}
 
 @end

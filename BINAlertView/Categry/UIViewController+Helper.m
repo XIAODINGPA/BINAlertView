@@ -256,7 +256,7 @@
     //统一走父视图方法
     [btn removeTarget:target action:aSelector forControlEvents:UIControlEventTouchUpInside];
     //父视图调用子视图方法参数
-    [view addActionHandler:^(id objc, id item, NSInteger idx) {
+    [view addActionHandler:^(id obj, id item, NSInteger idx) {
         
         if (btn.hidden == YES) return ;
         if (NSDate.date.timeIntervalSince1970 - self.timeInterval < 1) return;
@@ -300,7 +300,7 @@
     [view addSubview:btn];
     
     //父视图调用子视图方法参数
-    [view addActionHandler:^(id objc, id item, NSInteger idx) {
+    [view addActionHandler:^(id obj, id item, NSInteger idx) {
         if (NSDate.date.timeIntervalSince1970 - self.timeInterval < 1) return;
         if (self.timeInterval > 0) self.timeInterval = NSDate.date.timeIntervalSince1970;
         

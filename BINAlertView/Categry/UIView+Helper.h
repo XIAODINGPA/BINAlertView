@@ -19,13 +19,13 @@
  给view关联点击事件(支持UIView和UIButton可继续扩展其他支持)
  @param handler 返回响应对象
  */
-- (void)addActionHandler:(BlockObject)handler;
+- (void)addActionHandler:(void(^)(id obj, id item, NSInteger idx))handler;
 
 // 获取所有子视图
 + (void)getSub:(UIView *)view andLevel:(NSInteger)level;
 
 //给所有自视图加框
-+ (void)getLineWithView:(UIView *)containView;
+- (void)getViewLayer;
 
 - (void)getLayerAllCorners:(UIColor *)borderColor;
 
@@ -45,7 +45,16 @@
 //图片+文字
 + (UIView *)getImgLabViewRect:(CGRect)rect image:(id)image text:(id)text imgViewSize:(CGSize)imgViewSize;
 
-+ (UIView *)createViewWithRect:(CGRect)rect elements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding;
++ (UIView *)createViewWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler;
+
+
+/**
+ itemview集合
+
+ @param type 子视图是UIBUtton?UIImageView?UILable?
+ @return view
+ */
++ (UIView *)createViewWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type;
 
 - (void)setOriginX:(CGFloat)originX;
 - (void)setOriginY:(CGFloat)originY;

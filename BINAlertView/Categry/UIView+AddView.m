@@ -376,13 +376,12 @@
     return imageView;
 }
 //imageView通用创建方法
-+ (UIImageView *)createImageViewWithRect:(CGRect)rect image:(id)image tag:(NSInteger)tag patternType:(NSString *)patternType
-{
++ (UIImageView *)createImageViewWithRect:(CGRect)rect image:(id)image tag:(NSInteger)tag patternType:(NSString *)patternType{
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:rect];
     imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.userInteractionEnabled = YES;
-
+    imageView.tag = tag;
     if ([image isKindOfClass:[NSString class]]) {
         imageView.image = [UIImage imageNamed:image];
         
@@ -601,7 +600,8 @@
             break;
         case 5://橘色背景白色字体无圆角
         {
-       
+            [btn setTitleColor:kC_TextColor_Title forState:UIControlStateNormal];
+            [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
             
         }
             break;

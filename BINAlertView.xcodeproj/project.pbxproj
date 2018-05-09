@@ -25,6 +25,7 @@
 		34E450C91A7F0D1800AAFB18 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 34E450C61A7F0D1800AAFB18 /* star.png */; };
 		34E450CA1A7F0D1800AAFB18 /* star_h.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34E450C71A7F0D1800AAFB18 /* star_h.jpg */; };
 		34E450CB1A7F0D1800AAFB18 /* star_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34E450C81A7F0D1800AAFB18 /* star_n.jpg */; };
+		51036FD420A18D54009D8B7B /* BN_ItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51036FD320A18D54009D8B7B /* BN_ItemsView.m */; };
 		5105C4842060B322007579B0 /* 修改.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105C4822060B322007579B0 /* 修改.png */; };
 		5105C4852060B322007579B0 /* 警告.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105C4832060B322007579B0 /* 警告.png */; };
 		512861B51F95AD2900CD1372 /* MQVerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861B21F95AD2900CD1372 /* MQVerCodeInputView.m */; };
@@ -140,6 +141,8 @@
 		34E450C61A7F0D1800AAFB18 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		34E450C71A7F0D1800AAFB18 /* star_h.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star_h.jpg; sourceTree = "<group>"; };
 		34E450C81A7F0D1800AAFB18 /* star_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star_n.jpg; sourceTree = "<group>"; };
+		51036FD220A18D54009D8B7B /* BN_ItemsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_ItemsView.h; sourceTree = "<group>"; };
+		51036FD320A18D54009D8B7B /* BN_ItemsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_ItemsView.m; sourceTree = "<group>"; };
 		5105C4822060B322007579B0 /* 修改.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "修改.png"; sourceTree = "<group>"; };
 		5105C4832060B322007579B0 /* 警告.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "警告.png"; sourceTree = "<group>"; };
 		512861B11F95AD2900CD1372 /* MQVerCodeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQVerCodeInputView.h; sourceTree = "<group>"; };
@@ -304,7 +307,6 @@
 		518FD8672048085F00FD7ADA /* UIButton+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Helper.m"; sourceTree = "<group>"; };
 		518FD8682048086000FD7ADA /* UIButton+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Helper.h"; sourceTree = "<group>"; };
 		518FD86A20480DC700FD7ADA /* MarcoFuntions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarcoFuntions.h; sourceTree = "<group>"; };
-		51C5AF23205FA1C9000E8EA1 /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Helper.h"; path = "../../../../../HuiZhuBang/HuiZhuBang/HuiZhuBang/Expand/Category/UIViewController+Helper.h"; sourceTree = "<group>"; };
 		51C5AF25205FA2F1000E8EA1 /* MacroBIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroBIN.h; sourceTree = "<group>"; };
 		51C5AF26205FA2F1000E8EA1 /* MacroUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroUtilities.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -521,7 +523,6 @@
 				517561AD206264E800968433 /* UIViewController+Helper.h */,
 				517561AE206264E800968433 /* UIViewController+Helper.m */,
 				518372B91F7E117D00248179 /* CategoryHeader.h */,
-				51C5AF23205FA1C9000E8EA1 /* UIViewController+Helper.h */,
 				51803C542049483000799B48 /* MBProgressHUD+Helper.h */,
 				51803C552049483100799B48 /* MBProgressHUD+Helper.m */,
 				518FD84A204801A100FD7ADA /* UIApplication+Helper.h */,
@@ -573,9 +574,11 @@
 		5183730A1F7E22FD00248179 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5183734D1F7E232F00248179 /* HZPhotoBrowserConfig.h */,
+				51036FD220A18D54009D8B7B /* BN_ItemsView.h */,
+				51036FD320A18D54009D8B7B /* BN_ItemsView.m */,
 				51795B691F4432FB002AF228 /* BINStarsView.h */,
 				51795B6A1F4432FB002AF228 /* BINStarsView.m */,
-				5183734D1F7E232F00248179 /* HZPhotoBrowserConfig.h */,
 				5183730D1F7E22FD00248179 /* BINDataPicker.h */,
 				5183730E1F7E22FD00248179 /* BINDataPicker.m */,
 				5183730F1F7E22FD00248179 /* BINGuidePageView.h */,
@@ -845,6 +848,7 @@
 				518372F21F7E117D00248179 /* NSString+Helper.m in Sources */,
 				517D3907206CBEFF005BC021 /* LeftMenuViewController.m in Sources */,
 				34098D4C19EF965C006806A6 /* MainViewController.m in Sources */,
+				51036FD420A18D54009D8B7B /* BN_ItemsView.m in Sources */,
 				512861D91F95AD6E00CD1372 /* NSArray+MASAdditions.m in Sources */,
 				518372F81F7E117D00248179 /* UIImageView+ClickImageEnlarge.m in Sources */,
 				518373091F7E225D00248179 /* NextViewController.m in Sources */,

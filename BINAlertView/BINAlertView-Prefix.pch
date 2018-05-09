@@ -22,5 +22,6 @@
 
 #import "MBProgressHUD+Helper.h"
 
+#import "UIView+Helper.h"
 
 #endif
