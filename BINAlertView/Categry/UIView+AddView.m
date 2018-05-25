@@ -203,7 +203,6 @@
     backgroundView.tag = tag;
 
     backgroundView.backgroundColor = kC_BackgroudColor;
-    backgroundView.backgroundColor = kC_YellowColor;
 
     return backgroundView;
 }
@@ -213,7 +212,6 @@
     if (!isDash) {
         UIView * lineView = [[UIView alloc]initWithFrame:rect];
         lineView.backgroundColor = kC_LineColor;
-        lineView.backgroundColor = kC_RedColor;
 
         return lineView;
         

@@ -33,7 +33,6 @@ static  NSString *const kObserveKeyPath = @"isSelected";
 
     self = [super initWithFrame:frame];
     if (self) {
-        
         self.isSelected = isSelected;
         self.imageNomorl = imageNomorl;
         self.imageSelected = imageSelected;
@@ -64,7 +63,7 @@ static  NSString *const kObserveKeyPath = @"isSelected";
         }
         [self addGestureRecognizer:tapGesture];
         
-        self.layer.borderColor = kC_RedColor.CGColor;
+        self.layer.borderColor = [UIColor redColor].CGColor;
         self.layer.borderWidth = 1;
         
         

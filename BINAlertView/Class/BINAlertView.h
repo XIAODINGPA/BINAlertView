@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 
 static const CGFloat kX_GAP_OF_WINDOW = 30;//弹窗距离屏幕边界距离
-static const CGFloat kXY_GAP = 10;//子视图相对弹窗的边界距离
+//static const CGFloat kXY_GAP = 10;//子视图相对弹窗的边界距离
 
 //弹窗内容宽度
 #define kWidth_customView  (kScreen_width - (kX_GAP_OF_WINDOW + kXY_GAP)*2)
 
-static const CGFloat kH_BTN = 50;//底下按钮高度
+static const CGFloat kH_BTN = 40;//底下按钮高度
 
 #define kActionTitle_Sure       @"确定"
 #define kActionTitle_Cancell    @"取消"

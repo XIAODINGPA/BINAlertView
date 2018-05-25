@@ -54,71 +54,12 @@
 #define kC_BtnColor_H [UIColor colorWithHexString:@"#f1a013"]
 #define kC_BtnColor_D [UIColor colorWithHexString:@"#999999"]
 
-
 //#define kC_MARK_COLOR [UIColor colorWithHexString:@"#f35f39"]
-
-//测试用例
-#define kC_whiteColor   [UIColor whiteColor]
-#define kC_GreenColor   [UIColor greenColor]
-#define kC_YellowColor  [UIColor yellowColor]
-#define kC_BlueColor    [UIColor blueColor]
-#define kC_RedColor     [UIColor redColor]
-#define kC_BrownColor   [UIColor brownColor]
-#define kC_CyanColor    [UIColor cyanColor]
-#define kC_ClearColor   [UIColor clearColor]
-
-
-//字体
-#define KFZ_First 18
-#define KFZ_Second 16
-#define KFZ_Third 14
-#define KFZ_Fouth 12
-#define KFZ_Fifth 10
-
 
 //图片最大尺寸500k
 #define kFileSize_image 1*1024*1024
-//右指箭头
-#define kIMAGE_arrowRight @"img_arrowRight.png"
-#define kIMAGE_arrowDown  @"img_arrowDown_black.png"
-
-#define kIMAGE_arrowBack  @"img_btnBack.png"
-
-#define kIMAGE_default @"img_headPortrait.png"
-#define kIMAGE_default_User @"img_headPortrait_O.png"
-
-#define kIMAGE_defaultAddPhoto @"img_photoAddDefault.png"
-
-#define kIMAGE_default_failed @"imageFailedDefault.png"
-
-#define kIMAGE_SexBoy @"img_sex_boy.png"
-#define kIMAGE_SexGril @"img_sex_gril.png"
-
-//#define kIMAGE_OF_DEFAULT_ADD [UIImage imageNamed:@"上传图片_正方形.png"]
-//#define kIMAGE_OF_DEFAULT_ADD_VIDEO [UIImage imageNamed:@"上传视频_正方形.png"]
-
-//#define kIMAGE_defaultAddVideo @"img_addPhotoDefault.png"
 
 #define kPageSize 20
-
-#define kMsg_NetWorkRequesting @"网络请求中..."
-
-#define kMsg_NetWorkFailed @"网络请求失败,请稍后再试"
-#define kMsg_NetWorkNodata @"暂无数据"
-#define kMsg_NetWorkNoMoredata @"没有更多数据了"
-
-#define kMsg_NetWorkFailed_Params @"参数错误,请稍后再试"
-
-#define kMsg_Locationing @"定位中..."
-#define kMsg_LocationSuccess @"位置信息更新成功!"
-#define kMsg_LocationFailed @"定位失败,请稍后再试"
-
-
-#define kMsg_IDCardFailed @"身份证识别失败,请稍后再试"
-#define kMsg_IDCardSuccess @"身份证识别成功"
-
-#define kActionTitle_Sure       @"确定"
-#define kActionTitle_Cancell    @"取消"
 
 //button背景
 #define kIMG_btnImage [UIImage imageWithColor:[UIColor colorWithHexString:@"#228ce2"]]
@@ -194,27 +135,5 @@
 #define kS_scaleOrder  0.7
 
 #define kH_SegmentOfCustomeHeight  60
-
-#define kH_CellHeight 60
-#define kH_CellHeight_single 50
-
-#define kH_FilterView 45
-#define kH_CellHeight_Filter 40
-
-#define kPadding 5
-
-#define kW_LayerBorderWidth 0.5
-
-#define kWH_ArrowRight 25
-
-#define kMBProgressMidOffset CGPointMake(0, 0)
-
-#define kTimerValue 60
-
-#define kRatio_IDCard  1.58
-
-#define kAnimationDuration_Toast   1.5
-#define kAnimationDuration_Drop   0.15
-
 
 #endif

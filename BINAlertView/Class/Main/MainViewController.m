@@ -7,43 +7,154 @@
 //
 
 #import "MainViewController.h"
-#import "MyView.h"
 
 #import <objc/runtime.h>
 #import <objc/message.h>
 
+#import "MyView.h"
+#import "BINAlertView.h"
+
+#import "BN_AlertView.h"
+#import "BN_AlertViewOne.h"
 
 #define COLOR_RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
-
 #define kCOUNT_IMAGEVIEW 6
-
 #define kTAG_IMGVIEW 300
 
 #import "NextViewController.h"
 
 @interface MainViewController ()
 
+@property (nonatomic, strong) NSArray *itemList;
+
 @end
 
 @implementation MainViewController
 
-- (void)viewDidLoad
-{
+-(NSArray *)itemList{
+    if (!_itemList) {
+        _itemList = @[@"后备",@"妊娠",@"分娩",@"待配",@"公猪",@"保育",@"育肥",@"育成"];
+        _itemList = [NSArray arrayWithItemPrefix:@"btn_" startIndex:0 count:12 type:@0];
+    }
+    return _itemList;
+}
+
+- (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
-    self.view.backgroundColor = [UIColor cyanColor];
+    self.title = @"Main";
+    self.view.backgroundColor = [UIColor yellowColor];
     
     [self addRightBtn];
-    [self addBtnLaunchDialog];
+//    [self addBtnLaunchDialog];
     
-    [self.view addSubview:[self createStarsWithStarCount:5 hasGesture:YES target:self aSelector:@selector(tapStar:)]];
+//    [self.view addSubview:[self createStarsWithStarCount:5 hasGesture:YES target:self aSelector:@selector(tapStar:)]];
+    CGRect rect = CGRectMake(20, 20, kScreen_width - 20*2, 0);
+    UIView * containView = [UIView createViewWithRect:rect items:self.itemList numberOfRow:4 itemHeight:30 padding:10 type:@0 handler:^(id obj, id item, NSInteger idx) {
+        [self handleActionBtn:item];
+        
+    }];
+    containView.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:containView];
+    
+    [self.view getViewLayer];
+    
 }
 
+- (void)handleActionBtn:(UIButton *)sender{
+    
+    switch (sender.tag) {
+        case 0:
+        {
+            UIAlertController * alerController = [UIAlertController alertControllerWithTitle:@"title" message:@"message" preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alerController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                
+            }]];
+            [alerController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }]];
+            [self presentViewController:alerController animated:YES completion:nil];
+        }
+            break;
+        case 1:
+        {
+            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"title" message:@"sdfadfdfasfddafadfasdf" customView:nil btnTitles:@[@"取消",@"确认"]];
+            [alertView show];
+            [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
+                NSLog(@"%@====%@",alertView,@(btnIndex));
+                
+                
+            }];
+            
+            [alertView getViewLayer];
+            
+        }
+            break;
+        case 2:
+        {
+            BN_AlertView * alertView = [[BN_AlertView alloc]init];
+            alertView.dataList = [NSArray arrayWithItemPrefix:@"测试_" startIndex:1 count:22 type:@0];
+
+            [alertView show];
+            
+        }
+            break;
+        case 3:
+        {
+            BN_AlertViewOne * alertView = [[BN_AlertViewOne alloc]init];
+//            alertView.dataList = [NSArray arrayWithItemPrefix:@"测试_" startIndex:1 count:22 type:@0];
+            
+            [alertView show];
+            alertView.block = ^(BN_AlertViewOne *view, NSIndexPath *indexPath) {
+              DDLog(@"%@,%@",@(indexPath.section),@(indexPath.row))
+            };
+            
+        }
+            break;
+        case 4:
+        {
+            
+        }
+            break;
+        case 5:
+        {
+            
+        }
+            break;
+        case 6:
+        {
+            
+        }
+            break;
+        case 7:
+        {
+            
+        }
+            break;
+        case 8:
+        {
+            
+        }
+            break;
+        case 9:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
+    
+    
+}
+
+
 - (void)addRightBtn {
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain target:self action:@selector(onClickedOKbtn)];
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(onClickedOKbtn)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
 }
 

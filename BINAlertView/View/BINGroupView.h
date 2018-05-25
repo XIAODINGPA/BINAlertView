@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class BINGroupView;
-
-typedef void (^BINGroupViewBlock)(BINGroupView * groupView, id selectedItems, NSString *title);
 
 @interface BINGroupView : UIView
 
@@ -32,7 +29,7 @@ typedef void (^BINGroupViewBlock)(BINGroupView * groupView, id selectedItems, NS
 @property (nonatomic, assign) BOOL isOnlyOne;
 
 
-@property (nonatomic, copy) BINGroupViewBlock viewBlock;
+@property (nonatomic, copy) void (^viewBlock)(BINGroupView * groupView, id selectedItems, NSString *title, NSInteger lastIdx);
 
 - (id)initWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding selectedList:(NSArray *)selectedList;
 

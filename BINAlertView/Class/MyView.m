@@ -76,7 +76,6 @@
     NSLog(@"%@",sender.titleLabel.text);
     
     if ([self.delegate respondsToSelector:@selector(customViewButtonTouchUpInside:clickedButtonAtIndex:)]) {
-        
         [self.delegate customViewButtonTouchUpInside:self clickedButtonAtIndex:sender.tag];
     }
     
@@ -106,6 +105,8 @@
     CGSize size =[text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading  attributes:dict context:nil].size;
 
     size.height = ceil(size.height);
+    size.width = ceil(size.width);
+
     //如果文字中可能会出现emoji表情的话, emoji的高度比文字要高一点点,+2
     //    size.height = size.height+2;
     return size;

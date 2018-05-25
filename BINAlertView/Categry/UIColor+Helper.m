@@ -45,4 +45,16 @@
     return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
 
++ (UIColor *)randomColor{
+    
+    CGFloat number = 256.0;
+    
+    CGFloat red = arc4random_uniform(number);
+    CGFloat green = arc4random_uniform(number);
+    CGFloat blue = arc4random_uniform(number);
+    
+    return [UIColor colorWithRed:red/number green:green/number blue:blue/number alpha:1];
+}
+
+
 @end

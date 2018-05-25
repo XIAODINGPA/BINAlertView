@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
-#import "MainNewViewController.h"
 
 #import "UIApplication+Helper.h"
 
@@ -19,9 +17,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    MainViewController * mainVC = [[MainViewController alloc]init];
-    mainVC = [[MainNewViewController alloc]init];
-    UINavigationController * navContoller = [[UINavigationController alloc]initWithRootViewController:mainVC];
+    UIViewController * controller = [NSClassFromString(@"MainViewController") new];
+//    controller = [NSClassFromString(@"MainNewViewController") new];
+//    controller = [NSClassFromString(@"TmpViewController") new];
+
+    UINavigationController * navContoller = [[UINavigationController alloc]initWithRootViewController:controller];
     
     [UIApplication setupWindow:navContoller];
     [UIApplication setupAppearance];

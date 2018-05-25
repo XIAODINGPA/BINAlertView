@@ -18,10 +18,14 @@
 #import "MacroUtilities.h"
 #import "MarcoFuntions.h"
 
+#import "GeneralConst.h"
+#import "GlobleConst.h"
+
 #import "CategoryHeader.h"
 
 #import "MBProgressHUD+Helper.h"
 
 #import "UIView+Helper.h"
+#import "NSArray+Helper.h"
 
 #endif

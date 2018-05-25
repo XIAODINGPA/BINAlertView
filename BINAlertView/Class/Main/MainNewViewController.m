@@ -18,6 +18,8 @@
 
 #import "BN_ItemsView.h"
 
+#import "UIView+Animation.h"
+
 
 #import "NextViewController.h"
 
@@ -296,7 +298,7 @@
             groupView.backgroundColor = [UIColor orangeColor];
             [self.view addSubview:groupView];
             
-            groupView.viewBlock = ^(BINGroupView *groupView, id selectedItems, NSString *title) {
+            groupView.viewBlock = ^(BINGroupView *groupView, id selectedItems, NSString *title, NSInteger lastIdx) {
                 NSLog(@"%@,%@,%@",groupView,selectedItems,title);
             };
 
@@ -312,7 +314,7 @@
             groupView.backgroundColor = [UIColor orangeColor];
             [self.view addSubview:groupView];
             
-            groupView.viewBlock = ^(BINGroupView *groupView, id selectedItems, NSString *title) {
+            groupView.viewBlock = ^(BINGroupView *groupView, id selectedItems, NSString *title, NSInteger lastIdx) {
                 NSLog(@"%@,%@,%@",groupView,selectedItems,title);
             };
 
@@ -451,7 +453,8 @@
             break;
         case 15:
         {
-            
+//            [sender BN_aimationBigValues:nil];
+            [sender BN_aimationBigShapeWithColor:[UIColor redColor]];
         }
             break;
         default:

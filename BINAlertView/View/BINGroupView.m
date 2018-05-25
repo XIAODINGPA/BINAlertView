@@ -133,7 +133,7 @@
             }
         }
     }
-    self.viewBlock(self, self.selectedList, title);
+    self.viewBlock(self, self.selectedList, title, sender.tag - kTAG_BTN);
 }
 
 
