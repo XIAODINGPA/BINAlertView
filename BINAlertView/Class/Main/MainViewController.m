@@ -47,7 +47,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
     self.title = @"Main";
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor cyanColor];
     
     [self addRightBtn];
 //    [self addBtnLaunchDialog];
