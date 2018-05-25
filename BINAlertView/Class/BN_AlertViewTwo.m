@@ -147,7 +147,7 @@ static CGFloat kRatio_ViewWidth = 0.7;
             UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
             imageView.userInteractionEnabled = YES;
             imageView.contentMode = UIViewContentModeScaleAspectFit;
-            imageView.backgroundColor = [UIColor randomColor];
+//            imageView.backgroundColor = [UIColor randomColor];
             
             imageView;
         });
