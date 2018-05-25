@@ -37,8 +37,8 @@
 #define kC_BackgroudColor [UIColor colorWithHexString:@"#f8f8f8"]
 //#define kC_BackgroudColor [UIColor lightTextColor]
 
-#define kC_LineColor [UIColor colorWithHexString:@"#e0e0e0"]
-//#define kC_LineColor [UIColor greenColor]
+//#define kC_LineColor [UIColor colorWithHexString:@"#e0e0e0"]
+#define kC_LineColor [UIColor redColor]
 
 #define kC_RandomColor [UIColor colorWithHue:(arc4random() % 256 / 256.0)  \
             saturation:(arc4random() % 128 / 256.0) + 0.5  \

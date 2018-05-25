@@ -16,6 +16,7 @@
 
 #import "BN_AlertView.h"
 #import "BN_AlertViewOne.h"
+#import "BN_AlertViewTwo.h"
 
 #define COLOR_RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
@@ -117,7 +118,17 @@
             break;
         case 4:
         {
-            
+            BN_AlertViewTwo * alertView = [[BN_AlertViewTwo alloc]init];
+            alertView.label.text = nil;
+            alertView.imgView.image = [UIImage imageNamed:@"警告.png"];
+            alertView.labelSub.text = @"只用了两年时间，天津东边的一片盐碱地，就让创造了蛇口神话的袁庚都为之紧张。……";
+            alertView.items = @[@"取消",@"确定"];
+            [alertView show];
+            alertView.block = ^(BN_AlertViewTwo *view, NSInteger idx) {
+                DDLog(@"%@",@(idx))
+            };
+            [alertView getViewLayer];
+
         }
             break;
         case 5:

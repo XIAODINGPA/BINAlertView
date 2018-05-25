@@ -25,6 +25,7 @@
 
 #import "MBProgressHUD+Helper.h"
 
+#import "UIView+AddView.h"
 #import "UIView+Helper.h"
 #import "NSArray+Helper.h"
 

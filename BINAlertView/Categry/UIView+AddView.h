@@ -30,6 +30,10 @@ typedef void(^SegmentViewBlock)(NSInteger selectIndex);  // SegmentViewBlock不�
 +(CALayer *)createLayerWithInView:(UIView *)inView patternType:(NSString *)patternType;
 -(CALayer *)createLayerByPatternType:(NSString *)patternType;
 
+-(CALayer *)createLayerType:(NSNumber *)type;
+
+-(CALayer *)createLayerType:(NSNumber *)type color:(UIColor *)color width:(CGFloat)width paddingScale:(CGFloat)paddingScale;
+
 #pragma mark - - 类方法
 + (UIView *)createViewWithRect:(CGRect)rect tag:(NSInteger)tag;
 

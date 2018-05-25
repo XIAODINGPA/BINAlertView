@@ -242,7 +242,6 @@ void dispatchAfterDelay(double delay ,void(^block)()){
     NSMutableParagraphStyle * paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
     paraStyle.alignment = alignment;
-    paraStyle.lineSpacing = 5;//行间距
     
     NSMutableDictionary * mdict = [NSMutableDictionary dictionaryWithDictionary:[self attrDictWithFont:font textColor:textColor]];
     [mdict setObject:paraStyle forKey:NSParagraphStyleAttributeName];

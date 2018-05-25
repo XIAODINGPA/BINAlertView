@@ -120,7 +120,7 @@
     
 }
 
-+(CALayer *)createLayerWithInView:(UIView *)inView patternType:(NSString *)patternType{
++(CALayer *)createLayerWithInView:(UIView *)inView patternType:(NSNumber *)patternType{
     
     CALayer * layer = [CALayer layer];
     switch ([patternType integerValue]) {
@@ -194,6 +194,66 @@
 
     return layer;
 }
+
+
+-(CALayer *)createLayerType:(NSNumber *)type{
+    
+    UIView * view = self;
+    CALayer * layer = [view createLayerType:type color:kC_LineColor width:kW_LayerBorderWidth paddingScale:0];
+    
+    return layer;
+}
+
+-(CALayer *)createLayerType:(NSNumber *)type color:(UIColor *)color width:(CGFloat)width paddingScale:(CGFloat)paddingScale{
+    UIView * view = self;
+    CALayer * layer = [CALayer layer];
+    layer.backgroundColor = color.CGColor;
+    switch ([type integerValue]) {
+        case 0:
+        {
+            //上边框
+            //            layer.frame = CGRectMake(0, 0, (CGRectGetWidth(view.frame) - width), width);
+            
+            CGFloat paddingX = CGRectGetWidth(view.frame)*paddingScale;
+            layer.frame = CGRectMake(paddingX, 0, CGRectGetWidth(view.frame) - width - paddingX*2, width);
+            
+        }
+            break;
+        case 1:
+        {
+            //左边框
+            //            layer.frame = CGRectMake(0, 0, width, (CGRectGetHeight(view.frame) - width));
+            
+            CGFloat paddingY = CGRectGetHeight(view.frame)*paddingScale;
+            layer.frame = CGRectMake(0, paddingY, width, CGRectGetHeight(view.frame) - width - paddingY*2);
+        }
+            break;
+        case 2:
+        {
+            //下边框
+            //            layer.frame = CGRectMake(0, CGRectGetHeight(view.frame) - width, (CGRectGetWidth(view.frame) - width), width);
+            
+            CGFloat padding = CGRectGetWidth(view.frame)*paddingScale;
+            layer.frame = CGRectMake(padding, CGRectGetHeight(view.frame) - width, CGRectGetWidth(view.frame) - width - padding*2, width);
+            
+        }
+            break;
+        case 3:
+        {
+            //右边框
+            //            layer.frame = CGRectMake((CGRectGetWidth(view.frame) - width), 0, width, CGRectGetHeight(view.frame));
+            
+            CGFloat paddingY = CGRectGetHeight(view.frame)*paddingScale;
+            layer.frame = CGRectMake((CGRectGetWidth(view.frame) - 0), paddingY, width, CGRectGetHeight(view.frame) - paddingY*2);
+            
+        }
+            break;
+        default:
+            break;
+    }
+    return layer;
+}
+
 
 #pragma mark - -类方法
 

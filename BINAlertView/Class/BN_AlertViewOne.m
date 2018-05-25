@@ -9,7 +9,7 @@
 
 #import "BN_AlertViewOne.h"
 
-static CGFloat kH_title = 40;
+static CGFloat kH_title = 45;
 
 @interface BN_AlertViewOne ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -36,6 +36,9 @@ static CGFloat kH_title = 40;
         self.frame = CGRectMake(0, 0, kScreen_width, kScreen_height);
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
         
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleActionTap:)];
+        [self addGestureRecognizer:tap];
+        
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         
@@ -44,8 +47,7 @@ static CGFloat kH_title = 40;
         [self.containView addSubview:self.label];
         [self.containView addSubview:self.tableView];
 
-        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleActionTap:)];
-        [self addGestureRecognizer:tap];
+       
         
         self.label.text = @"请选择";
 
@@ -339,7 +341,7 @@ static CGFloat kH_title = 40;
     if (!_label) {
         _label = ({
             UILabel * lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), 30)];
-            lab.font = [UIFont systemFontOfSize:15];
+            lab.font = [UIFont systemFontOfSize:16];
             lab.textColor = [UIColor whiteColor];
             lab.textAlignment = NSTextAlignmentCenter;
             
